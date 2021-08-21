@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="介绍       在Linux论坛中，常见的问题是询问Linux的最低规格是多少。常见的答案是，它需要32位体系结构，一个MMU和至少一兆字节的RAM以适合内核。该项目旨在（并成功）的粉碎这些概念。您在右侧看到的开发板基于ATmega1284p。我也使用ATmega644a取得了同样的成功。该主板没有其他处理器，并且可以启动Linux 2.6.34。实际上，它甚至可以显示完整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在单片机上运行Linux（转载）">
+<meta property="og:url" content="http://example.com/2020/03/11/%E5%9C%A8avr%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8Clinux/index.html">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="介绍       在Linux论坛中，常见的问题是询问Linux的最低规格是多少。常见的答案是，它需要32位体系结构，一个MMU和至少一兆字节的RAM以适合内核。该项目旨在（并成功）的粉碎这些概念。您在右侧看到的开发板基于ATmega1284p。我也使用ATmega644a取得了同样的成功。该主板没有其他处理器，并且可以启动Linux 2.6.34。实际上，它甚至可以显示完整">
+<meta property="og:locale">
+<meta property="og:image" content="https://image.krunk.cn/images/2020/03/11/board1.jpg">
+<meta property="og:image" content="https://image.krunk.cn/images/2020/03/11/board3.jpg">
+<meta property="og:image" content="https://image.krunk.cn/images/2020/03/11/uARM_big.png">
+<meta property="article:published_time" content="2020-03-11T07:44:39.000Z">
+<meta property="article:modified_time" content="2021-08-21T02:42:53.837Z">
+<meta property="article:author" content="Whr">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.krunk.cn/images/2020/03/11/board1.jpg"><title>在单片机上运行Linux（转载） | HELLO TRAVELER</title><link ref="canonical" href="http://example.com/2020/03/11/%E5%9C%A8avr%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8Clinux/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="HELLO TRAVELER" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Whr Blog</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">在单片机上运行Linux（转载）</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2020-03-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-08-21</span></span></div></header><div class="post-body"><h1 id="介绍">
+          <a href="#介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1>
+      <p>在Linux论坛中，常见的问题是询问Linux的最低规格是多少。常见的答案是，它需要32位体系结构，一个MMU和至少一兆字节的RAM以适合内核。该项目旨在（并成功）的粉碎这些概念。您在右侧看到的开发板基于ATmega1284p。我也使用ATmega644a取得了同样的成功。该主板没有其他处理器，并且可以启动Linux 2.6.34。实际上，它甚至可以显示完整的Ubuntu堆栈，包括（如果有时间等的话）X和gnome。</p>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="https://image.krunk.cn/images/2020/03/11/board1.jpg"><img src="https://image.krunk.cn/images/2020/03/11/board1.jpg" alt="board1.jpg"></a></p>
+
+        <h1 id="内存">
+          <a href="#内存" class="heading-link"><i class="fas fa-link"></i></a><a href="#内存" class="headerlink" title="内存"></a><strong>内存</strong></h1>
+      <p>完整的Linux安装需要兆字节或RAM和带有MMU的32位CPU。这个项目具有所有这些。首先让我们解决RAM。如您所见，板上有一个老式的30针SIMM内存模块。这些已用于基于80286的PC。它与ATmega接口，我编写了代码来访问它以及在规范内对其进行刷新（SDRAM需要不断刷新以避免丢失数据）。有多快？刷新中断每62ms发生一次，占用1.5ms，因此占用了不到3％的CPU。为了便于编程，一次访问一个字节访问RAM。这导致每秒大约300 KB的最大带宽。</p>
+
+        <h1 id="存储">
+          <a href="#存储" class="heading-link"><i class="fas fa-link"></i></a><a href="#存储" class="headerlink" title="存储"></a>存储</h1>
+      <p>随着对RAM要求的降低，我们有两个要处理。存储不是很难解决的问题。SD卡很容易与使用SPI对话，而我的项目做到了这一点。1GB SD卡可以正常工作，尽管512Mb对于该特定文件系统（Ubuntu Jaunty）而言已足够。ATmega确实有一个硬件SPI模块，但是由于某种原因，它并没有完全解决问题，因此我在接口上做一些改动。它仍然足够快-大约每秒200千字节。这也给项目增加了一个很好的感觉-可以在任何具有足够引脚的微控制器上完成-无需使用硬件模块。 <a target="_blank" rel="noopener" href="https://image.krunk.cn/images/2020/03/11/board3.jpg"><img src="https://image.krunk.cn/images/2020/03/11/board3.jpg" alt="board3.jpg"></a></p>
+
+        <h1 id="中央处理器">
+          <a href="#中央处理器" class="heading-link"><i class="fas fa-link"></i></a><a href="#中央处理器" class="headerlink" title="中央处理器"></a>中央处理器</h1>
+      <p>剩下的就是讨厌的32位CPU和MMU要求。那么，AVR没有MMU，而是8位的。为了克服这一障碍，我编写了一个ARM仿真器。ARM是我最熟悉的体系结构，它非常简单，可以轻松编写一个仿真器。为什么要写一个而不是移植一个？好吧，移植别人的代码是没有意思的，再加上我看到的所有仿真器都不是以易于移植到8位设备的方式编写的。原因之一：AVR编译器坚持将ints设置为16位，这样简单的事情如“（1 &lt;&lt; 20）”会给您带来麻烦，并产生零。相反，您需要执行“（1UL &lt;&lt; 20）”。不用说拖曳其他人的未知代码库，寻找所有假定为int且可能会失败的地方将是一场灾难。另外，我希望有机会编写一个不错的模块化ARM仿真器。所以我做了。</p>
+
+        <h1 id="其它功能">
+          <a href="#其它功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#其它功能" class="headerlink" title="其它功能"></a>其它功能</h1>
+      <p>该板与现实世界的通信是通过串行端口进行的。目前，它连接到运行minicom的PC上的串行端口，但是可以替代地将键盘和字符LCD连接到板上，使其完全独立。板上也有两个LED。它们发出SD卡访问信号。一读，一写。板上也有一个按钮。按住一秒钟，它将在串行端口上吐出模拟CPU的当前有效速度。AVR的主频为24MHz（比其现有的20MHz略有超频）</p>
+
+        <h1 id="速度有多快？">
+          <a href="#速度有多快？" class="heading-link"><i class="fas fa-link"></i></a><a href="#速度有多快？" class="headerlink" title="速度有多快？"></a>速度有多快？</h1>
+      <p>uARM当然不是速度恶魔。引导到bash提示符（“ <code>init = / bin / bas</code>h”内核命令行）大约需要2个小时。然后再花4个小时来启动整个Ubuntu（“ exec init”，然后登录）。启动X需要更长的时间。有效的仿真CPU速度约为6.5KHz，与您期望的在8位微控制器上仿真32位CPU和MMU相当。<strong>奇怪的是</strong>，系统一旦启动，就可以使用了。您可以输入命令并在一分钟内得到答复。也就是说，实际上您<strong>可以</strong>使用它。例如，我今天用它来格式化SD卡。这绝对不是最快的方法，但我认为它可能是_最便宜_，<em>最慢_，_最容易组装的_，_最低的零件数量_和_最低端的</em>&nbsp;Linux PC。该板是用电线手工焊接的，甚至不需要印刷电路板。</p>
+
+        <h1 id="有关仿真器的详细信息">
+          <a href="#有关仿真器的详细信息" class="heading-link"><i class="fas fa-link"></i></a><a href="#有关仿真器的详细信息" class="headerlink" title="有关仿真器的详细信息"></a>有关仿真器的详细信息</h1>
+      <p>该仿真器是非常模块化的，可以随意扩展以仿真其他SoC和硬件配置。仿真的CPU是ARMv5TE。前一阵子，我开始支持ARMv6，但是由于不需要，它从未完成（如代码所示）。仿真的SoC是PXA255。由于设计的模块化，您可以替换SoC.c并使用相同的ARMv5TE内核制造一个全新的SoC，或者替换该内核，或者随意替换外围设备。这是有目的的，因为我的意思是该代码也可以作为ARM SoC工作原理的合理清晰演示。CPU模拟器本身的代码不太干净，因为它是一个CPU模拟器。它是几年前写的超过6个月的空闲时间，然后放在一边。最近专门针对该项目复活了它。仿真器实现了一个i-cache来加快处理速度。AVR上<strong>有很多</strong>功能，与我的外部RAM不同，AVR可以以每秒5兆字节的速度访问内部存储器。我从来没有实现过d-cache，但是它在待办事项列表中。对块设备的访问未模拟为SD设备。事实证明这太慢了。相反，我编写了一个半虚拟化的磁盘设备（pvdisk，请参阅pvDisk.tar.bz2，GPL许可证），该设备使用无效的操作码来调用仿真器并访问磁盘。我映像中的ramdisk加载了该pvdisk，然后将chroots加载到/ dev / pvd1。ramdisk作为“ rd.img”包含在内。我使用的“机器类型”是PalmTE2。为什么？因为我对硬件非常熟悉，所以它是我看到的第一个pxa255机器类型。</p>
+
+        <h1 id="超级终端？">
+          <a href="#超级终端？" class="heading-link"><i class="fas fa-link"></i></a><a href="#超级终端？" class="headerlink" title="超级终端？"></a>超级终端？</h1>
+      <p>您可以使用特殊的操作码向仿真器请求一些服务。在手臂上是<code>0xF7BBBBBB</code>，在拇指上是0xBBBB。选择它们是因为它们在ARM保证未定义的范围内。在R12中传递超级调用号，在R0..R3中传递参数，将返回值放置在R0中。来电：</p>
+<ul>
+<li>  0 =停止仿真</li>
+<li>  1 =打印十进制数</li>
+<li>  2 =打印字符</li>
+<li>  3 =获取滑枕尺寸</li>
+<li>4 =块设备操作（R0 =操作R1 =扇区编号）。请注意，它们不写仿真RAM，而是填充仿真器内部缓冲区，仿真来宾使用另一个超级调用（每次一个字）访问该缓冲区。我本来打算实现DMA，但从未尝试过。操作：<ul>
+<li>  0 = getInfo（如果扇区num为零，则返回num个扇区；如果扇区num为1，则返回以字节为单位的扇区大小）</li>
+<li>  1 =扇区读取</li>
+<li>  2 =扇区写入</li>
+</ul>
+</li>
+<li>  5 =块设备缓冲区访问（R0 =值输入/值输出，R1 =字号，如果写则R2 = 1，否则为0）</li>
+</ul>
+
+        <h1 id="支持Thumb？">
+          <a href="#支持Thumb？" class="heading-link"><i class="fas fa-link"></i></a><a href="#支持Thumb？" class="headerlink" title="支持Thumb？"></a>支持Thumb？</h1>
+      <p>完全支持Thumb。不过，我作弊了一点，将每个thumb指令解码为等效的ARM指令，然后使用arm模拟器功能执行该指令。它没有其他方法快，但是它很简单并且代码很小。可以使用256KB的查询表，但是我觉得256KB对于微控制器的闪存来说太大了。有些thumb指令不能转换为ARM，而是可以正确处理。</p>
+
+        <h1 id="自己建立">
+          <a href="#自己建立" class="heading-link"><i class="fas fa-link"></i></a><a href="#自己建立" class="headerlink" title="自己建立"></a>自己建立</h1>
+      <p>出于非商业目的，您绝对可以这样做。接线如下。RAM DQ0..DQ7-&gt; AVR C0..C7。RAM A0..A7-&gt; AVR A0..A7。RAM A8..A11-&gt; AVR B0..B3。RAM nRAS nCAS nWE-&gt; AVR D7 B4 B5。SD DI SCK DO-&gt; AVR B6 B7 D6。LED读写-&gt; AVR D2 D3（LED的另一脚接地）。按钮-&gt; AVR D4（另一条腿接地）。内存可以是任何30针16MB SIMM，并且可以每64ms进行4K周期的CAS-RAS刷新之前的CAS。我所用的（OWC）可以在线购买，价格为几美元。原理图如图所示。点击查看大图 <a target="_blank" rel="noopener" href="https://image.krunk.cn/images/2020/03/11/uARM_big.png"><img src="https://image.krunk.cn/images/2020/03/11/uARM_big.png" alt="uARM_big.png"></a> &nbsp;</p>
+
+        <h1 id="源代码？">
+          <a href="#源代码？" class="heading-link"><i class="fas fa-link"></i></a><a href="#源代码？" class="headerlink" title="源代码？"></a>源代码？</h1>
+      <p>有点混乱，但确实有效。趁热获取：<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://dmitry.gr/images/uARM.zip">LINK</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。许可证对于非商业用途，只要您将许可证文件与源保持在一起并发布所有更改，如果用于商业用途，请与我联系，我们会达成协议。要构建仿真器以在PC上进行尝试，请键入“ make”</p>
+<ul>
+<li>  使用“ ./uARM DISK_IMAGE”。要构建优化的PC版本，</li>
+<li>  使用“ make BUILD = opt”。为AVR构建，</li>
+<li>  使用“ make BUILD = avr”。它目前针对ATmega1284p。</li>
+<li>  要以ATmega644为目标，除了更改makefile之外，还要减少icache.h中的数字，以使icache足够小以适合644中的内部RAM。归档文件中还包括1284p的最终十六进制文件。</li>
+</ul>
+
+        <h2 id="启动过程">
+          <a href="#启动过程" class="heading-link"><i class="fas fa-link"></i></a><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h2>
+      <p>为了节省AVR中的代码空间，仿真器中几乎没有启动代码。实际上，“ ROM”总共有50个字节：8个字节可切换到拇指模式，还有一些拇指代码可读取SD卡的第一个扇区并以拇指模式跳至该扇区（请参见EmbeddedBoot.c）。SD卡的MBR具有另一个引导加载程序（以拇指模式编写）。这一节着眼于MBR，找到了活动分区并将其内容加载到RAM的末尾。然后，它跳转到目标ram地址+ 512（请参阅mbrBoot.c）。这里有第三大引导加载程序ELLE（请参阅ELLE.c）。这将重定位虚拟磁盘，设置ATAGS，然后调用内核。提供所有二进制文件和源文件，以便您可以随意制作自己的图像。引导过程应让人联想到PC引导。:)包含的mkbootimg。sh工具可用于制作启动分区的工作映像。完整的工作磁盘映像？<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://mega.nz/#!0wQSSSbT!VHOZ3XhWDeyxMb8yvuCBw-GfJkpYNnnjIgl9SKWLi6Q">链接</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。 &nbsp;</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://dmitry.gr/?r=05.Projects&amp;proj=07.%20Linux%20on%208bit">via</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2020/03/11/%E5%9C%A8avr%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8Clinux/">http://example.com/2020/03/11/%E5%9C%A8avr%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8Clinux/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/IT/">IT</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/Linux/">Linux</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/%E6%8A%98%E8%85%BE/">折腾</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2020/03/25/%E6%9E%81%E8%87%B4%E7%BB%86%E8%8A%82%E7%9A%84%E6%97%A0%E6%8D%9F%E8%A7%86%E9%A2%91/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">极致细节的无损视频</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2020/02/24/%E7%94%A8arduino%E7%BB%99%E4%BD%A0%E5%BC%B9%E4%B8%80%E9%A6%96%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E%E5%8F%AD/"><span class="paginator-prev__text">用Arduino给你弹一首天空之城叭</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">
+          介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">2.</span> <span class="toc-text">
+          内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8"><span class="toc-number">3.</span> <span class="toc-text">
+          存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">
+          中央处理器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD"><span class="toc-number">5.</span> <span class="toc-text">
+          其它功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E6%9C%89%E5%A4%9A%E5%BF%AB%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">
+          速度有多快？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E4%BB%BF%E7%9C%9F%E5%99%A8%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-number">7.</span> <span class="toc-text">
+          有关仿真器的详细信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B6%85%E7%BA%A7%E7%BB%88%E7%AB%AF%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">
+          超级终端？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%AF%E6%8C%81Thumb%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">
+          支持Thumb？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%BB%BA%E7%AB%8B"><span class="toc-number">10.</span> <span class="toc-text">
+          自己建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">
+          源代码？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">11.1.</span> <span class="toc-text">
+          启动过程</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">你好，旅行者</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">90</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'X0iYAd7f4AwfzjqS7MuGSBTX-MdYXbMMI',
+    appKey: 'R6rYnmvJmUxGvVC91tXc0ilr',
+    notify: true,
+    verify: true,
+    placeholder: 'Just go go',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: false,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>

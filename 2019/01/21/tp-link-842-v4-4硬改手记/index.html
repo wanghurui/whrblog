@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="TPlink家族的路由器都有一个很大的问题，新路由器买回来十分好用，在用了几年之后各种卡网，各种宕机……早在一年前就萌生了硬改的想法，只是一直忙于学业😌😌😌">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TP link 842 v4.4硬改手记">
+<meta property="og:url" content="http://example.com/2019/01/21/tp-link-842-v4-4%E7%A1%AC%E6%94%B9%E6%89%8B%E8%AE%B0/index.html">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="TPlink家族的路由器都有一个很大的问题，新路由器买回来十分好用，在用了几年之后各种卡网，各种宕机……早在一年前就萌生了硬改的想法，只是一直忙于学业😌😌😌">
+<meta property="og:locale">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kPbopd.md.jpg?raw=true">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kPqVNF.md.jpg?raw=true">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kitSw4.md.png">
+<meta property="og:image" content="http://history.whrblog.online/2019/04/07/image-bed-1/k3j6II.jpg">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kitpTJ.md.png">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kiYvOU.md.png">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kmDnmD.jpg">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kiYjyT.png">
+<meta property="og:image" content="https://history.whrblog.online//2019/04/07/image-bed-1/kitPYR.md.png">
+<meta property="og:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kitCk9.png">
+<meta property="article:published_time" content="2019-01-21T12:50:56.000Z">
+<meta property="article:modified_time" content="2021-08-21T02:42:53.605Z">
+<meta property="article:author" content="Whr">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://history.whrblog.online/2019/04/07/image-bed-1/kPbopd.md.jpg?raw=true"><title>TP link 842 v4.4硬改手记 | HELLO TRAVELER</title><link ref="canonical" href="http://example.com/2019/01/21/tp-link-842-v4-4%E7%A1%AC%E6%94%B9%E6%89%8B%E8%AE%B0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="HELLO TRAVELER" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Whr Blog</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">TP link 842 v4.4硬改手记</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2019-01-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-08-21</span></span></div></header><div class="post-body"><p>TPlink家族的路由器都有一个很大的问题，新路由器买回来十分好用，在用了几年之后各种卡网，各种宕机……早在一年前就萌生了硬改的想法，只是一直忙于学业😌😌😌</p>
+<hr>
+<span id="more"></span>
+<p>趁着刚考完试的闲暇时间，买来了flash，ddr和编程器。买的时候犯了一个大错误-_-，买flash没有查手册，看着w25q32v以为是32m的flash就下单了，在快递回来的几天左思右想找不到32m的固件，还去论坛询问，后来查手册才发现是4m的flash，可玩性大大降低了。(︶^︶)</p>
+<hr>
+
+        <h1 id="0x01">
+          <a href="#0x01" class="heading-link"><i class="fas fa-link"></i></a><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h1>
+      <p>某宝上购买了两块winbond的W25Q32V的flash和HY64的DDR内存，还有一个CH341A的编程器。开始吐槽编程器，有一个晶振竟然是虚焊的，差评…… <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kPbopd.md.jpg?raw=true" style="" alt="kPbopd.jpg"> <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kPqVNF.md.jpg?raw=true" style="" alt="kPqVNF.jpg"></p>
+<hr>
+
+        <h1 id="0x02">
+          <a href="#0x02" class="heading-link"><i class="fas fa-link"></i></a><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h1>
+      <p>开始烧固件，系统是windows7 x64，没有出现不兼容的情况。刷入大H的breed，并在0001fc00写入在路由器背面的MAC地址，不然连网络都没有。店家给的转接板也不能用，无奈用手把flash摁在编程器上4分钟，刷了两次才成功，第一次手抖了一下卡在了83%，回想起论坛上各种spi flash坏道导致的问题，一阵阵冷汗不由自主地冒了出来。 还好没有什么大碍，又读了出来，摁的4分钟刷刷网页很快就过去了，手摁得有点僵，再一次差评…. <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kitSw4.md.png"></p>
+<hr>
+
+        <h1 id="0x03">
+          <a href="#0x03" class="heading-link"><i class="fas fa-link"></i></a><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h1>
+      <p>把这个66脚的ddr焊到主板上去，我承认我是在外面找人焊的，这个对我来说太困难了，哪怕焊上去也是灯全部亮，系统没有反应，更可能的是焊盘掉了两三个，路由器废了。 后果.jpg <img src="http://history.whrblog.online/2019/04/07/image-bed-1/k3j6II.jpg" alt="k3j6II.jpg"></p>
+<hr>
+
+        <h1 id="0x04">
+          <a href="#0x04" class="heading-link"><i class="fas fa-link"></i></a><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h1>
+      <p>在电脑段设置静态ip，ip地址为192.168.1.1，掩码为255.255.255.0，网关为192.168.1.1 在路由器上电开机前，捅住restart，接上电源，当看到LED灯全部亮起后闪了一下松开，打开浏览器访问192.168.1.1，不出意外的情况下就是之前刷好的breed了 <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kitpTJ.md.png" alt="kitpTJ.md.png"> 在固件中心刷入openwrt固件和art无线修正固件，刷入速度极快。openwrt固件用了恩山AndyX大神的4m精简固件<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;tid=270339">OpenWrt/LEDE 4M精简迷你固件-Luci界面-SFE加速-SQM分配-UPNP-IPv6-VLAN支持-WIFI计划</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> art无线修正的文件我上传到了git上<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/wanghurui/Router-art-firmware">https://github.com/wanghurui/Router-art-firmware</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kiYvOU.md.png"> SFE效果如下图，本地网速几乎增加了1m/s <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kmDnmD.jpg"></p>
+<hr>
+
+        <h1 id="0x05">
+          <a href="#0x05" class="heading-link"><i class="fas fa-link"></i></a><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h1>
+      <p>激动人心的时刻，刷完后的自动重启，在等了大概30s后跳出了下面这个页面 <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kiYjyT.png" alt="kiYjyT.png"> 下图为Luci界面 <img src="https://history.whrblog.online//2019/04/07/image-bed-1/kitPYR.md.png" alt="kitPYR.md.png"> 在刷了机之后，无线性能只能用时间去测量它，掉线的情况应该少了，在家里的Xiaomi TV上测出来的峰值网速可以有5m/s，对于30m的有线通宽带已经心满意足了。 <img src="https://history.whrblog.online/2019/04/07/image-bed-1/kitCk9.png" alt="kitCk9.png"> 由于内存只有4m，而且刷完了之后只有150+k可以使用，一开始想在路由器上实现smartdns和koolproxy的都因为内存不足而放弃。不过我觉得在/tmp目录安装opkg和软件很ok😹😹😹</p>
+
+        <h1 id="0x06-Bugs">
+          <a href="#0x06-Bugs" class="heading-link"><i class="fas fa-link"></i></a><a href="#0x06-Bugs" class="headerlink" title="0x06 Bugs"></a>0x06 Bugs</h1>
+      <p>貌似Andy X的固件crontab有问题：我正确配置了crontab设置了每天6点自动重启，可是没有一次成功😐</p>
+<p>Wed May 29 06:00:43 2019 daemon.info hostapd: wlan0: STA 68:db:ca:23:1f:71 WPA: group key handshake completed (RSN)<br>Wed May 29 06:00:43 2019 daemon.info hostapd: wlan0: STA b0:65:bd:68:1a:9c WPA: group key handshake completed (RSN)</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2019/01/21/tp-link-842-v4-4%E7%A1%AC%E6%94%B9%E6%89%8B%E8%AE%B0/">http://example.com/2019/01/21/tp-link-842-v4-4%E7%A1%AC%E6%94%B9%E6%89%8B%E8%AE%B0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/IT/">IT</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/Linux/">Linux</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/%E6%8A%98%E8%85%BE/">折腾</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2019/02/08/2019-2-6-%E6%B5%99%E6%B1%9F%E5%85%AC%E7%9B%82%E8%A1%8C/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">2019.2.6 浙江公盂行</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2019/01/13/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A83%E5%88%B7%E5%85%A5lede/"><span class="paginator-prev__text">小米路由器3刷入LEDE</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01"><span class="toc-number">1.</span> <span class="toc-text">
+          0x01</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02"><span class="toc-number">2.</span> <span class="toc-text">
+          0x02</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03"><span class="toc-number">3.</span> <span class="toc-text">
+          0x03</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x04"><span class="toc-number">4.</span> <span class="toc-text">
+          0x04</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x05"><span class="toc-number">5.</span> <span class="toc-text">
+          0x05</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x06-Bugs"><span class="toc-number">6.</span> <span class="toc-text">
+          0x06 Bugs</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">你好，旅行者</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">90</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'X0iYAd7f4AwfzjqS7MuGSBTX-MdYXbMMI',
+    appKey: 'R6rYnmvJmUxGvVC91tXc0ilr',
+    notify: true,
+    verify: true,
+    placeholder: 'Just go go',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: false,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>

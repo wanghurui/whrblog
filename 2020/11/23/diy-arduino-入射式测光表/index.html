@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="A Lightmeter&#x2F;Flashmeter for photographers, based on Arduino. Components: 1. Arduino NANO v.3 2. BH1750 light sensor 3. SSD1306 128*96 OLED SPI Display 4. Buttons Thanks @morozgrafix https:&#x2F;&#x2F;github.co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DIY Arduino 入射式测光表">
+<meta property="og:url" content="http://example.com/2020/11/23/diy-arduino-%E5%85%A5%E5%B0%84%E5%BC%8F%E6%B5%8B%E5%85%89%E8%A1%A8/index.html">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="A Lightmeter&#x2F;Flashmeter for photographers, based on Arduino. Components: 1. Arduino NANO v.3 2. BH1750 light sensor 3. SSD1306 128*96 OLED SPI Display 4. Buttons Thanks @morozgrafix https:&#x2F;&#x2F;github.co">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.rec709.cf/imgs/2020/11/b9f6cd1dc4f2a9bf.png">
+<meta property="og:image" content="https://cdn.rec709.cf/imgs/2020/11/b8309eb963aba09c.png">
+<meta property="og:image" content="https://cdn.rec709.cf/imgs/2020/11/ea5d819c1594b056.jpg">
+<meta property="og:image" content="https://cdn.rec709.cf/imgs/2020/11/a67161e94bfcbf8f.jpg">
+<meta property="og:image" content="https://cdn.rec709.cf/imgs/2020/11/8e8f31e17e16778c.jpg">
+<meta property="og:image" content="https://cdn.rec709.cf/imgs/2020/11/84c4e9e1489c57b9.jpeg">
+<meta property="article:published_time" content="2020-11-23T11:24:46.000Z">
+<meta property="article:modified_time" content="2021-08-21T02:42:53.901Z">
+<meta property="article:author" content="Whr">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="摄影">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.rec709.cf/imgs/2020/11/b9f6cd1dc4f2a9bf.png"><title>DIY Arduino 入射式测光表 | HELLO TRAVELER</title><link ref="canonical" href="http://example.com/2020/11/23/diy-arduino-%E5%85%A5%E5%B0%84%E5%BC%8F%E6%B5%8B%E5%85%89%E8%A1%A8/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="HELLO TRAVELER" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Whr Blog</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">DIY Arduino 入射式测光表</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2020-11-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-08-21</span></span></div></header><div class="post-body"><blockquote>
+<p>A Lightmeter/Flashmeter for photographers, based on Arduino. Components: 1. Arduino NANO v.3 2. BH1750 light sensor 3. SSD1306 128*96 OLED SPI Display 4. Buttons Thanks @morozgrafix <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/morozgrafix">https://github.com/morozgrafix</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for creating schematic diagram for this device. The lightmeter based on Arduino as a main controller and BH1750 as a metering cell. Information is displayed on SSD1306 OLED display. The device is powered by 2 AAA batteries. Functions list:</p>
+<ul>
+<li>  Ambient light metering</li>
+<li>  Flash light metering</li>
+<li>  ND filter correction</li>
+<li>  Aperture priority</li>
+<li>  Shutter speed priority</li>
+<li>  ISO range 8 - 4 000 000</li>
+<li>  Aperture range 1.0 - 3251</li>
+<li>  Shutter speed range 1/10000 - 133 sec</li>
+<li>  ND Filter range ND2 - ND8192</li>
+<li>  Displaying amount of light in Lux.</li>
+<li>  Displaying exposure value, EV</li>
+<li>  Recalculating exposure pair while one of the parameter changing</li>
+<li>  Battery information</li>
+<li>  Power 2xAAA LR03 batteries</li>
+</ul>
+<p>Detailed information on my site: <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.pominchuk.com/lightmeter/">https://www.pominchuk.com/lightmeter/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+<span id="more"></span>
+<p><strong><em>！！！此简易测光表对付负片足以！！！</em></strong></p>
+<p><strong><em>！！！如果用于正片或是需要精确曝光的环境请使用商业测光表！！！</em></strong></p>
+<p>&nbsp;</p>
+<hr>
+
+        <h1 id="所需元件">
+          <a href="#所需元件" class="heading-link"><i class="fas fa-link"></i></a><a href="#所需元件" class="headerlink" title="所需元件"></a>所需元件</h1>
+      <ul>
+<li>主机<ol>
+<li> Arduino nano</li>
+<li> BH1750光强度模块</li>
+<li> 0.96寸 7针SPI接口oled屏幕（SSD1306）</li>
+<li> 微动开关</li>
+</ol>
+</li>
+<li>供电<ol>
+<li>3v升压5v模块<ul>
+<li>  如果用锂电池供电的话记得换成充电宝升压模块</li>
+</ul>
+</li>
+<li>电池<ul>
+<li>  可以用两节AAA电池</li>
+<li>  或者使用CR123等一次性锂电池</li>
+<li>  或者用锂电池</li>
+</ul>
+</li>
+<li> 拨动开关</li>
+</ol>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://cdn.rec709.cf/imgs/2020/11/b9f6cd1dc4f2a9bf.png"><img src="https://cdn.rec709.cf/imgs/2020/11/b9f6cd1dc4f2a9bf.png"></a><a target="_blank" rel="noopener" href="https://cdn.rec709.cf/imgs/2020/11/b8309eb963aba09c.png"><img src="https://cdn.rec709.cf/imgs/2020/11/b8309eb963aba09c.png"></a></p>
+
+        <h1 id="设计PCB">
+          <a href="#设计PCB" class="heading-link"><i class="fas fa-link"></i></a><a href="#设计PCB" class="headerlink" title="设计PCB"></a>设计PCB</h1>
+      <ul>
+<li>  ☑ 尺寸5*5</li>
+<li>  ☑ 独立供电模块</li>
+<li>  ☑ 独立开关</li>
+<li>❎ CR2032供电<ul>
+<li>供电不足<ul>
+<li>  改用CR123A供电</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>  🔄 设计底板</li>
+</ul>
+<hr>
+
+        <h1 id="源码-amp-amp-焊接">
+          <a href="#源码-amp-amp-焊接" class="heading-link"><i class="fas fa-link"></i></a><a href="#源码-amp-amp-焊接" class="headerlink" title="源码&amp;&amp;焊接"></a>源码&amp;&amp;焊接</h1>
+      <p>#include &lt;SPI.h&gt;<br>#include &lt;Wire.h&gt;<br>#include &lt;Adafruit_GFX.h&gt;<br>#include &lt;Adafruit_SSD1306.h&gt;<br>#include &lt;BH1750.h&gt;<br>#include &lt;EEPROM.h&gt;<br>#include &lt;avr/sleep.h&gt;<br>#define SCREEN_WIDTH 128 // OLED display width, in pixels<br>#define SCREEN_HEIGHT 64 // OLED display height, in pixels</p>
+<p>// Declaration for SSD1306 display connected using software SPI (default case):<br>#define OLED_DC                 11<br>#define OLED_CS                 12<br>#define OLED_CLK                8 //10<br>#define OLED_MOSI               9 //9<br>#define OLED_RESET              10 //13<br>Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,<br>  OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);</p>
+<p>BH1750 lightMeter;</p>
+<p>#define DomeMultiplier          2.17                    // Multiplier when using a white translucid Dome covering the lightmeter<br>#define MeteringButtonPin       2                       // Metering button pin<br>#define PlusButtonPin           3                       // Plus button pin<br>#define MinusButtonPin          4                       // Minus button pin<br>#define ModeButtonPin           5                       // Mode button pin<br>#define MenuButtonPin           6                       // ISO button pin<br>#define MeteringModeButtonPin   7                       // Metering Mode (Ambient / Flash)<br>//#define PowerButtonPin          2</p>
+<p>#define MaxISOIndex             57<br>#define MaxApertureIndex        70<br>#define MaxTimeIndex            80<br>#define MaxNDIndex              13<br>#define MaxFlashMeteringTime    5000                    // ms</p>
+<p>float   lux;<br>boolean Overflow = 0;                                   // Sensor got Saturated and Display “Overflow”<br>float   ISOND;<br>boolean ISOmode = 0;<br>boolean NDmode = 0;</p>
+<p>boolean PlusButtonState;                // “+” button state<br>boolean MinusButtonState;               // “-“ button state<br>boolean MeteringButtonState;            // Metering button state<br>boolean ModeButtonState;                // Mode button state<br>boolean MenuButtonState;                // ISO button state<br>boolean MeteringModeButtonState;        // Metering mode button state (Ambient / Flash)</p>
+<p>boolean ISOMenu = false;<br>boolean NDMenu = false;<br>boolean mainScreen = false;</p>
+<p>// EEPROM for memory recording<br>#define ISOIndexAddr        1<br>#define apertureIndexAddr   2<br>#define modeIndexAddr       3<br>#define T_expIndexAddr      4<br>#define meteringModeAddr    5<br>#define ndIndexAddr         6</p>
+<p>#define defaultApertureIndex 12<br>#define defaultISOIndex      11<br>#define defaultModeIndex     0<br>#define defaultT_expIndex    19</p>
+<p>uint8_t ISOIndex =          EEPROM.read(ISOIndexAddr);<br>uint8_t apertureIndex =     EEPROM.read(apertureIndexAddr);<br>uint8_t T_expIndex =        EEPROM.read(T_expIndexAddr);<br>uint8_t modeIndex =         EEPROM.read(modeIndexAddr);<br>uint8_t meteringMode =      EEPROM.read(meteringModeAddr);<br>uint8_t ndIndex =           EEPROM.read(ndIndexAddr);</p>
+<p>int battVolts;<br>#define batteryInterval 10000<br>double lastBatteryTime = 0;</p>
+<p>#include “lightmeter.h”</p>
+<p>void setup() {<br>  pinMode(PlusButtonPin, INPUT_PULLUP);<br>  pinMode(MinusButtonPin, INPUT_PULLUP);<br>  pinMode(MeteringButtonPin, INPUT_PULLUP);<br>  pinMode(ModeButtonPin, INPUT_PULLUP);<br>  pinMode(MenuButtonPin, INPUT_PULLUP);<br>  pinMode(MeteringModeButtonPin, INPUT_PULLUP);</p>
+<p>  //Serial.begin(115200);</p>
+<p>  battVolts = getBandgap();  //Determins what actual Vcc is, (X 100), based on known bandgap voltage</p>
+<p>  Wire.begin();<br>  lightMeter.begin(BH1750::ONE_TIME_HIGH_RES_MODE_2);<br>  //lightMeter.begin(BH1750::ONE_TIME_LOW_RES_MODE); // for low resolution but 16ms light measurement time.</p>
+<p>  display.begin(SSD1306_SWITCHCAPVCC, 0x3D);<br>  display.setTextColor(WHITE);<br>  display.clearDisplay();</p>
+<p>  // IF NO MEMORY WAS RECORDED BEFORE, START WITH THIS VALUES otherwise it will read “255”<br>  if (apertureIndex &gt; MaxApertureIndex) {<br>    apertureIndex = defaultApertureIndex;<br>  }</p>
+<p>  if (ISOIndex &gt; MaxISOIndex) {<br>    ISOIndex = defaultISOIndex;<br>  }</p>
+<p>  if (T_expIndex &gt; MaxTimeIndex) {<br>    T_expIndex = defaultT_expIndex;<br>  }</p>
+<p>  if (modeIndex &lt; 0  modeIndex &gt; 1) {<br>    // Aperture priority. Calculating shutter speed.<br>    modeIndex = 0;<br>  }</p>
+<p>  if (meteringMode &gt; 1) {<br>    meteringMode = 0;<br>  }</p>
+<p>  if (ndIndex &gt; MaxNDIndex) {<br>    ndIndex = 0;<br>  }</p>
+<p>  lux = getLux();<br>  refresh();<br>}</p>
+<p>void loop() {<br>  if (millis() &gt;= lastBatteryTime + batteryInterval) {<br>    lastBatteryTime = millis();<br>    battVolts = getBandgap();<br>  }</p>
+<p>  readButtons();</p>
+<p>  menu();</p>
+<p>  if (MeteringButtonState == 0) {<br>    // Save setting if Metering button pressed.<br>    SaveSettings();</p>
+<pre><code>lux = 0;
+refresh();
+
+if (meteringMode == 0) {
+  // Ambient light meter mode.
+  lightMeter.configure(BH1750::ONE\_TIME\_HIGH\_RES\_MODE\_2);
+
+  lux = getLux();
+
+  if (Overflow == 1) {
+    delay(10);
+    getLux();
+  }
+
+  refresh();
+  delay(200);
+} else if (meteringMode == 1) {
+  // Flash light metering
+  lightMeter.configure(BH1750::CONTINUOUS\_LOW\_RES\_MODE);
+
+  unsigned long startTime = millis();
+  uint16\_t currentLux = 0;
+  lux = 0;
+
+  while (true) {
+    // check max flash metering time
+    if (startTime + MaxFlashMeteringTime &lt; millis()) { break; } currentLux = getLux(); delay(16); if (currentLux &gt; lux) {
+      lux = currentLux;
+    }
+  }
+
+  refresh();
+}
+</code></pre>
+<p>  }<br>}</p>
+<p>&nbsp;</p>
+<ul>
+<li>  <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://od.rec709.cf/%F0%9F%8D%8CArduino%E6%B5%8B%E5%85%89%E8%A1%A8/%E6%BA%90%E7%A0%81/lightmeter/">lightmeter.ino</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>  <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://od.rec709.cf/%F0%9F%8D%8CArduino%E6%B5%8B%E5%85%89%E8%A1%A8/%E5%BA%93%E6%96%87%E4%BB%B6/Adafruit_Circuit_Playground.zip">Adafruit_Circuit_Playground</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>  <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://od.rec709.cf/%F0%9F%8D%8CArduino%E6%B5%8B%E5%85%89%E8%A1%A8/%E5%BA%93%E6%96%87%E4%BB%B6/Adafruit_Sensor-master.zip">Adafruit_Sensor-master</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>  <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://od.rec709.cf/%F0%9F%8D%8CArduino%E6%B5%8B%E5%85%89%E8%A1%A8/%E5%BA%93%E6%96%87%E4%BB%B6/Adafruit_SSD1306-master.zip">Adafruit_SSD1306-master</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>  <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://od.rec709.cf/%F0%9F%8D%8CArduino%E6%B5%8B%E5%85%89%E8%A1%A8/%E5%BA%93%E6%96%87%E4%BB%B6/Adafruit-GFX-Library-master.zip">Adafruit-GFX-Library-master</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>  <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://od.rec709.cf/%F0%9F%8D%8CArduino%E6%B5%8B%E5%85%89%E8%A1%A8/%E5%BA%93%E6%96%87%E4%BB%B6/BH1750-master.zip">BH1750-master</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://cdn.rec709.cf/imgs/2020/11/ea5d819c1594b056.jpg"><img src="https://cdn.rec709.cf/imgs/2020/11/ea5d819c1594b056.jpg"></a> <a target="_blank" rel="noopener" href="https://cdn.rec709.cf/imgs/2020/11/a67161e94bfcbf8f.jpg"><img src="https://cdn.rec709.cf/imgs/2020/11/a67161e94bfcbf8f.jpg"></a> <a target="_blank" rel="noopener" href="https://cdn.rec709.cf/imgs/2020/11/8e8f31e17e16778c.jpg"><img src="https://cdn.rec709.cf/imgs/2020/11/8e8f31e17e16778c.jpg"></a> <a target="_blank" rel="noopener" href="https://cdn.rec709.cf/imgs/2020/11/84c4e9e1489c57b9.jpeg"><img src="https://cdn.rec709.cf/imgs/2020/11/84c4e9e1489c57b9.jpeg"></a> DIY测光表测光模式相当于相机内中央平均测光。在大多数拍摄情况下中央平均测光是一种非常实用的测光模式，在拍摄人像旅游照等对于中央亮度起到决定性作用的拍摄场景时，应用广泛。</p>
+<hr>
+
+        <h1 id="Bugs">
+          <a href="#Bugs" class="heading-link"><i class="fas fa-link"></i></a><a href="#Bugs" class="headerlink" title="Bugs"></a>Bugs</h1>
+      <p>❌ 大E了</p>
+<ol>
+<li> ❌板子上画的是CR2032的电池尺寸，装起来发现带不动测光表</li>
+<li> ❌ 供电模块画反了</li>
+</ol>
+<hr>
+
+        <h1 id="样片">
+          <a href="#样片" class="heading-link"><i class="fas fa-link"></i></a><a href="#样片" class="headerlink" title="样片"></a>样片</h1>
+      <p><em>咕咕咕</em></p>
+<p>&nbsp;</p>
+<p>2020.11.23</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2020/11/23/diy-arduino-%E5%85%A5%E5%B0%84%E5%BC%8F%E6%B5%8B%E5%85%89%E8%A1%A8/">http://example.com/2020/11/23/diy-arduino-%E5%85%A5%E5%B0%84%E5%BC%8F%E6%B5%8B%E5%85%89%E8%A1%A8/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/IT/">IT</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/%E6%8A%98%E8%85%BE/">折腾</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/%E6%91%84%E5%BD%B1/">摄影</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2020/12/22/diy%E9%80%82%E9%A9%AC%E4%BD%B3%E8%83%BDaf%E9%95%9C%E5%A4%B4%E5%85%BC%E5%AE%B9%E6%80%A7%E4%BF%AE%E5%A4%8Drechip/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">DIY适马佳能AF镜头兼容性修复(\&quot;rechip\&quot;)</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2020/10/11/about-me/"><span class="paginator-prev__text">About Me</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%80%E9%9C%80%E5%85%83%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">
+          所需元件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1PCB"><span class="toc-number">2.</span> <span class="toc-text">
+          设计PCB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E7%A0%81-amp-amp-%E7%84%8A%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">
+          源码&amp;&amp;焊接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bugs"><span class="toc-number">4.</span> <span class="toc-text">
+          Bugs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B7%E7%89%87"><span class="toc-number">5.</span> <span class="toc-text">
+          样片</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">你好，旅行者</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">90</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'X0iYAd7f4AwfzjqS7MuGSBTX-MdYXbMMI',
+    appKey: 'R6rYnmvJmUxGvVC91tXc0ilr',
+    notify: true,
+    verify: true,
+    placeholder: 'Just go go',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: false,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar Tools制作，仅学习之用！       博主参与调试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小米路由器monlor tools插件">
+<meta property="og:url" content="http://example.com/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar Tools制作，仅学习之用！       博主参与调试">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/IMG_20180202_211731.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/06/PZnpXF.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/06/PZnS6U.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/06/PZmzlT.md.png">
+<meta property="article:published_time" content="2018-02-02T04:53:16.000Z">
+<meta property="article:modified_time" content="2021-08-21T02:42:52.829Z">
+<meta property="article:author" content="Whr">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="miwifi">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/IMG_20180202_211731.jpg"><title>小米路由器monlor tools插件 | HELLO TRAVELER</title><link ref="canonical" href="http://example.com/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="HELLO TRAVELER" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Whr Blog</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">小米路由器monlor tools插件</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2018-02-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-08-21</span></span></div></header><div class="post-body"><h3 id="小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar-Tools制作，仅学习之用！">
+          <a href="#小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar-Tools制作，仅学习之用！" class="heading-link"><i class="fas fa-link"></i></a><a href="#小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar-Tools制作，仅学习之用！" class="headerlink" title="小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar Tools制作，仅学习之用！"></a>小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar Tools制作，仅学习之用！</h3>
+      <p>博主参与调试</p>
+<span id="more"></span>
+<p>工具箱正处于测试状态，更新比较频繁，安装要有一定的动手能力，出问题会用U盘刷固件。 arm路由: R1D R2D R3D , mips路由: R3 R3P R3G R1CM 目前支持了以下几种插件: 1. ShadowSocks 　　　影梭&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #成功 2. KoolProxy　　　　 去广告 3. Aria2　 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 下载神器 4. VsFtpd　 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ftp服务器 5. kms &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Windows激活工具 6. Frpc &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;内网穿透(占用资源较多，建议arm路由使用) 7. Ngrok &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 内网穿透(比较轻量级) 8. WebShell　 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 网页ssh 9. TinyProxy &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; http代理 10. Entware　 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; opkg软件包工具(仅支持arm路由) 11. KodExplorer　 &nbsp; &nbsp; &nbsp; 可道云，在线文档管理器(依赖于Entware，仅支持arm路由) 12. EasyExplorer　 &nbsp; &nbsp; &nbsp;文件传输同步工具(仅支持arm路由) 13. HttpFile &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; http文件查看工具(依赖于Entware，仅支持arm路由) 工具箱已经开发到了web界面，但是web界面插件不完全，插件的安装、卸载、配置由shell完成。 安装完成后执行monlor命令配置工具箱，Ctrl + c或者输入exit可以退出。 才疏学浅，但有一颗学习和折腾的心！</p>
+<p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/IMG_20180202_211731.jpg"></p>
+
+        <h3 id="安装方式">
+          <a href="#安装方式" class="heading-link"><i class="fas fa-link"></i></a><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3>
+      <p>curl命令</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(curl -kfsSl https://coding.net/u/monlor/p/Monlor-Tools/git/raw/master/install.sh)" &amp;&amp; source /etc/profile &amp;&gt; /dev/null</span><br></pre></td></tr></tbody></table></div></figure>
+
+
+        <h3 id="工具箱命令">
+          <a href="#工具箱命令" class="heading-link"><i class="fas fa-link"></i></a><a href="#工具箱命令" class="headerlink" title="工具箱命令"></a>工具箱命令</h3>
+      <p>1. 卸载：uninstall.sh 2. 更新：update.sh [-f] 3. 初始化：init.sh 4. 插件管理：appmanage.sh addupgradedel appname [-f] 5. 工具箱配置：monlor (任意界面Ctrl + c可以退出配置)</p>
+
+        <h3 id="Web界面预览">
+          <a href="#Web界面预览" class="heading-link"><i class="fas fa-link"></i></a><a href="#Web界面预览" class="headerlink" title="Web界面预览"></a>Web界面预览</h3>
+      <p><a target="_blank" rel="noopener" href="https://imgchr.com/i/PZnpXF"><img src="https://s1.ax1x.com/2018/07/06/PZnpXF.md.png" alt="PZnpXF.md.png"></a> <a target="_blank" rel="noopener" href="https://imgchr.com/i/PZnS6U"><img src="https://s1.ax1x.com/2018/07/06/PZnS6U.md.png" alt="PZnS6U.md.png"></a> <a target="_blank" rel="noopener" href="https://imgchr.com/i/PZmzlT"><img src="https://s1.ax1x.com/2018/07/06/PZmzlT.md.png" alt="PZmzlT.md.png"></a> &nbsp;</p>
+
+        <h3 id="注意事项">
+          <a href="#注意事项" class="heading-link"><i class="fas fa-link"></i></a><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3>
+      <p>1. 如果插件和工具箱都有更新，请务必先更新工具箱！ 2. 工具箱没有web界面，完全靠Shell开发，插件的安装、卸载、配置由配置文件完成。 3. 安装完成后执行monlor命令配置工具箱，Ctrl + c或者输入exit可以退出。 4. ss插件推荐使用aes-256-cfb或rc4-md5加密方式，较新的加密方式可能不支持</p>
+
+        <h2 id="目录结构">
+          <a href="#目录结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2>
+      <p>/ — /etc — /monlor &nbsp; &nbsp; &nbsp; &nbsp;— /apps/ — 插件安装位置 &nbsp; &nbsp; &nbsp; &nbsp;— /config/ — 工具箱配置文件 &nbsp; &nbsp; &nbsp; &nbsp;— /scripts/ — 工具箱脚本 — /tmp &nbsp; &nbsp; &nbsp; &nbsp;— /messages — 系统日志，工具箱日志 — /userdisk &nbsp; &nbsp; &nbsp; &nbsp;— /data/ — 硬盘目录 — /extdisks/ &nbsp; &nbsp; &nbsp; &nbsp;— /sd*/ — 外接盘目录 &nbsp; &nbsp; <em><strong>这篇文章已经没有实效性，最新版monlor tools请移步到</strong>__<strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://blog.whrblog.online/archives/1017">http://blog.whrblog.online/archives/1017</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></em></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/">http://example.com/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/IT/">IT</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/miwifi/">miwifi</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/%E6%8A%98%E8%85%BE/">折腾</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2018/02/07/orangepi-dietpi-%E8%AF%84%E6%B5%8B/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Orangepi Dietpi 评测</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2018/02/01/2018-1-31-%E6%9C%88%E5%85%A8%E9%A3%9F/"><span class="paginator-prev__text">2018.1.31 月全食</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8Shell%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%8Cmonlor%E5%A4%A7%E7%A5%9E%E5%88%B6%E4%BD%9C%EF%BC%8C%E4%B8%BB%E8%A6%81%E5%8F%82%E8%80%83%E4%BA%86%E5%B0%8F%E7%B1%B3%E7%9A%84Misstar-Tools%E5%88%B6%E4%BD%9C%EF%BC%8C%E4%BB%85%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%94%A8%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">
+          小米路由器Shell工具箱，monlor大神制作，主要参考了小米的Misstar Tools制作，仅学习之用！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">
+          安装方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">
+          工具箱命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E7%95%8C%E9%9D%A2%E9%A2%84%E8%A7%88"><span class="toc-number">4.</span> <span class="toc-text">
+          Web界面预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.</span> <span class="toc-text">
+          注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number"></span> <span class="toc-text">
+          目录结构</span></a></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">你好，旅行者</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">90</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'X0iYAd7f4AwfzjqS7MuGSBTX-MdYXbMMI',
+    appKey: 'R6rYnmvJmUxGvVC91tXc0ilr',
+    notify: true,
+    verify: true,
+    placeholder: 'Just go go',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: false,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
