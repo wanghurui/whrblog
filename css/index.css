@@ -2243,47 +2243,6 @@ a.fancybox {
   min-width: 30px;
   min-height: 30px;
 }
-.loading-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.4s linear;
-  -moz-transition: opacity 0.4s linear;
-  -o-transition: opacity 0.4s linear;
-  -ms-transition: opacity 0.4s linear;
-  transition: opacity 0.4s linear;
-}
-.loading-bar__progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #77b6ff;
-  -webkit-box-shadow: 0 0 10px rgba(119,182,255,0.7);
-  box-shadow: 0 0 10px rgba(119,182,255,0.7);
-}
-.loading-bar.loading {
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-}
-.loading-bar.loading .loading-bar__progress {
-  -webkit-transition: width 0.4s ease;
-  -moz-transition: width 0.4s ease;
-  -o-transition: width 0.4s ease;
-  -ms-transition: width 0.4s ease;
-  transition: width 0.4s ease;
-}
 .mode {
   position: relative;
   border: 0;

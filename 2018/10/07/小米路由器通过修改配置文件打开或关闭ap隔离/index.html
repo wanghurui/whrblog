@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="某天我ssh到我的香橙派上去，可是发现putty报错说connect timeout……. 百度无果，经过一次无意间的测试，发现问题出现在&#x2F;etc&#x2F;config&#x2F;firewall上">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="msvalidate.01" content="E7C700135C23BB5C646F594818242166"><meta name="description" content="某天我ssh到我的香橙派上去，可是发现putty报错说connect timeout……. 百度无果，经过一次无意间的测试，发现问题出现在&#x2F;etc&#x2F;config&#x2F;firewall上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小米路由器通过修改配置文件打开或关闭AP隔离">
 <meta property="og:url" content="https://whrblog.online/2018/10/07/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8%E9%80%9A%E8%BF%87%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%88%96%E5%85%B3%E9%97%ADap%E9%9A%94%E7%A6%BB/index.html">
@@ -31,7 +31,7 @@ var CONFIG = {
   zoomImage: {"gapAside":"20px"},
   galleryWaterfall: undefined,
   lazyload: true,
-  pjax: {"avoidBanner":false},
+  pjax: undefined,
   externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
   shortcuts: undefined,
   prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
@@ -190,73 +190,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
   );
 
   search.start();
-});</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
-  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
-  // 加载进度条的计时器
-  var loadingTimer = null;
-
-  // 重置页面 Y 方向上的滚动偏移量
-  document.addEventListener('pjax:send', function () {
-    $('.header-nav-menu').removeClass('show');
-    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
-      $('html').velocity('scroll', {
-        duration: 500,
-        offset: $('#header').height(),
-        easing: 'easeInOutCubic'
-      });
-    }
-
-    var loadingBarWidth = 20;
-    var MAX_LOADING_WIDTH = 95;
-
-    $('.loading-bar').addClass('loading');
-    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
-    clearInterval(loadingTimer);
-    loadingTimer = setInterval(function () {
-      loadingBarWidth += 3;
-      if (loadingBarWidth > MAX_LOADING_WIDTH) {
-        loadingBarWidth = MAX_LOADING_WIDTH;
-      }
-      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
-    }, 500);
-  }, false);
-
-  window.addEventListener('pjax:complete', function () {
-    clearInterval(loadingTimer);
-    $('.loading-bar__progress').css('width', '100%');
-    $('.loading-bar').removeClass('loading');
-    setTimeout(function () {
-      $('.loading-bar__progress').css('width', '0');
-    }, 400);
-    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
-      $(this).remove();
-    });
-    $('script[data-pjax], #pjax-reload script').each(function () {
-      $(this).parent().append($(this).remove());
-    });
-
-    if (Stun.utils.pjaxReloadBoot) {
-      Stun.utils.pjaxReloadBoot();
-    }
-    if (Stun.utils.pjaxReloadScroll) {
-      Stun.utils.pjaxReloadScroll();
-    }
-    if (Stun.utils.pjaxReloadSidebar) {
-      Stun.utils.pjaxReloadSidebar();
-    }
-    if (false) {
-      if (Stun.utils.pjaxReloadHeader) {
-        Stun.utils.pjaxReloadHeader();
-      }
-      if (Stun.utils.pjaxReloadScrollIcon) {
-        Stun.utils.pjaxReloadScrollIcon();
-      }
-      if (Stun.utils.pjaxReloadLocalSearch) {
-        Stun.utils.pjaxReloadLocalSearch();
-      }
-    }
-  }, false);
-}, false);</script><div id="pjax-reload"></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+});</script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
   var GUEST_INFO = ['nick', 'mail', 'link'];
   var guest_info = 'nick,mail,link';
 
@@ -280,7 +214,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
   });
 }
 
-if (true) {
+if (false) {
   loadValine();
 } else {
   window.addEventListener('DOMContentLoaded', loadValine, false);
