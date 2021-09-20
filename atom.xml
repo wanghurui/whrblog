@@ -6,7 +6,7 @@
   <link href="https://whrblog.online/atom.xml" rel="self"/>
   
   <link href="https://whrblog.online/"/>
-  <updated>2021-08-21T02:42:53.945Z</updated>
+  <updated>2021-09-20T13:48:23.781Z</updated>
   <id>https://whrblog.online/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>提升Intel 4代处理器性能锁定全核倍频</title>
+    <link href="https://whrblog.online/2021/09/20/enhance_haswell/"/>
+    <id>https://whrblog.online/2021/09/20/enhance_haswell/</id>
+    <published>2021-09-20T12:59:14.000Z</published>
+    <updated>2021-09-20T13:48:23.781Z</updated>
+    
+    <content type="html"><![CDATA[<p>Z系列可以直接解锁全核倍频。对于B和H系列，如果你的主板BIOS选项中有 （CPU倍频 all core），也可以解锁全核倍频</p><span id="more"></span>        <h1 id="工具">          <a href="#工具" class="heading-link"><i class="fas fa-link"></i></a><a href="#工具" class="headerlink" title="工具"></a>工具</h1>      <ol><li>主板BIOS（2015年3月左右或者官方超频BIOS)</li><li><span class="exturl"><a class="exturl__link" href="https://github.com/wanghurui/whrblog/releases/tag/Blog">UEFI Tool</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li></ol>        <h1 id="替换BIOS中的微码">          <a href="#替换BIOS中的微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#替换BIOS中的微码" class="headerlink" title="替换BIOS中的微码"></a>替换BIOS中的微码</h1>      <p>运行<code>UEFI.BIOS.Updater.1.66 </code>文件夹中的<code>ubu.bat</code>。<code>ubu.bat</code>可以自己识别文件夹中的BIOS文件，如果没有自动识别，提示载入一个文件，选择bios文件即可。</p>        <h2 id="更新CPU微码">          <a href="#更新CPU微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#更新CPU微码" class="headerlink" title="更新CPU微码"></a>更新CPU微码</h2>      <p>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/oMhPRSwUak18Ocn.png" alt="image.png">      </p>        <h2 id="更新HasWell架构微码">          <a href="#更新HasWell架构微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#更新HasWell架构微码" class="headerlink" title="更新HasWell架构微码"></a>更新HasWell架构微码</h2>      <p>输入7回车，更新CPU微码</p><p>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/nb7tU8vcVZ5G61M.png" alt="image.png">      <br>输入1回车，更新HasWell架构微码<br>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/bgHBlJXjqrQn5o2.png" alt="image.png">        </p>        <h2 id="解锁HasWell限制">          <a href="#解锁HasWell限制" class="heading-link"><i class="fas fa-link"></i></a><a href="#解锁HasWell限制" class="headerlink" title="解锁HasWell限制"></a>解锁HasWell限制</h2>      <p>输入7回车，解锁HasWell限制<br>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/d34Ho7UmFQchx8G.png" alt="image.png">      <br>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/31oLk86umDrlOwW.png" alt="image.png">          </p><p>输入0回车，完成BIOS编辑<br>输入1回车，将新BIOS保存到当前目录<br>输入任意键结束程序，程序目录下便有最新的BIOS了</p>        <h1 id="刷写BIOS">          <a href="#刷写BIOS" class="heading-link"><i class="fas fa-link"></i></a><a href="#刷写BIOS" class="headerlink" title="刷写BIOS"></a>刷写BIOS</h1>      <p>把它放入_FAT32_格式U盘根目录中<br>详细刷写BIOS请参考主板官网的帮助</p>        <h1 id="设置BIOS为all-core">          <a href="#设置BIOS为all-core" class="heading-link"><i class="fas fa-link"></i></a><a href="#设置BIOS为all-core" class="headerlink" title="设置BIOS为all core"></a>设置BIOS为all core</h1>      <p>cpu倍频必须必须选择所有内核（all core），否则解锁无效。在All core 填入你的CPU单核最大频率即可。如E3 1231V3 单核最大倍频为38  </p><p>保存退出重启电脑即可</p><hr><p>如果你打开电脑，打开CPUZ发现所有核心都运行在了最高倍频，那么恭喜，你锁住了。🎉</p><p>如果没有，请继续往下看。</p>        <h1 id="Oops！我没锁住🤔">          <a href="#Oops！我没锁住🤔" class="heading-link"><i class="fas fa-link"></i></a><a href="#Oops！我没锁住🤔" class="headerlink" title="Oops！我没锁住🤔"></a>Oops！我没锁住🤔</h1>      <blockquote><p>Make a screenshot of&nbsp;<code>regedit</code>&nbsp;with expanded key&nbsp;<code>HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\CentralProcessor\0</code>  </p></blockquote><blockquote><p>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/07/20/Mo9ZYUlrVO5cPWI.png" alt="image.png">      </p></blockquote><blockquote><p>Your BIOS has microcode with <code>0x06</code> version, but Windows update it to <code>0x28</code> version.<br>Delete or rename file <code>C:\Windows\System32\mcupdate_GenuineIntel.dll</code></p></blockquote><p><span class="exturl"><a class="exturl__link" href="https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem">https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p><p>大意就是我修改了BIOS中的微码为<code>0x06</code>，但是系统把微码更新成了<code>0x28</code>。  </p>        <h3 id="删除系统微码">          <a href="#删除系统微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#删除系统微码" class="headerlink" title="删除系统微码"></a>删除系统微码</h3>      <p>在PE中删除或重命名系统微码文件<code>C:\Windows\System32\mcupdate_GenuineIntel.dll</code></p><p>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/07/20/3BbGqs95YDdMVIj.png" alt="image.png">      <br>还是锁不住🤔</p>        <h3 id="使用ThottleStop锁倍频">          <a href="#使用ThottleStop锁倍频" class="heading-link"><i class="fas fa-link"></i></a><a href="#使用ThottleStop锁倍频" class="headerlink" title="使用ThottleStop锁倍频"></a>使用ThottleStop锁倍频</h3>      <blockquote><p>Show FIVR and TPL information in ThrottleStop.</p></blockquote><p>        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/07/21/mzlWRBYjx3sKS9F.png" alt="image.png">      <br>设置ThottleStop中的FIVR的Turbo Ratio Limits为CPU单核最大倍频。修改即时生效。</p><p>最后把ThottleStop设置为开机启动就行了</p><hr><p>🎉如果你锁住了，可以送我一条评论吗🎉</p><hr><p>参考资料</p><ul><li><span class="exturl"><a class="exturl__link" href="https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem">https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li><li><span class="exturl"><a class="exturl__link" href="https://zhuanlan.zhihu.com/p/54535319">https://zhuanlan.zhihu.com/p/54535319</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li><li><span class="exturl"><a class="exturl__link" href="https://www.techpowerup.com/forums/threads/how-can-i-get-throttlestop-to-auto-load-when-windows-starts-up.230371/">https://www.techpowerup.com/forums/threads/how-can-i-get-throttlestop-to-auto-load-when-windows-starts-up.230371/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Z系列可以直接解锁全核倍频。对于B和H系列，如果你的主板BIOS选项中有 （CPU倍频 all core），也可以解锁全核倍频&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>解读MTF曲线</title>
@@ -539,31 +556,6 @@ var player = new DogePlayer({
     <category term="Friends" scheme="https://whrblog.online/tags/Friends/"/>
     
     <category term="R.C" scheme="https://whrblog.online/tags/R-C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>打卡---M50创意园区</title>
-    <link href="https://whrblog.online/2019/07/14/%E6%89%93%E5%8D%A1-m50%E5%88%9B%E6%84%8F%E5%9B%AD%E5%8C%BA/"/>
-    <id>https://whrblog.online/2019/07/14/%E6%89%93%E5%8D%A1-m50%E5%88%9B%E6%84%8F%E5%9B%AD%E5%8C%BA/</id>
-    <published>2019-07-14T12:23:52.000Z</published>
-    <updated>2021-08-21T02:42:53.681Z</updated>
-    
-    <content type="html"><![CDATA[<p>M50创意园原身为上海春明粗纺，在2005年时，摇身一变成为如今的“M50创意园”。它紧挨着火车站，坐落在上海市普陀区莫干山路。这里之所以命名为M50，我想是因为它有着上世纪30年代到90年代的厂房50多栋吧。</p><span id="more"></span><hr><p><a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0053.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0053.JPG">      </a> <a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0054.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0054.JPG">      </a> &nbsp; <a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_00037.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_00037.JPG">      </a> 莫干山路涂鸦墙，M50处在苏州河的背街处，静谧又有些冷清的莫干山路尽头，涂鸦的外墙，使得这座由老厂与这涂鸦墙有些突兀。这里，城市的颜色性格与涂鸦的活泼个性形成了强烈的对比。</p><hr><p>[caption id=”” align=”aligncenter” width=”585”]<a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0035.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0035.JPG" alt="标志树">      </a> 标志树[/caption] 苍翠的松柏间层层叠叠折射着稀碎的阳光，在光线的折叠中，那棵蓬勃而茁壮的钢筋铁骨的标志树在地上在地上掩映出奇形怪状的影子。</p><hr><p>&nbsp; <a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0065.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0065.JPG">      </a> 强烈的冷暖对比，使人不由自主的在这里安静下来。我坐在一旁的长凳上，开始回忆在上一学年发生在我身边的一点一滴：从八月底的摸底考到一月份的一模，从寒假到二模考再到决定人生道路的中考…………不禁感慨人生天地之间，若白驹之过隙，忽然而已。 &nbsp; <a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0056.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0056.JPG">      </a> 印象派蓝色调的涂鸦充斥着泼墨的油料桶，斜映的夕阳照耀在油画表层，艺术弥散的空气中仿佛每一个空气分子都浸润着中世纪独有的色彩。仿佛是在以他们自己的方式宣泄着对这个现实社会的不满，表达激进的情绪，诉说着自己的要求。 <a href="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0046.JPG">        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://history.whrblog.online/2019/04/07/image-bed-1/IMG_0046.JPG">      </a></p><hr><p>2019.7.15</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;M50创意园原身为上海春明粗纺，在2005年时，摇身一变成为如今的“M50创意园”。它紧挨着火车站，坐落在上海市普陀区莫干山路。这里之所以命名为M50，我想是因为它有着上世纪30年代到90年代的厂房50多栋吧。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
-    
-    
-    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
-    
-    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
-    
-    <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
