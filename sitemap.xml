@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://whrblog.online/2020/05/07/%E5%A4%AA%E9%98%B3%E7%A5%9Ehelios-44m-4/</loc>
+    
+    <lastmod>2021-11-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whrblog.online/2019/08/18/%E6%96%B0%E7%96%86/</loc>
     
     <lastmod>2021-11-02</lastmod>
@@ -87,13 +94,6 @@
   
   <url>
     <loc>https://whrblog.online/2020/08/07/%E7%94%A8esp8266%E6%89%A9%E5%B1%95%E5%AE%B6%E4%B8%AD%E5%B1%80%E5%9F%9F%E7%BD%91/</loc>
-    
-    <lastmod>2021-08-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/2020/05/07/%E5%A4%AA%E9%98%B3%E7%A5%9Ehelios-44m-4/</loc>
     
     <lastmod>2021-08-21</lastmod>
     
@@ -732,7 +732,7 @@
 
   <url>
     <loc>https://whrblog.online/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -740,91 +740,91 @@
   
   <url>
     <loc>https://whrblog.online/tags/IT/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Linux/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/miwifi/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Date/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E6%91%84%E5%BD%B1/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Friends/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/R-C/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Raspi-Orapi/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/MINICMS/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Wordpress/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E6%B5%85%E9%9B%AA%E7%9A%84DIY/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -833,7 +833,7 @@
   
   <url>
     <loc>https://whrblog.online/categories/uncategorized/</loc>
-    <lastmod>2021-11-02</lastmod>
+    <lastmod>2021-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
