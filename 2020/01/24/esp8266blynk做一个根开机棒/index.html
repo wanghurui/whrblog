@@ -8,7 +8,7 @@
 <meta property="og:image" content="https://image.krunk.cn/images/2020/01/24/TIM20200124142924.md.jpg">
 <meta property="og:image" content="https://camo.githubusercontent.com/51545377e6fb634a2db39a6f43c8f83f7cafd31c/68747470733a2f2f7777772e656d7369742e736b2f536861726564436f6e74656e742f4769744875622f455350383236365f426c796e6b5f574f4c5f5365727665722f325f7468756d626e61696c2e706e67">
 <meta property="article:published_time" content="2020-01-24T06:32:36.000Z">
-<meta property="article:modified_time" content="2022-02-19T14:22:41.590Z">
+<meta property="article:modified_time" content="2022-02-19T14:42:34.789Z">
 <meta property="article:author" content="Whr">
 <meta property="article:tag" content="IT">
 <meta property="article:tag" content="Linux">
@@ -74,6 +74,81 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <li> Arduino IDE（所需库文件<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/dancol90/ESP8266Ping">ESP8266Ping</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>,<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/esp8266/Arduino">ESP8266 Plug-in</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>,<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/blynkkk/blynk-library/releases/download/">Blynk</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>）</li>
 <li> Blynk</li>
 </ol>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Variable name</th>
+<th>Default value</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td>Blynk_AuthToken</td>
+<td>Blynk Auth Token (You get after the project was created in Blynk)</td>
+</tr>
+<tr>
+<td>ssid</td>
+<td>WiFi_SSID</td>
+<td>Your WiFi network name</td>
+</tr>
+<tr>
+<td>pass</td>
+<td>WiFi_Password</td>
+<td>Your WiFi network password</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>192.168.0.123</td>
+<td>Static IP for your WOL Server</td>
+</tr>
+<tr>
+<td>gateway</td>
+<td>192.168.0.1</td>
+<td>Your Gateway IP address</td>
+</tr>
+<tr>
+<td>bcastAddr</td>
+<td>192.168.0.255</td>
+<td>Your Broadcast IP address</td>
+</tr>
+<tr>
+<td>subnet</td>
+<td>255.255.255.0</td>
+<td>Your Subnet Mask IP address</td>
+</tr>
+<tr>
+<td>dns</td>
+<td>1.1.1.1</td>
+<td>IP address of your preferred DNS server</td>
+</tr>
+<tr>
+<td>device_ip</td>
+<td>192.168.0.234</td>
+<td>Static IP address of device to be turned on (used for ping)</td>
+</tr>
+<tr>
+<td>macAddr</td>
+<td>aa:bb:cc:dd:ee:ff</td>
+<td>Mac address of device to be turned on (important for the magic packet)</td>
+</tr>
+<tr>
+<td>email</td>
+<td><span class="exturl"><a class="exturl__link" href="mailto:example@example.com">example@example.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+<td>Email address for notifications (when the device could not be turned on within the set time limit)</td>
+</tr>
+<tr>
+<td>device_name</td>
+<td>NAS</td>
+<td>The short name of your device that turns on</td>
+</tr>
+<tr>
+<td>boot_time</td>
+<td>45</td>
+<td>Maximum time to wait for the device to turn on (used for notification, read the known issues!)</td>
+</tr>
+</tbody></table></div>
+<hr>
 
         <h1 id="需要更改的代码">
           <a href="#需要更改的代码" class="heading-link"><i class="fas fa-link"></i></a><a href="#需要更改的代码" class="headerlink" title="需要更改的代码"></a>需要更改的代码</h1>
