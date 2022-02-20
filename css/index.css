@@ -2217,8 +2217,7 @@ kbd {
   color: #f8f8f8;
   background-color: #304148;
   zoom: 1;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  padding: 0.1rem 0;
 }
 .highlight figcaption:before,
 .highlight figcaption:after {
@@ -2239,63 +2238,19 @@ kbd {
 }
 .highlight figcaption.custom {
   min-height: 1.5rem;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
+  border-radius: 0.25rem;
 }
 .highlight figcaption.custom .custom-lang {
   float: left;
   margin: 0 0.6rem;
   color: #959595;
 }
-.highlight figcaption.custom .custom-carbon {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  margin: 0.2rem 0 0 0.5rem;
-  font-size: 0;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -o-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.highlight figcaption.custom .custom-carbon-dot {
-  display: inline-block;
-  margin: 0 4px;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-}
-.highlight figcaption.custom .custom-carbon-dot--red {
-  background-color: #ff5f56;
-}
-.highlight figcaption.custom .custom-carbon-dot--yellow {
-  background-color: #ffbd2e;
-}
-.highlight figcaption.custom .custom-carbon-dot--green {
-  background-color: #27c93f;
-}
-.highlight figcaption:not(.custom) {
-  background-color: #304148;
-}
-.highlight figcaption:not(.custom) + .table-container td.gutter,
-.highlight figcaption:not(.custom) + table td.gutter {
-  display: table-cell;
-}
 .highlight td.gutter {
   border-right: 1px solid #40565f;
   padding: 0.4rem 0.6rem;
   width: 2rem;
   background-color: #304148;
-  display: none;
+  border-radius: 0.25rem;
 }
 .highlight td.gutter pre {
   text-align: right;
@@ -2304,7 +2259,7 @@ kbd {
   background-color: inherit;
 }
 .highlight td.code {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.6rem;
 }
 .highlight .marked {
   background-color: #394e56;
@@ -2693,6 +2648,7 @@ a.fancybox {
 }
 .gallery img {
   margin-bottom: 10px;
+  width: 220px;
 }
 .exturl__icon {
   margin: 0 0.1em 0 0.3em;
@@ -3193,6 +3149,9 @@ html.nightmode {
   }
   .algolia-hit-item {
     margin: 0;
+  }
+  .gallery img {
+    width: 100%;
   }
   .friends-plugin__item {
     margin: 0;
