@@ -4,7 +4,7 @@
 <meta property="og:site_name" content="HELLO TRAVELER">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Whr">
-<meta name="twitter:card" content="summary"><title>归档 | HELLO TRAVELER</title><link ref="canonical" href="https://whrblog.online/archives/2018/06/"><link rel="alternate" href="/atom.xml" type="application/atom+xml"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-NQ6T4PEEK1" async="" data-pjax=""></script><script data-pjax="">if (window.location.hostname !== 'localhost') {
+<meta name="twitter:card" content="summary"><title>归档 | HELLO TRAVELER</title><link ref="canonical" href="https://whrblog.online/archives/2018/06/"><link rel="alternate" href="/atom.xml" type="application/atom+xml"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-NQ6T4PEEK1" async=""></script><script>if (window.location.hostname !== 'localhost') {
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
@@ -15,7 +15,7 @@
   hm.src = 'https://hm.baidu.com/hm.js?2e6f9f8fcf33588516233bd001b7eef7';
   hm.async = true;
 
-  if (true) {
+  if (false) {
     hm.setAttribute('data-pjax', '');
   }
   var s = document.getElementsByTagName('script')[0]; 
@@ -37,7 +37,7 @@ var CONFIG = {
   zoomImage: {"gapAside":"20px"},
   galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
   lazyload: true,
-  pjax: {"avoidBanner":true},
+  pjax: undefined,
   externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
   shortcuts: undefined,
   prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
@@ -186,73 +186,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
   );
 
   search.start();
-});</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
-  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
-  // 加载进度条的计时器
-  var loadingTimer = null;
-
-  // 重置页面 Y 方向上的滚动偏移量
-  document.addEventListener('pjax:send', function () {
-    $('.header-nav-menu').removeClass('show');
-    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
-      $('html').velocity('scroll', {
-        duration: 500,
-        offset: $('#header').height(),
-        easing: 'easeInOutCubic'
-      });
-    }
-
-    var loadingBarWidth = 20;
-    var MAX_LOADING_WIDTH = 95;
-
-    $('.loading-bar').addClass('loading');
-    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
-    clearInterval(loadingTimer);
-    loadingTimer = setInterval(function () {
-      loadingBarWidth += 3;
-      if (loadingBarWidth > MAX_LOADING_WIDTH) {
-        loadingBarWidth = MAX_LOADING_WIDTH;
-      }
-      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
-    }, 500);
-  }, false);
-
-  window.addEventListener('pjax:complete', function () {
-    clearInterval(loadingTimer);
-    $('.loading-bar__progress').css('width', '100%');
-    $('.loading-bar').removeClass('loading');
-    setTimeout(function () {
-      $('.loading-bar__progress').css('width', '0');
-    }, 400);
-    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
-      $(this).remove();
-    });
-    $('script[data-pjax], #pjax-reload script').each(function () {
-      $(this).parent().append($(this).remove());
-    });
-
-    if (Stun.utils.pjaxReloadBoot) {
-      Stun.utils.pjaxReloadBoot();
-    }
-    if (Stun.utils.pjaxReloadScroll) {
-      Stun.utils.pjaxReloadScroll();
-    }
-    if (Stun.utils.pjaxReloadSidebar) {
-      Stun.utils.pjaxReloadSidebar();
-    }
-    if (false) {
-      if (Stun.utils.pjaxReloadHeader) {
-        Stun.utils.pjaxReloadHeader();
-      }
-      if (Stun.utils.pjaxReloadScrollIcon) {
-        Stun.utils.pjaxReloadScrollIcon();
-      }
-      if (Stun.utils.pjaxReloadLocalSearch) {
-        Stun.utils.pjaxReloadLocalSearch();
-      }
-    }
-  }, false);
-}, false);</script><div id="pjax-reload"></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+});</script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
   var GUEST_INFO = ['nick', 'mail', 'link'];
   var guest_info = 'nick,mail,link';
 
@@ -276,7 +210,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
   });
 }
 
-if (true) {
+if (false) {
   loadValine();
 } else {
   window.addEventListener('DOMContentLoaded', loadValine, false);
