@@ -917,7 +917,7 @@ kbd {
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: url("https://nstc.rec709.cf/random.php") no-repeat center/cover;
+  background: url("https://s2.loli.net/2022/02/20/7bdeuDpFq6IJAvO.jpg") no-repeat center/cover;
 }
 .header-banner::before {
   content: '';
@@ -1204,6 +1204,19 @@ kbd {
   text-align: center;
   color: #f5f6f7;
   background-color: #2d2e30;
+  z-index: 0;
+  background: url("https://s2.loli.net/2022/02/20/s5f7jNr9EFz1TCu.jpg") no-repeat center/cover;
+}
+.footer-inner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
 }
 .footer a {
   color: #c20808;
