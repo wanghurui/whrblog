@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://whrblog.online/Friends/</loc>
+    
+    <lastmod>2022-02-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whrblog.online/2019/%E6%96%B0%E7%96%86/</loc>
     
     <lastmod>2022-02-20</lastmod>
@@ -110,13 +117,6 @@
     <loc>https://whrblog.online/2019/2019-6-29-%E5%A4%A7%E5%B5%9B%E5%B1%B1%E5%B2%9B%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2022-01-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/Friends/</loc>
-    
-    <lastmod>2021-12-26</lastmod>
     
   </url>
   
