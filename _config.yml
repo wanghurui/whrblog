@@ -5,7 +5,7 @@
 # Site
 title: HELLO TRAVELER
 subtitle: 'Sometimes ever, sometimes never'
-description: ''
+description: 'Whr Blog'
 keywords:
 author: Whr
 language: zh-CN
@@ -107,7 +107,7 @@ deploy:
   branch: gh-pages
 
 search: 
-  path: search.json 
+  path: search.xml
   field: post
   content: true
 
@@ -151,3 +151,12 @@ backup:
     type: git
     repository:
        github: git@github.com:wanghurui/whrblog.git,backup
+
+# Post wordcount display settings
+# Dependencies: https://github.com/willin/hexo-wordcount
+post_wordcount:
+  item_text: true               # 是否显示“字数统计”及“阅读分钟”的文字
+  wordcount: true               # 是否显示字数统计
+  min2read: true                # 是否显示估算阅读分钟
+  totalcount: true          # 是否在网站底部显示所有文章字数之和
+  separated_meta: true  

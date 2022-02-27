@@ -654,7 +654,7 @@ tencent_analytics:
 # Algolia Search
 # Dependency: https://github.com/algolia/instantsearch.js/
 algolia_search:
-  enable: true
+  enable: false
   hits:
     # Number of search results displayed per page.
     per_page: 10
@@ -665,7 +665,7 @@ algolia_search:
 # Local Search
 # See: https://github.com/wzpan/hexo-generator-search/
 local_search:
-  enable: false
+  enable: true
 
 # Auxiliary search buttons
 # ! -----------------------------------------------------------------------------------------
