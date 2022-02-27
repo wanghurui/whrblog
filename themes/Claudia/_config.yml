@@ -1,0 +1,61 @@
+# main menu navigation
+menu:
+  Home: /
+  About: /about
+  Archive: /archives
+
+widgets:
+  - tag
+  - archive
+  - recent_posts
+  - profile
+
+# social config
+social:
+  zhihu: /people/whr-67-78
+  twitter: /Hacker_Whr
+  500px: https://500px.com.cn/community/user-details/bdf03ac35489abb694b52d1c1bbcf7938
+  github: wanghurui
+
+user:
+  name: Whr
+  avatar: /images/avatar.jpg
+  location: In the Ocean
+  description: 你好，旅行者
+  footnotes: # footnotes
+
+# documents: https://github.com/utterance/utterances
+# API config: https://utteranc.es/
+comment_utteranc:
+  enable: true
+  repo: Haojen/Claudia-theme-blog # your blog repo
+
+
+# documents: https://valine.js.org/quickstart.html
+comment_valine:
+  enable: false
+  appId:
+  appKey:
+
+comment_disqus:
+    enable: false
+    url:  # the url of your website main domain like this https://xxx.xxx/
+    name: # the short name in disqus
+
+# dark
+# light
+# user-can-set
+appearance: auto # Default value is auto
+
+# Miscellaneous
+favicon: /images/favicon.png
+
+# Google Analytics
+ga_track_id:
+ga_domain:
+
+# Baidu Analytics
+ba_track_id:
+
+# picture of about page
+about_pic: about.png

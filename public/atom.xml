@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HELLO TRAVELER</title>
+  <icon>https://whrblog.online/icon.png</icon>
+  <subtitle>Sometimes ever, sometimes never</subtitle>
+  <link href="https://whrblog.online/atom.xml" rel="self"/>
+  
+  <link href="https://whrblog.online/"/>
+  <updated>2022-02-15T15:24:53.000Z</updated>
+  <id>https://whrblog.online/</id>
+  
+  <author>
+    <name>Whr</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>旅行的意义是什么?</title>
+    <link href="https://whrblog.online/2022/02/15/%E6%97%85%E8%A1%8C%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88/"/>
+    <id>https://whrblog.online/2022/02/15/%E6%97%85%E8%A1%8C%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88/</id>
+    <published>2022-02-15T15:23:33.000Z</published>
+    <updated>2022-02-15T15:24:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;喜欢独自旅行，“在路上”已成为一种生活姿态。&lt;/p&gt;
+&lt;p&gt;经常被问到“旅行的意义是什么”，想想在人生不同阶段，答案也有所不同。&lt;br&gt;旅行，一开始是出于炫耀，当在每一个到过的地方贴上“到此一游”的标签后，也就有了不甘人后的底气，有了谈资，继而增添了履历，满足了虚荣心，这是一种眼睛的旅行。 &amp;nbsp;&lt;/p&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021的尾声—My Lonely Moment</title>
+    <link href="https://whrblog.online/2022/01/31/2021%E7%9A%84%E5%B0%BE%E5%A3%B0%E2%80%94My-Lonely-Moment/"/>
+    <id>https://whrblog.online/2022/01/31/2021%E7%9A%84%E5%B0%BE%E5%A3%B0%E2%80%94My-Lonely-Moment/</id>
+    <published>2022-01-31T14:12:31.000Z</published>
+    <updated>2022-01-31T14:24:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在 2021 的最后，独自一人&lt;br&gt;窗外弥漫的雾气&lt;br&gt;一瞬，又一瞬&lt;br&gt;“之后能做什么呢”&lt;br&gt;转身，&lt;br&gt;光芒涌现  &lt;/p&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>柯达克罗姆彩色反转片的冲洗（转）</title>
+    <link href="https://whrblog.online/2021/10/29/%E6%9F%AF%E8%BE%BE%E5%85%8B%E7%BD%97%E5%A7%86%E5%BD%A9%E8%89%B2%E5%8F%8D%E8%BD%AC%E7%89%87%E7%9A%84%E5%86%B2%E6%B4%97%EF%BC%88%E8%BD%AC%EF%BC%89/"/>
+    <id>https://whrblog.online/2021/10/29/%E6%9F%AF%E8%BE%BE%E5%85%8B%E7%BD%97%E5%A7%86%E5%BD%A9%E8%89%B2%E5%8F%8D%E8%BD%AC%E7%89%87%E7%9A%84%E5%86%B2%E6%B4%97%EF%BC%88%E8%BD%AC%EF%BC%89/</id>
+    <published>2021-10-28T16:26:56.000Z</published>
+    <updated>2022-02-26T01:10:03.397Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;关于柯达克罗姆彩色反转片的概况&quot;&gt;
+          &lt;a href=&quot;#关于柯达克罗姆彩色反转片的概况&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#关于柯达克罗姆彩色反转片的概况&quot; class=&quot;headerlink&quot; title=&quot;关于柯达克罗姆彩色反转片的概况&quot;&gt;&lt;/a&gt;关于柯达克罗姆彩色反转片的概况&lt;/h1&gt;
+      &lt;p&gt;柯达公司从1936年开始生产外式法柯达克罗姆色彩反转片，目前共生产三个品种，即：柯达克罗姆25、柯达克罗姆40和柯达克罗姆64。25型和64型是日光型，40型是灯光片。&lt;br&gt;柯达克罗姆彩色反转片的感光度都比较低，25型为ASA25,40型为ASA40，64型为ASA64。它们的共同特点是颗粒细、清晰度高和色彩还原好，主要供作为幻灯片使用。&lt;br&gt;柯达克罗姆胶片的冲洗工艺代号为K14，但原厂既不不公布配方，也不供应成药，只能寄回原厂或原厂指定的代理公司冲洗。&lt;/p&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>提升Intel 4代处理器性能锁定全核倍频</title>
+    <link href="https://whrblog.online/2021/09/20/enhance_haswell/"/>
+    <id>https://whrblog.online/2021/09/20/enhance_haswell/</id>
+    <published>2021-09-20T12:59:14.000Z</published>
+    <updated>2022-01-24T06:26:59.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Z系列可以直接解锁全核倍频。对于B和H系列，如果你的主板BIOS选项中有 （CPU倍频 all core），也可以解锁全核倍频&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解读MTF曲线</title>
+    <link href="https://whrblog.online/2021/07/01/%E8%A7%A3%E8%AF%BBmtf%E6%9B%B2%E7%BA%BF/"/>
+    <id>https://whrblog.online/2021/07/01/%E8%A7%A3%E8%AF%BBmtf%E6%9B%B2%E7%BA%BF/</id>
+    <published>2021-07-01T00:41:15.000Z</published>
+    <updated>2021-08-21T02:42:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Modulation Transfer Function（调制传递函数）是分析镜头的解像比较科学的方法，这种测定光学频率的方式是以一个mm的范围内能呈现出多少条线来度量，其单位以line/mm来表示。所以当一支镜头能做到所入即所出的程度那就表示这支镜头是所谓的完美镜头，但是因为镜片镜头的设计往往还有很多因素影响所以不可能有这种理想化的镜头。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Digispark模拟HID键盘控制BIOS</title>
+    <link href="https://whrblog.online/2021/04/05/%E9%80%9A%E8%BF%87digispark%E6%A8%A1%E6%8B%9F%E9%94%AE%E7%9B%98%E6%8E%A7%E5%88%B6bios/"/>
+    <id>https://whrblog.online/2021/04/05/%E9%80%9A%E8%BF%87digispark%E6%A8%A1%E6%8B%9F%E9%94%AE%E7%9B%98%E6%8E%A7%E5%88%B6bios/</id>
+    <published>2021-04-05T13:50:08.000Z</published>
+    <updated>2022-02-15T15:25:28.000Z</updated>
+    
+    
+    <summary type="html">&lt;details markdown=&quot;1&quot;&gt;&lt;summary&gt;展开/收起&lt;/summary&gt;
+有一个穷鬼，十分喜欢折腾电脑硬件，可他的父母并不支持他的兴趣爱好，他们认为生为学生就应该心无杂念的一心想着读书。几年过去了，穷鬼的电脑开始渐渐的赶不上时代了，他看了看他的CPU，不由自主地叹了口气：“Pentium E5300…
+
+&lt;p&gt;“ 在他的不懈努力之下，从&lt;a href=&quot;krunk.cn&quot;&gt;K&lt;/a&gt;那里抢来了一块Q6600和一块9600GT 又过了几年，又从一个不知名的仓库里拆出了一块Q9300。&lt;br&gt;  没过多久，他收到一个快递，拆开一看竟然是印着自己名字的GT1030，那天，是他的生日。 一年后，穷鬼上了高中，发现处理器还是差那么亿点点，他看了看自己空空荡荡的钱包，一咬牙，买了一块X5450，装CPU的那天，他心里想着，装上了这块CPU你就无敌了…… 欧耶，点亮了！ 关机。 来BIOS里超个外频。欸，🌿🌿🌿，怎么点不亮了，#￥%……他发现了一个问题，每次开机前要断电， BIOS恢复后才能开机。 🌿那岂不是保存不了超频。 在默频用了一段时间后，他突发奇想，是否可以用arduino做badusb，在开机时模拟键盘，自动设置BIOS呢？他翻出来尘封已久的arduino……&lt;br&gt;最后选择了digispark作为badusb&lt;/p&gt;
+&lt;/details&gt;
+
+
+        &lt;h1 id=&quot;Digispark？&quot;&gt;
+          &lt;a href=&quot;#Digispark？&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#Digispark？&quot; class=&quot;headerlink&quot; title=&quot;Digispark？&quot;&gt;&lt;/a&gt;Digispark？&lt;/h1&gt;
+      &lt;p&gt;Digispark是一款类似于Arduino Uno基于Attiny85的微控制器开发板。可用于制作Badusb设备，&amp;nbsp;BadUSB是一种通过重写U盘固件伪装成USB输入设备(键盘,网卡)用于恶意用途的usb设备。杀毒软件由于无法接触到usb固件，所以对它也无可奈何 &amp;nbsp;&lt;/p&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DIY适马佳能AF镜头兼容性修复(\&quot;rechip\&quot;)</title>
+    <link href="https://whrblog.online/2020/12/22/diy%E9%80%82%E9%A9%AC%E4%BD%B3%E8%83%BDaf%E9%95%9C%E5%A4%B4%E5%85%BC%E5%AE%B9%E6%80%A7%E4%BF%AE%E5%A4%8Drechip/"/>
+    <id>https://whrblog.online/2020/12/22/diy%E9%80%82%E9%A9%AC%E4%BD%B3%E8%83%BDaf%E9%95%9C%E5%A4%B4%E5%85%BC%E5%AE%B9%E6%80%A7%E4%BF%AE%E5%A4%8Drechip/</id>
+    <published>2020-12-22T10:34:51.000Z</published>
+    <updated>2022-02-18T15:46:56.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;原文：&lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://github.com/marcan/sigmafix&quot;&gt;Github&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt; &amp;amp; &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://twitter.com/marcan42/status/1046781328148979712?s=09&quot; title=&quot;@marcan42&quot;&gt;Twitter&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;翻译/校对：&lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://2890.ltd/&quot;&gt;Given&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;使用佳能EF卡口的旧的适马镜头不能在新的佳能机身上工作，因为适马不完全反向工程EF协议，没有实现所有需要的命令。这是一个DIY修复方法，使用ATtiny13单片机来修改协议，使镜头重新兼容数码EOS机身。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DIY Arduino 入射式测光表</title>
+    <link href="https://whrblog.online/2020/11/23/diy-arduino-%E5%85%A5%E5%B0%84%E5%BC%8F%E6%B5%8B%E5%85%89%E8%A1%A8/"/>
+    <id>https://whrblog.online/2020/11/23/diy-arduino-%E5%85%A5%E5%B0%84%E5%BC%8F%E6%B5%8B%E5%85%89%E8%A1%A8/</id>
+    <published>2020-11-23T11:24:46.000Z</published>
+    <updated>2022-02-04T03:46:40.000Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;A Lightmeter/Flashmeter for photographers, based on Arduino. Components: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Arduino NANO v.3 &lt;/li&gt;
+&lt;li&gt;BH1750 light sensor &lt;/li&gt;
+&lt;li&gt;SSD1306 128*96 OLED SPI Display &lt;/li&gt;
+&lt;li&gt;Buttons   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://github.com/morozgrafix&quot;&gt;@morozgrafix&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt; for creating schematic diagram for this device. The lightmeter based on Arduino as a main controller and BH1750 as a metering cell.   &lt;/p&gt;
+&lt;p&gt;Information is displayed on SSD1306 OLED display. The device is powered by 2 AAA batteries. Functions list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;  Ambient light metering&lt;/li&gt;
+&lt;li&gt;  Flash light metering&lt;/li&gt;
+&lt;li&gt;  ND filter correction&lt;/li&gt;
+&lt;li&gt;  Aperture priority&lt;/li&gt;
+&lt;li&gt;  Shutter speed priority&lt;/li&gt;
+&lt;li&gt;  ISO range 8 - 4 000 000&lt;/li&gt;
+&lt;li&gt;  Aperture range 1.0 - 3251&lt;/li&gt;
+&lt;li&gt;  Shutter speed range 1/10000 - 133 sec&lt;/li&gt;
+&lt;li&gt;  ND Filter range ND2 - ND8192&lt;/li&gt;
+&lt;li&gt;  Displaying amount of light in Lux.&lt;/li&gt;
+&lt;li&gt;  Displaying exposure value, EV&lt;/li&gt;
+&lt;li&gt;  Recalculating exposure pair while one of the parameter changing&lt;/li&gt;
+&lt;li&gt;  Battery information&lt;/li&gt;
+&lt;li&gt;  Power 2xAAA LR03 batteries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Detailed information on my site: &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://www.pominchuk.com/lightmeter/&quot;&gt;https://www.pominchuk.com/lightmeter/&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://s2.loli.net/2022/02/03/s6LuUXAYDWKbwnT.jpg&quot;&gt;
+      &lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用ESP8266扩展家中局域网</title>
+    <link href="https://whrblog.online/2020/08/07/%E7%94%A8esp8266%E6%89%A9%E5%B1%95%E5%AE%B6%E4%B8%AD%E5%B1%80%E5%9F%9F%E7%BD%91/"/>
+    <id>https://whrblog.online/2020/08/07/%E7%94%A8esp8266%E6%89%A9%E5%B1%95%E5%AE%B6%E4%B8%AD%E5%B1%80%E5%9F%9F%E7%BD%91/</id>
+    <published>2020-08-07T08:51:22.000Z</published>
+    <updated>2021-08-21T02:42:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;via &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://github.com/rubfi/esp_wifi_repeater&quot;&gt;https://github.com/rubfi/esp_wifi_repeater&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://image.krunk.cn/images/2020/08/07/image66b4119bcffcf74e.png&quot;&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://image.krunk.cn/images/2020/08/07/image66b4119bcffcf74e.png&quot;&gt;
+      &lt;/a&gt;&lt;/h1&gt;
+        &lt;h1 id=&quot;ESP无线中继器&quot;&gt;
+          &lt;a href=&quot;#ESP无线中继器&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#ESP无线中继器&quot; class=&quot;headerlink&quot; title=&quot;ESP无线中继器&quot;&gt;&lt;/a&gt;ESP无线中继器&lt;/h1&gt;
+      &lt;p&gt;这是一个在esp8266作为WiFi NAT路由器的概念和实现。它可以作为现有WiFi网络的无线AP扩展。esp以STA和soft-AP模式透明转发任何IP的流量。因为它使用NAT转发，所以在网络端和连接的站点上都不需要路由条目。站点在192.168.4.0/24网络中默认通过DHCP配置，并从现有的WiFi网络接收其DNS地址。 经过测试，ESP无线中继器可以在两个方向上实现约 5 Mbps，因此即使流媒体也是可能的。ESP无线中继器还允许远程监控（或数据包嗅探），例如使用 Wireshark。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>太阳神HELIOS 44M-4</title>
+    <link href="https://whrblog.online/2020/05/07/%E5%A4%AA%E9%98%B3%E7%A5%9Ehelios-44m-4/"/>
+    <id>https://whrblog.online/2020/05/07/%E5%A4%AA%E9%98%B3%E7%A5%9Ehelios-44m-4/</id>
+    <published>2020-05-07T06:11:20.000Z</published>
+    <updated>2021-11-07T16:09:44.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/20200507134351.jpg&quot;&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/20200507134351.jpg&quot;&gt;
+      &lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>4.7 玄风飞行基地</title>
+    <link href="https://whrblog.online/2020/04/08/4-7/"/>
+    <id>https://whrblog.online/2020/04/08/4-7/</id>
+    <published>2020-04-08T04:04:40.000Z</published>
+    <updated>2022-01-24T06:22:10.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://image.krunk.cn/images/2020/04/13/IMG_0155.md.jpg&quot;&gt;
+      &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
+    
+    <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
+    
+    <category term="R.C" scheme="https://whrblog.online/tags/R-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>极致细节的无损视频</title>
+    <link href="https://whrblog.online/2020/03/25/lossless_video_on_500D_with_magiclantern/"/>
+    <id>https://whrblog.online/2020/03/25/lossless_video_on_500D_with_magiclantern/</id>
+    <published>2020-03-25T01:29:20.000Z</published>
+    <updated>2021-08-26T16:53:36.000Z</updated>
+    
+    
+    <summary type="html">&lt;div id=&quot;player&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://player.dogecloud.com/js/loader&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var player = new DogePlayer({
+    container: document.getElementById(&#39;player&#39;),
+    userId: 1131,
+    vcode: &#39;c7f76db19e56338b&#39;
+});
+&lt;/script&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在单片机上运行Linux（转载）</title>
+    <link href="https://whrblog.online/2020/03/11/%E5%9C%A8avr%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8Clinux/"/>
+    <id>https://whrblog.online/2020/03/11/%E5%9C%A8avr%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8Clinux/</id>
+    <published>2020-03-11T07:44:39.000Z</published>
+    <updated>2021-08-21T02:42:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;
+          &lt;a href=&quot;#介绍&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;
+      &lt;p&gt;在Linux论坛中，常见的问题是询问Linux的最低规格是多少。常见的答案是，它需要32位体系结构，一个MMU和至少一兆字节的RAM以适合内核。该项目旨在（并成功）的粉碎这些概念。您在右侧看到的开发板基于ATmega1284p。我也使用ATmega644a取得了同样的成功。该主板没有其他处理器，并且可以启动Linux 2.6.34。实际上，它甚至可以显示完整的Ubuntu堆栈，包括（如果有时间等的话）X和gnome。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESP8266+Blynk做一个根开机棒</title>
+    <link href="https://whrblog.online/2020/01/24/esp8266blynk%E5%81%9A%E4%B8%80%E4%B8%AA%E6%A0%B9%E5%BC%80%E6%9C%BA%E6%A3%92/"/>
+    <id>https://whrblog.online/2020/01/24/esp8266blynk%E5%81%9A%E4%B8%80%E4%B8%AA%E6%A0%B9%E5%BC%80%E6%9C%BA%E6%A3%92/</id>
+    <published>2020-01-24T06:32:36.000Z</published>
+    <updated>2022-02-19T14:42:34.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://image.krunk.cn/images/2020/01/24/IMG_20200124_131834-01.jpg&quot;&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://image.krunk.cn/images/2020/01/24/IMG_20200124_131834-01.md.jpg&quot; alt=&quot;IMG_20200124_131834-01.jpg&quot;&gt;
+      &lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>行摄北疆</title>
+    <link href="https://whrblog.online/2019/08/18/%E6%96%B0%E7%96%86/"/>
+    <id>https://whrblog.online/2019/08/18/%E6%96%B0%E7%96%86/</id>
+    <published>2019-08-17T23:46:27.000Z</published>
+    <updated>2022-02-24T13:50:09.203Z</updated>
+    
+    
+    <summary type="html">飞机承载着我对遥远北疆的热忱，在滑行道上缓缓升腾，在气流的颠簸里，我知道我此时已在离北疆越来越近的路途上了，那是个令人心驰神往的名词------北疆。</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派+SSD1306屏幕</title>
+    <link href="https://whrblog.online/2019/08/07/%E6%A0%91%E8%8E%93%E6%B4%BEssd1306%E5%B1%8F%E5%B9%95/"/>
+    <id>https://whrblog.online/2019/08/07/%E6%A0%91%E8%8E%93%E6%B4%BEssd1306%E5%B1%8F%E5%B9%95/</id>
+    <published>2019-08-07T00:37:02.000Z</published>
+    <updated>2021-08-21T02:42:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190804_165053.jpg&quot;&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190804_165053.jpg&quot;&gt;
+      &lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派lot=Node.js+Bylnk+DHT11/DHT22</title>
+    <link href="https://whrblog.online/2019/07/30/%E6%A0%91%E8%8E%93%E6%B4%BEnode-jsbylnk-appdht11-dht22-am2302/"/>
+    <id>https://whrblog.online/2019/07/30/%E6%A0%91%E8%8E%93%E6%B4%BEnode-jsbylnk-appdht11-dht22-am2302/</id>
+    <published>2019-07-29T23:33:30.000Z</published>
+    <updated>2021-08-21T02:42:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190731_160014.jpg&quot;&gt;
+        &lt;img class=&quot;lazyload lazyload-gif&quot; src=&quot;/images/loading.svg&quot; data-src=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190731_160014.jpg&quot;&gt;
+      &lt;/a&gt;&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019.7.19</title>
+    <link href="https://whrblog.online/2019/07/20/2019-7-19/"/>
+    <id>https://whrblog.online/2019/07/20/2019-7-19/</id>
+    <published>2019-07-20T05:12:55.000Z</published>
+    <updated>2022-02-20T01:19:51.000Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;何谓友情？何谓缘分？&quot;&gt;
+          &lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;headerlink&quot; title=&quot;何谓友情？何谓缘分？&quot;&gt;&lt;/a&gt;何谓友情？何谓缘分？&lt;/h2&gt;
+      &lt;hr&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
+    
+    <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
+    
+    <category term="Friends" scheme="https://whrblog.online/tags/Friends/"/>
+    
+    <category term="R.C" scheme="https://whrblog.online/tags/R-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019.6.29 大嵛山岛笔记</title>
+    <link href="https://whrblog.online/2019/06/30/2019-6-29-%E5%A4%A7%E5%B5%9B%E5%B1%B1%E5%B2%9B%E7%AC%94%E8%AE%B0/"/>
+    <id>https://whrblog.online/2019/06/30/2019-6-29-%E5%A4%A7%E5%B5%9B%E5%B1%B1%E5%B2%9B%E7%AC%94%E8%AE%B0/</id>
+    <published>2019-06-30T13:45:54.000Z</published>
+    <updated>2022-01-24T06:03:48.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;大嵛山岛—-是闽东最大的列岛，是一个坐落在福鼎东南海域，距离三沙古镇港5海里，他由大嵛山、小嵛山、鸳鸯岛、银屿等十一个大小岛屿组成，大嵛山岛曾被中国国家地理”杂志社评为“中国最美的地方”中“最美的海岛”第八名。其山、湖、草、海在此浓缩。天湖四周山坡平缓，是有“南国天山”之誉的万亩草场。&lt;/p&gt;
+&lt;p&gt;嵛山岛地理位置特殊，扼闽浙海路之咽喉，是南来北往船只的必经之道，战略意义重大。明朝时期为抵御倭寇骚扰，1389年明政府在嵛山岛设置军事要塞，归北路福宁卫烽火寨管辖，1592年改守备为参将、节制水陆，改中军为嵛山游。清代中叶，嵛山列岛是蔡牵海上起义活动的重要根据地。辛亥革命先驱朱腾芬先生也在此组织义军抗清。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用WP-CLI给WordPress更换域名</title>
+    <link href="https://whrblog.online/2019/03/02/%E7%94%A8wp-cli%E7%BB%99wordpress%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/"/>
+    <id>https://whrblog.online/2019/03/02/%E7%94%A8wp-cli%E7%BB%99wordpress%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/</id>
+    <published>2019-03-02T09:02:04.000Z</published>
+    <updated>2021-08-21T02:42:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;wp-cli 是一个命令行工具，可以让我们通过命令行安装、更新 WordPress，对 WordPress 执行一些批量操作，响应速度快，使用方便&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
+    
+    
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="Wordpress" scheme="https://whrblog.online/tags/Wordpress/"/>
+    
+  </entry>
+  
+</feed>

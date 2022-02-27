@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="Ey8sLqN_Do38AvfovzObuLtaXOcUBF-uKK7Xi2h9aAs"><meta name="msvalidate.01" content="209118B1BFA0B580AC81FEE384152AD6"><meta name="baidu-site-verification" content="2e6f9f8fcf33588516233bd001b7eef7"><meta name="description" content="Z系列可以直接解锁全核倍频。对于B和H系列，如果你的主板BIOS选项中有 （CPU倍频 all core），也可以解锁全核倍频">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提升Intel 4代处理器性能锁定全核倍频">
+<meta property="og:url" content="https://whrblog.online/2021/09/20/enhance_haswell/">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="Z系列可以直接解锁全核倍频。对于B和H系列，如果你的主板BIOS选项中有 （CPU倍频 all core），也可以解锁全核倍频">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/09/20/oMhPRSwUak18Ocn.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/20/nb7tU8vcVZ5G61M.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/20/bgHBlJXjqrQn5o2.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/20/d34Ho7UmFQchx8G.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/20/31oLk86umDrlOwW.png">
+<meta property="og:image" content="https://i.loli.net/2021/07/20/Mo9ZYUlrVO5cPWI.png">
+<meta property="og:image" content="https://i.loli.net/2021/07/20/3BbGqs95YDdMVIj.png">
+<meta property="og:image" content="https://i.loli.net/2021/07/21/mzlWRBYjx3sKS9F.png">
+<meta property="article:published_time" content="2021-09-20T12:59:14.000Z">
+<meta property="article:modified_time" content="2022-01-24T06:26:59.000Z">
+<meta property="article:author" content="Whr">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/09/20/oMhPRSwUak18Ocn.png"><title>提升Intel 4代处理器性能锁定全核倍频 | HELLO TRAVELER</title><link ref="canonical" href="https://whrblog.online/2021/09/20/enhance_haswell/"><link rel="alternate" href="/atom.xml" type="application/atom+xml"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-NQ6T4PEEK1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-NQ6T4PEEK1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?2e6f9f8fcf33588516233bd001b7eef7';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: {"appId":"GF869MOZ70","apiKey":"d2251cbdd559b6cbb1b8852fccecd180","indexName":"Blog","hits":{"per_page":10},"languages":{"inputPlaceholder":"搜索文章","hitsEmpty":"没有找到任何搜索结果：${query}","hitsStats":"找到 ${hits} 条搜索结果，耗时 ${time} 毫秒"}},
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":false},
+  reward: false,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Friends/"><span class="header-nav-menu-item__icon"><i class="fas fa-heart"></i></span><span class="header-nav-menu-item__text">好朋友</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Message/"><span class="header-nav-menu-item__icon"><i class="fas fa-comments"></i></span><span class="header-nav-menu-item__text">留言板</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/To-Myself/"><span class="header-nav-menu-item__icon"><i class="fas fa-fish"></i></span><span class="header-nav-menu-item__text">致自己</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) far fa-images"></i></span><span class="header-nav-menu-item__text">画册</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener" href="http://synology.whrblog.online:6957/#16367961201935"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">安塞尔 亚当斯</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener" href="https://500px.com.cn/community/set/d65903381742483a99bb8f6431c31e66/details?swipe=1"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">2019.8 新疆</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) fas fa-tools"></i></span><span class="header-nav-menu-item__text">工具箱</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener" href="https://sparkling-silence-6cb0.100srgb.workers.dev/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tools"></i></span><span class="header-nav-submenu-item__text">GITHUB文件加速</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Sometimes ever, sometimes never</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">提升Intel 4代处理器性能锁定全核倍频</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2021-09-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-01-24</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2021/09/20/enhance_haswell/" data-flag-title="提升Intel 4代处理器性能锁定全核倍频"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><p>Z系列可以直接解锁全核倍频。对于B和H系列，如果你的主板BIOS选项中有 （CPU倍频 all core），也可以解锁全核倍频</p>
+<span id="more"></span>
+<hr>
+
+        <h1 id="工具">
+          <a href="#工具" class="heading-link"><i class="fas fa-link"></i></a><a href="#工具" class="headerlink" title="工具"></a>工具</h1>
+      <ol>
+<li>主板BIOS（2015年3月左右或者官方超频BIOS)</li>
+<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/wanghurui/whrblog/releases/tag/Blog">UEFI Tool</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ol>
+
+        <h1 id="替换BIOS中的微码">
+          <a href="#替换BIOS中的微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#替换BIOS中的微码" class="headerlink" title="替换BIOS中的微码"></a>替换BIOS中的微码</h1>
+      <p>运行<code>UEFI.BIOS.Updater.1.66 </code>文件夹中的<code>ubu.bat</code>。<code>ubu.bat</code>可以自己识别文件夹中的BIOS文件，如果没有自动识别，提示载入一个文件，选择bios文件即可。</p>
+
+        <h2 id="更新CPU微码">
+          <a href="#更新CPU微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#更新CPU微码" class="headerlink" title="更新CPU微码"></a>更新CPU微码</h2>
+      <p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/oMhPRSwUak18Ocn.png" alt="image.png">
+      </p>
+
+        <h2 id="更新HasWell架构微码">
+          <a href="#更新HasWell架构微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#更新HasWell架构微码" class="headerlink" title="更新HasWell架构微码"></a>更新HasWell架构微码</h2>
+      <p>输入7回车，更新CPU微码</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/nb7tU8vcVZ5G61M.png" alt="image.png">
+      <br>输入1回车，更新HasWell架构微码<br>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/bgHBlJXjqrQn5o2.png" alt="image.png">
+        </p>
+
+        <h2 id="解锁HasWell限制">
+          <a href="#解锁HasWell限制" class="heading-link"><i class="fas fa-link"></i></a><a href="#解锁HasWell限制" class="headerlink" title="解锁HasWell限制"></a>解锁HasWell限制</h2>
+      <p>输入7回车，解锁HasWell限制<br>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/d34Ho7UmFQchx8G.png" alt="image.png">
+      <br>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/09/20/31oLk86umDrlOwW.png" alt="image.png">
+          </p>
+<p>输入0回车，完成BIOS编辑<br>输入1回车，将新BIOS保存到当前目录<br>输入任意键结束程序，程序目录下便有最新的BIOS了</p>
+
+        <h1 id="刷写BIOS">
+          <a href="#刷写BIOS" class="heading-link"><i class="fas fa-link"></i></a><a href="#刷写BIOS" class="headerlink" title="刷写BIOS"></a>刷写BIOS</h1>
+      <p>把它放入_FAT32_格式U盘根目录中<br>详细刷写BIOS请参考主板官网的帮助</p>
+
+        <h1 id="设置BIOS为all-core">
+          <a href="#设置BIOS为all-core" class="heading-link"><i class="fas fa-link"></i></a><a href="#设置BIOS为all-core" class="headerlink" title="设置BIOS为all core"></a>设置BIOS为all core</h1>
+      <p>cpu倍频必须必须选择所有内核（all core），否则解锁无效。在All core 填入你的CPU单核最大频率即可。如E3 1231V3 单核最大倍频为38  </p>
+<p>保存退出重启电脑即可</p>
+<hr>
+<p>如果你打开电脑，打开CPUZ发现所有核心都运行在了最高倍频，那么恭喜，你锁住了。🎉</p>
+<p>如果没有，请继续往下看。</p>
+
+        <h1 id="Oops！我没锁住🤔">
+          <a href="#Oops！我没锁住🤔" class="heading-link"><i class="fas fa-link"></i></a><a href="#Oops！我没锁住🤔" class="headerlink" title="Oops！我没锁住🤔"></a>Oops！我没锁住🤔</h1>
+      <blockquote>
+<p>Make a screenshot of&nbsp;<code>regedit</code>&nbsp;with expanded key&nbsp;<code>HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\CentralProcessor\0</code>  </p>
+</blockquote>
+<blockquote>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/07/20/Mo9ZYUlrVO5cPWI.png" alt="image.png">
+      </p>
+</blockquote>
+<blockquote>
+<p>Your BIOS has microcode with <code>0x06</code> version, but Windows update it to <code>0x28</code> version.<br>Delete or rename file <code>C:\Windows\System32\mcupdate_GenuineIntel.dll</code></p>
+</blockquote>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem">https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>大意就是我修改了BIOS中的微码为<code>0x06</code>，但是系统把微码更新成了<code>0x28</code>。  </p>
+
+        <h3 id="删除系统微码">
+          <a href="#删除系统微码" class="heading-link"><i class="fas fa-link"></i></a><a href="#删除系统微码" class="headerlink" title="删除系统微码"></a>删除系统微码</h3>
+      <p>在PE中删除或重命名系统微码文件<code>C:\Windows\System32\mcupdate_GenuineIntel.dll</code></p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/07/20/3BbGqs95YDdMVIj.png" alt="image.png">
+      <br>还是锁不住🤔</p>
+
+        <h3 id="使用ThottleStop锁倍频">
+          <a href="#使用ThottleStop锁倍频" class="heading-link"><i class="fas fa-link"></i></a><a href="#使用ThottleStop锁倍频" class="headerlink" title="使用ThottleStop锁倍频"></a>使用ThottleStop锁倍频</h3>
+      <blockquote>
+<p>Show FIVR and TPL information in ThrottleStop.</p>
+</blockquote>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="https://i.loli.net/2021/07/21/mzlWRBYjx3sKS9F.png" alt="image.png">
+      <br>设置ThottleStop中的FIVR的Turbo Ratio Limits为CPU单核最大倍频。修改即时生效。</p>
+<p>最后把ThottleStop设置为开机启动就行了</p>
+<hr>
+<p>🎉如果你锁住了，可以送我一条评论吗🎉</p>
+<hr>
+<p>参考资料</p>
+<ul>
+<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem">https://www.bios-mods.com/forum/Thread-Biostar-B85W-CPU-frequency-problem</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54535319">https://zhuanlan.zhihu.com/p/54535319</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.techpowerup.com/forums/threads/how-can-i-get-throttlestop-to-auto-load-when-windows-starts-up.230371/">https://www.techpowerup.com/forums/threads/how-can-i-get-throttlestop-to-auto-load-when-windows-starts-up.230371/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://whrblog.online">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://whrblog.online/2021/09/20/enhance_haswell/">https://whrblog.online/2021/09/20/enhance_haswell/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2021/10/29/%E6%9F%AF%E8%BE%BE%E5%85%8B%E7%BD%97%E5%A7%86%E5%BD%A9%E8%89%B2%E5%8F%8D%E8%BD%AC%E7%89%87%E7%9A%84%E5%86%B2%E6%B4%97%EF%BC%88%E8%BD%AC%EF%BC%89/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">柯达克罗姆彩色反转片的冲洗（转）</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2021/07/01/%E8%A7%A3%E8%AF%BBmtf%E6%9B%B2%E7%BA%BF/"><span class="paginator-prev__text">解读MTF曲线</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">
+          工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2BIOS%E4%B8%AD%E7%9A%84%E5%BE%AE%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">
+          替换BIOS中的微码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0CPU%E5%BE%AE%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">
+          更新CPU微码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0HasWell%E6%9E%B6%E6%9E%84%E5%BE%AE%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">
+          更新HasWell架构微码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%94%81HasWell%E9%99%90%E5%88%B6"><span class="toc-number">2.3.</span> <span class="toc-text">
+          解锁HasWell限制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B7%E5%86%99BIOS"><span class="toc-number">3.</span> <span class="toc-text">
+          刷写BIOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEBIOS%E4%B8%BAall-core"><span class="toc-number">4.</span> <span class="toc-text">
+          设置BIOS为all core</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Oops%EF%BC%81%E6%88%91%E6%B2%A1%E9%94%81%E4%BD%8F%F0%9F%A4%94"><span class="toc-number">5.</span> <span class="toc-text">
+          Oops！我没锁住🤔</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B3%BB%E7%BB%9F%E5%BE%AE%E7%A0%81"><span class="toc-number">5.0.1.</span> <span class="toc-text">
+          删除系统微码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8ThottleStop%E9%94%81%E5%80%8D%E9%A2%91"><span class="toc-number">5.0.2.</span> <span class="toc-text">
+          使用ThottleStop锁倍频</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://i.loli.net/2021/08/23/TiEWIRoPFNYbcrS.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">若我不再能奔跑，请让我在梦中飞翔。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/wanghurui" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/Hacker_Whr" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/whr-67-78" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=1790538934" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://500px.com.cn/whur" target="_blank" rel="noopener" data-popover="500PX" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-500px"></i></span></a></div><div class="sidebar-ov-feed"><span class="sidebar-ov-feed-rss"><a class="sidebar-ov-feed-rss__link" href="/atom.xml" target="_blank" rel="noopener"><span class="sidebar-ov-feed-rss__icon"><i class="fas fa-rss"></i></span><span>RSS 订阅</span></a></span></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">37</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div><a href="https://uptime.rec709.cf/" rel="noopener" target="_blank">Server Status</a></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"></div><div class="search-results"><div id="algolia-hits"></div></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>window.addEventListener('DOMContentLoaded', function () {
+  $('.header-nav-search').on('click', function (e) {
+    e.stopPropagation();
+
+    $('body').css('overflow', 'hidden');
+    $('.search-popup')
+      .velocity('stop')
+      .velocity('transition.expandIn', {
+        duration: 300,
+        complete: function () {
+          $('.search-popup input').focus();
+        }
+      });
+    $('.search-mask')
+      .velocity('stop')
+      .velocity('transition.fadeIn', {
+        duration: 300
+      });
+  });
+
+  function closeSearch () {
+    $('body').css({ overflow: 'auto' });
+    $('.search-popup').css({ display: 'none' });
+    $('.search-mask').css({ display: 'none' });
+  }
+
+  $('.search-mask, .search-close').on('click', function () {
+    closeSearch();
+  });
+
+  $(document).on('keydown', function (e) {
+    // Escape <=> 27
+    if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+      closeSearch();
+    }
+  });
+
+  var algolia = CONFIG.algolia;
+  if (!algolia && !(algolia.appId && algolia.apiKey && algolia.indexName)) {
+    return console.error('Algolia setting is invalid.');
+  }
+
+  var search = instantsearch({
+    appId: algolia.appId,
+    apiKey: algolia.apiKey,
+    indexName: algolia.indexName,
+    searchParameters: {
+      hitsPerPage: algolia.hits.per_page || 10
+    },
+    searchFunction: function (helper) {
+      var searchInput = $('.search-input').find('input');
+
+      if (searchInput.val()) {
+        helper.search();
+      }
+    }
+  });
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '.search-input',
+      reset: false,
+      magnifier: false,
+      placeholder: algolia.languages.inputPlaceholder
+    })
+  );
+
+  // The hits of search results.
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#algolia-hits',
+      templates: {
+        item: function (data) {
+          var link = data.permalink ? data.permalink : CONFIG.root + data.path;
+          return (
+            '<a href="' + link + '" class="algolia-hit-item-link">' +
+              data._highlightResult.title.value +
+            '</a>'
+          );
+        },
+        empty: function (data) {
+          return (
+            '<div id="algolia-hits-empty">' +
+              algolia.languages.hitsEmpty.replace(/\$\{query}/, data.query) +
+            '</div>'
+          );
+        }
+      },
+      cssClasses: {
+        item: 'algolia-hit-item'
+      }
+    })
+  );
+
+  // The stats of search results.
+  if ($('#algolia-stats')[0]) {
+    search.addWidget(
+      instantsearch.widgets.stats({
+        container: '#algolia-stats',
+        templates: {
+          body: function (data) {
+            var stats = algolia.languages.hitsStats
+              .replace(/\$\{hits}/, data.nbHits)
+              .replace(/\$\{time}/, data.processingTimeMS);
+            return (
+              stats +
+              '<span class="algolia-logo pull-right">' +
+                '<img src="' + CONFIG.root +
+                `${CONFIG.sourcePath.images}/algolia.svg" alt="Algolia" />` +
+              '</span>'
+            );
+          }
+        }
+      })
+    );
+  }
+
+  // The pagination of the results.
+  search.addWidget(
+    instantsearch.widgets.pagination({
+      container: '#algolia-pagination',
+      scrollTo: false,
+      showFirstLast: false,
+      labels: {
+        first: '<i class="fa fa-angle-double-left"></i>',
+        last: '<i class="fa fa-angle-double-right"></i>',
+        previous: '<i class="fa fa-angle-left"></i>',
+        next: '<i class="fa fa-angle-right"></i>'
+      },
+      cssClasses: {
+        root: 'pagination',
+        item: 'pagination-item',
+        link: 'page-number',
+        active: 'current',
+        disabled: 'disabled-item'
+      }
+    })
+  );
+
+  search.start();
+});</script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'atwHbFJu4O787cc0K5uyEQzw-gzGzoHsz',
+    appKey: 'GPjxAqd2KmMaKKFX2RA5SzDd',
+    notify: true,
+    verify: true,
+    placeholder: '你是我这一生只会遇见一次的惊喜',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>

@@ -1,0 +1,1360 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="Ey8sLqN_Do38AvfovzObuLtaXOcUBF-uKK7Xi2h9aAs"><meta name="msvalidate.01" content="209118B1BFA0B580AC81FEE384152AD6"><meta name="baidu-site-verification" content="2e6f9f8fcf33588516233bd001b7eef7"><meta name="description" content="前言       前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Ardunio和ESP8266模块做一个云温度传感器">
+<meta property="og:url" content="https://whrblog.online/2017/08/11/217/">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="前言       前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-106.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-107.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-108.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-109.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-110.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-111.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-112.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-113.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-114.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-115.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-116.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-117.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-118.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-119.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-120.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-121.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-122.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-123.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-124.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-125.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-126.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-127.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-128.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-129.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-130.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-131.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-132.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-133.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-134.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-135.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-136.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-137.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-138.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-139.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-140.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-141.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-142.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-143.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-144.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-145.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-146.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-147.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-148.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-149.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-150.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-151.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-152.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-153.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-154.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-155.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-156.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-157.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-158.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-159.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-160.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-162.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-163.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-164.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-165.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-166.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-167.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-168.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-169.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-170.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-171.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-172.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-173.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-174.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-175.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-176.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-177.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-178.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-179.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-180.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-181.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-182.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-183.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-184.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-185.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-186.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-187.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-188.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-189.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-190.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-191.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-192.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-193.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-194.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-195.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-196.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-197.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-198.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-199.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-200.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-201.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-202.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-203.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-204.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-205.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-206.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-207.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-208.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-209.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-210.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-211.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-212.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-213.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-214.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-215.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-216.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-217.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-218.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-219.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-220.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-221.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-222.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-223.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-224.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-225.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-226.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-227.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-228.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-229.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-230.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-231.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-232.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-233.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-234.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-235.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-236.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-237.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-238.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-239.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-240.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-241.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-242.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-243.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-244.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-245.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-246.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-247.png">
+<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-248.png">
+<meta property="article:published_time" content="2017-08-11T08:55:03.000Z">
+<meta property="article:modified_time" content="2021-08-21T02:42:52.000Z">
+<meta property="article:author" content="Whr">
+<meta property="article:tag" content="浅雪的DIY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png"><title>用Ardunio和ESP8266模块做一个云温度传感器 | HELLO TRAVELER</title><link ref="canonical" href="https://whrblog.online/2017/08/11/217/"><link rel="alternate" href="/atom.xml" type="application/atom+xml"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-NQ6T4PEEK1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-NQ6T4PEEK1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?2e6f9f8fcf33588516233bd001b7eef7';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: {"appId":"GF869MOZ70","apiKey":"d2251cbdd559b6cbb1b8852fccecd180","indexName":"Blog","hits":{"per_page":10},"languages":{"inputPlaceholder":"搜索文章","hitsEmpty":"没有找到任何搜索结果：${query}","hitsStats":"找到 ${hits} 条搜索结果，耗时 ${time} 毫秒"}},
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":false},
+  reward: false,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Friends/"><span class="header-nav-menu-item__icon"><i class="fas fa-heart"></i></span><span class="header-nav-menu-item__text">好朋友</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Message/"><span class="header-nav-menu-item__icon"><i class="fas fa-comments"></i></span><span class="header-nav-menu-item__text">留言板</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/To-Myself/"><span class="header-nav-menu-item__icon"><i class="fas fa-fish"></i></span><span class="header-nav-menu-item__text">致自己</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) far fa-images"></i></span><span class="header-nav-menu-item__text">画册</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener" href="http://synology.whrblog.online:6957/#16367961201935"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">安塞尔 亚当斯</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener" href="https://500px.com.cn/community/set/d65903381742483a99bb8f6431c31e66/details?swipe=1"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">2019.8 新疆</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) fas fa-tools"></i></span><span class="header-nav-menu-item__text">工具箱</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener" href="https://sparkling-silence-6cb0.100srgb.workers.dev/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tools"></i></span><span class="header-nav-submenu-item__text">GITHUB文件加速</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Sometimes ever, sometimes never</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">用Ardunio和ESP8266模块做一个云温度传感器</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2017-08-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2021-08-21</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2017/08/11/217/" data-flag-title="用Ardunio和ESP8266模块做一个云温度传感器"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><h1 id="前言">
+          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
+      <p>前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。</p>
+<p>写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。</p>
+<p>如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……</p>
+<span id="more"></span>
+<p>这样也导致了我这个教程，我也不知道该怎么写，能显得通俗易懂……</p>
+<p>两年前，我刚接触单片机的时候，就做过类似的东西，一个STC的51单片机STC15W408AS，一个ESP8266-12E模块，加一个DS18B20温度传感器。</p>
+<p>单片机获取传感器的实时温度，然后用AT命令和ESP8266模块通信，ESP模块负责把数据通过GET方式传给一台阿里云服务器。云服务器有一个Eclipes做的HttpServer的页面，数据存入MySql数据库，最后再做一个小网页展示最新1000条数据记录。</p>
+<p>ESP模块连WIFI需要的SSID和密码，通过一个安卓手机APP实现，APP当时是用了APICloud这个APP快速开发工具做的。不得不说，做一些简单的APP，这种快速开发工具真的很赞，一个代码，能同时在线打包Android和IOS两种安装包。不过当时APICloud很恶心的一点，就是各种收费插件，显示全部无线路由器名字列表的插件都要收费。好了，不吐槽这个了。当时我还用过另外一个APP快速开发工具：APPCan。这个倒是没有那么多的收费插件，但是这个工具的Tcp协议有问题，官方暂时也没有修改的打算，所以只好放弃，转用APICloud。</p>
+<p>以上这种方式，开发速度非常快捷。我在拿到ESP8266模块后不到一个星期就完成了。</p>
+<p>当然，这个项目也没任何核心技术和难度，我当时接触单片机和硬件还不到两个月呢。</p>
+<p>两年后，无意间看到了有人用Arduino配合Esp8266的开发库在完成类似的事情，网上也有很多类似的教程。</p>
+<p>Arduino我一直没有买过任何开发板，因为我51单片机都不算太精通，我还打算重点学习STM32的使用方法，所以根本没关注过Arduino，尽管它非常火。</p>
+<p>但是ESP8266模块我这里有一大堆啊，自己买了好多块，去年还在乐鑫免费申请了好多块，于是我根据别人的教程帖子，下载了ArduinoIDE和ESP8266最新版本2.3.0的开发板，接上串口线随便烧录了几个例程，居然很顺利的就完成了。</p>
+<p>顺便说一句，ArduinoIDE的文本编辑功能做的真的很差劲，连编译器最简单的文字自动补完功能都没有，全部的代码都要一个一个字符敲进去，反正是弱爆了。</p>
+<p>而且ESP8266的开发板还不能自动更新，据说被墙了，只有去下载压缩包，手工更新。</p>
+<p>不过很多小的开发库，自动更新都没问题的。</p>
+<p>当然我还是喜欢自己到GIT上手工搜索开发库，手工安装。哈哈。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png">
+      </p>
+<p>反正不管怎么说，这些都是小坑，一个晚上都趟过去了。Arduino用的应该是C++语言。反正C就这个样子，根据例子写就是了，没啥好说的。</p>
+<p>Arduino烧录ESP8266模块的固件真是非常方便，成功率基本是100%，还是全自动的。程序写好后，按住按键，让GPIO0接地，烧录器插到USB口，松开按键，选择“上传”，然后等一会就烧录成功了。</p>
+<p>如果遇到烧录失败，把USB转TTL模块拔了重新插上就可以了，当然GPIO0要接地。</p>
+<p>我这里用的是烧录STC单片机用的那种带３.3 V输出的USB转TTL的烧录器，烧录速度还可以，关键是这种烧录器我家里有好几个，根本不用重新购买。</p>
+<p>总之一句话，硬件都是现成的，我只要安心编程就好。</p>
+
+        <h1 id="我们要做的东西">
+          <a href="#我们要做的东西" class="heading-link"><i class="fas fa-link"></i></a><a href="#我们要做的东西" class="headerlink" title="我们要做的东西"></a>我们要做的东西</h1>
+      <p>先展示一下硬件，我用洞洞板搭建和焊接的。正面还凑合看。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-106.png">
+      </p>
+<p>反面很难看，飞线的，想好看不去打板子是没戏的。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-107.png">
+      </p>
+<p>然后还有一个小网站来配合它。当然这个网站我们要自己做。</p>
+<p>后面我再介绍怎么完成它。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-108.png">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-109.png">
+      </p>
+<p>为了酷一点，我们还要做一个图表来展示。图表里面能显示24小时的数据折线图。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-110.png">
+      </p>
+<p>上面看看很简单吧，可是这一套东西，如果要自己独立实现，嘿嘿，你要软件和硬件都懂一点才行。</p>
+
+        <h1 id="硬件准备">
+          <a href="#硬件准备" class="heading-link"><i class="fas fa-link"></i></a><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h1>
+      <p>先说一下我们需要准备哪些硬件。当然，我做这个的时候，纯粹是一时兴起，所以我只会用我手头上现有的模块和元件，不会去额外购买的。</p>
+<p>1、ESP8266模块。这里我用的是2年前购买的安信可公司的ESP8266-12E。</p>
+<p>你也可以用ESP8266-12F，或者用乐鑫公司的ESP-WROOM-02模块。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-111.png">
+      </p>
+<p>下图就是ESP-WROOM-02模块，这个模块我手上很多，乐鑫搞活动的时候我去申请的。但是没用过，因为没转接板，飞线太难看。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-112.png">
+      </p>
+<p>两个模块的引脚顺序是不一样的，我这里就不再介绍ESP-WROOM-02模块了，百度上很多资料，程序肯定能通用。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-113.png">
+      </p>
+<p>2、ESP8266的转接板。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-114.png">
+      </p>
+<p>这里说一句，转接板不是必需的，但是有了它，明显搭建ESP8266最小系统的时候省事多了。</p>
+<p>顺便说一句，安信可的GPIO5和GPIO4引脚顺序搞不清楚，他们给的原理图和实物居然是相反的，害我浪费了好多时间才发现。后来干脆重画了他的最小系统的原理图。</p>
+<p>3、AMS1117 3.3V模块</p>
+<p>因为ESP8266的供电是3.3V的，所以必须要有一个降压芯片。</p>
+<p>其实这个芯片很费电，静态电流就有8mA，如果你打算用电池供电，一定不要选它。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-115.png">
+      </p>
+<p>实在是便宜，淘宝育松店的价格还要低个２毛钱，所以我也懒得自己焊了。</p>
+<p>４、DS18B20温度传感器</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-116.png">
+      </p>
+<p>这种传感器温度实在不准确，DS18B20的温度精度是正负0.5°，马马虎虎了。</p>
+<p>而且离发热元件距离比较近的时候，温度有明显上升。</p>
+<p>如果你追求精度，我建议你买下面这种封装在不锈钢管里面的。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-117.png">
+      </p>
+<p>5、湿度计传感器DHT12</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-118.png">
+      </p>
+<p>你也可以买DHT11 ，代码通用的。</p>
+<p>但是11和12价格基本一样的情况下，我为啥不买个精度稍微高点的DHT12呢？</p>
+<p>这里多说一句，DHT12也带温度的，精度也是正负0.5°，干嘛还要上DS18B20呢？</p>
+<p>我只想说，第一，这个温度误差绝对不止是0.5°，第二，多学一种硬件用法。</p>
+<p>6、气压传感器BMP280</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-119.png">
+      </p>
+<p>你也可以用BMP180，精度稍差点而已，价格基本一样。</p>
+<p>BMP280，可以测量温度和气压。温度也不是那么精确，主要还是测量气压的。</p>
+<p>气压的误差大概是正负1hPa。我们知道，大气压强大概是100000Pa左右，有时候会用hPa做单位，1hPa=100Pa。</p>
+<p>还有一种型号BME280，这个传感器温度、湿度、气压全带了。可惜价格比较贵，温度和湿度它精度也不高，就算了。</p>
+<p>7、IIC接口的0.96英寸，OLED 12864显示屏。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-120.png">
+      </p>
+<p>个人感觉白色字体的比较好看。</p>
+<p>为啥用IIC接口的呢，因为占用的IO引脚少，SPI接口的要4~5个IO引脚呢。</p>
+<p>8、一块5*7cm的洞洞板，一个微动开关，一个单刀小开关，一个microUsb插座，一个蓝色发光LED，4根杜邦针，几个圆孔插座和4口杜邦插座啥的，还有若干个1K和10K电阻用来做上拉和限流啥的，其实个人测试，不接也行……当然最好接上……</p>
+<p>9、一个USB转TTL的烧录器</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-121.png">
+      </p>
+<p>这个烧录器，其实是烧录51单片机用的……我想大家手头应该有好几个吧，因为我手头就有4、5个……用的时候还老是找不到……越买越多……</p>
+<p>记得把电源线，插到3.3V的位置，5V会烧了ESP8266模块。</p>
+<p>还有那种3、4块钱的简易版本烧录器，我不建议使用，因为它的3.3V电流很小，容易烧录失败。反正用这种8块钱的烧录器，烧录的波特率如果不高于115200的话，我基本没失败过。记得安装驱动程序， 要不没法用。</p>
+
+        <h1 id="搭建软件环境">
+          <a href="#搭建软件环境" class="heading-link"><i class="fas fa-link"></i></a><a href="#搭建软件环境" class="headerlink" title="搭建软件环境"></a>搭建软件环境</h1>
+      <p>光有硬件还不行啊，还要有软件，要不我怎么写代码，怎么烧录固件呢？</p>
+<p>这次我们不用额外单片机，直接用ESP8266模块内置那个牛逼32位单片机。根据官方文档，这个单片机只用了大概几分之一的资源用来控制WIFI，所以我们还有大量的内存和存储空间，用来做我们自己的事情。</p>
+<p>这里感谢万能的Arduino，兼容超级多的32位单片机，也感谢为ESP8266写Arduino开发库的哥们，你真是太闲了，还有空写这个，有工资吗？</p>
+<p>首先我们要下载一个最新版本的Arduino，版本号1.8.3。你可以到Arduino的官方网站去下载，也可以下载我的打包文件。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-122.png">
+      </p>
+<p>这个兼容Win7和Win10系统，我这里是Win7 64位版本的。Win10也肯定没问题。</p>
+<p>反正就是一直Next，不要更改路径，安装在C盘就可以了。最后在桌面会生成一个图标，这个就表示你安装成功了。 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-123.png">
+      </p>
+<p>你可以打开看看，这个时候你还不能直接对ESP8266模块进行编程，因为我们还要安装ESP8266的开发板的库。</p>
+<p>本来可以直接在开发板管理器里面直接下载更新的，不过它好像被限制了，禁止进入境，所以你得下载安装包，手工更新。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-124.png">
+       上面的图是我安装好的时候，显示的版本号2.3.0的ESP8266开发板。这个我也帮大家打包好了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-125.png">
+       随便解压到任何一个目录，里面只有一个目录 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-126.png">
+       。</p>
+<p>把这个目录拷贝到下面的目录下面：</p>
+<p>C:\Users\Administrator\AppData\Local\</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-127.png">
+      </p>
+<p>某个同学说，哎呀，我C盘没有Users目录啊， 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-128.png">
+       这个就是Users目录。</p>
+<p>用户目录下面，再打开 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-129.png">
+       目录。</p>
+<p>某个同学又说了，哎呀，我的 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-130.png">
+       目录下面，没有 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-131.png">
+       目录啊。</p>
+<p>是啊，这个目录是隐藏的，所以呢，打开文件夹选项，把它改成不隐藏的。</p>
+<p>某个同学说，文件夹选项我也找不到啊，所以啊，看下图啊，实在不行百度啊。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-132.png">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-133.png">
+      </p>
+<p>写教程就这点麻烦，很多常识你不写，很多人都看不懂，所以大家要学会百度。。。。</p>
+<p>最后打开AppData目录下面的 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-134.png">
+       目录，把刚才的 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-135.png">
+       文件夹整个拷贝进去。</p>
+<p>最后 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-136.png">
+       文件下面是这些东西就可以了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-137.png">
+      </p>
+<p>事情还没完，再打开Arduino IDE，在文件菜单下面的首选项里面，</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-138.png">
+      </p>
+<p>把里面的内容，弄成和我下面的图一样就可以了。</p>
+<p>具体的配置，可以参考下面这个网址，我也是从里面学的。</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://www.geek-workshop.com/thread-26170-1-1.html">http://www.geek-workshop.com/thread-26170-1-1.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-139.png">
+      </p>
+<p>附加开发板管理器网址： 填入下面的地址，然后点“好”保存。</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://arduino.esp8266.com/stable/package/_esp8266com/_index.json">http://arduino.esp8266.com/stable/package\_esp8266com\_index.json</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>下面的还有一个参数配置，应该和下面的保存一致。</p>
+<p>C:\Users\Administrator\AppData\Local\Arduino15\preferences.txt</p>
+<p>如果不一样，就再检查一下你刚才拷贝的 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-140.png">
+       文件夹，里面应该有个 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-141.png">
+       文件的。</p>
+<p>反正搞了半天，重启一下Arduino，看看“工具”“开发板”“开发板管理器” 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-142.png">
+      </p>
+<p>如果开发板安装好了，应该有2.3.0 INSTALLED 之类的显示。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-143.png">
+      </p>
+<p>或者干脆把开发板往下拉，看看有没有ESP8266的，类似于下图：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-144.png">
+      </p>
+<p>如果你用的是ESP8266-12E，你可以选 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-145.png">
+       作为你的默认开发板。</p>
+<p>如果你用的是老款的ESP8266-01啥的，你就老老实实选通用的开发板 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-146.png">
+      </p>
+<p>当然12E的模块，也可以选通用的。</p>
+<p>总算把软件环境搭好了，妈的，写了半天，真心累啊。</p>
+
+        <h1 id="搭建ESP8266的最小环境">
+          <a href="#搭建ESP8266的最小环境" class="heading-link"><i class="fas fa-link"></i></a><a href="#搭建ESP8266的最小环境" class="headerlink" title="搭建ESP8266的最小环境"></a>搭建ESP8266的最小环境</h1>
+      <p>首先你要把ESP8266的最小系统搭建起来，否则没法烧录和测试。</p>
+<p>看看下面的ESP8266最小系统原理图。有转接板的，你可以焊上杜邦针，用杜邦线搭个最小环境。然后把烧录器接到电脑上，写个小程序测试一下。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-147.png">
+      </p>
+<p>我还是用安信可的模块做说明，乐鑫的模块请对照引脚，自己搭建。</p>
+<p>乐鑫模块的EN脚，等同于安信可模块的CH_PD引脚，也就是使能脚。其他名字基本一样，请一一对照。</p>
+<p>这里再啰嗦几句吧。</p>
+<p>首先，CH_PD和REST要上拉，也就是通过1K~10K电阻接到3.3V。</p>
+<p>其次，GPIO15要下拉，也就是通过电阻接到GND上。</p>
+<p>烧录器的TX接到ESP8266的RXD引脚。</p>
+<p>烧录器的RX接到ESP8266的TXD引脚。</p>
+<p>（注意了，Tx要接Rx，Rx要接Tx，这个是常识，别Tx接Tx，Rx接Rx，还在QQ上反复追问我为什么？我又不是百度！！）</p>
+<p>烧录器的电源也接到ESP8266上，注意要3.3V电，别5V电接过来。</p>
+<p>GPIO0是烧录脚，也就是上电的时候，如果这个引脚悬空或者上拉，那么正常进入程序空间运行程序。如果这个引脚接地了，那么进入烧录模式，烧录器通过串口可以重新烧录里面的固件。</p>
+
+        <h1 id="烧录ESP8266测试">
+          <a href="#烧录ESP8266测试" class="heading-link"><i class="fas fa-link"></i></a><a href="#烧录ESP8266测试" class="headerlink" title="烧录ESP8266测试"></a>烧录ESP8266测试</h1>
+      <p>打开Arduino，选择一个自带的ESP8266的例子。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-148.png">
+      </p>
+<p>把代码往下拉，找到下面红框的代码，改成你家里的wifi的SSID和密码。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-149.png">
+      </p>
+<p>不改代码也行，反正我们就是看看能不能烧录固件而已。</p>
+<p>打开“工具”，把开发板选得和我一样的。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-150.png">
+      </p>
+<p>当然，如果你不是12E的模块，你选 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-151.png">
+       也行。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-152.png">
+      </p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>把你的ESP8266最小系统，接到烧录器上。4根线（3.3V，GND，Tx，Rx）别接错了。</p>
+<p>按住GPIO0引脚上的微动开关，让GPIO0引脚接地，然后把烧录器插到电脑的USB接口上，松手就可以了，没必要一直按着。</p>
+<p>最后点一下这个红框里的箭头，也就是上传按键。 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-153.png">
+      </p>
+<p>大概会先花个半分钟编译固件，</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-154.png">
+       
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-155.png">
+      </p>
+<p>只要代码没语法错误，基本就不会失败。</p>
+<p>然后再花个半分钟烧录啥的。烧录时会有进度条显示。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-156.png">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-157.png">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-158.png">
+      </p>
+<p>到了100%就表示烧录好了。</p>
+<p>如果显示错误信息，尝试把烧录器拔下来，按住烧录开关，重新插一次USB插口，再点上传按键。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-159.png">
+      </p>
+<p>要是你卡在这一步，呵呵，我也是爱莫能助了。</p>
+<p>我写了这么多东西，任何一点错误都有可能导致你烧录失败，根本没法判断哪里出错了。也许你接线错了，也许你连烧录器的驱动都没安装，反正种种可能，你自己查吧。</p>
+<p>做这种东西，掉各种坑里才是正常，一帆风顺非常罕见。细心很重要，耐心更重要。</p>
+<p>在我写这篇教程前，我已经帮大家填平了很多坑了……</p>
+<p>我本人也掉过无数次的坑，常常有半夜忽然恍然大悟，然后爬起来填坑的经历。</p>
+
+        <h1 id="正式焊接硬件">
+          <a href="#正式焊接硬件" class="heading-link"><i class="fas fa-link"></i></a><a href="#正式焊接硬件" class="headerlink" title="正式焊接硬件"></a>正式焊接硬件</h1>
+      <p>上面的步骤都通过了，你可以进行下一步的工作了。否则焊了个硬件，没法烧录固件，岂不是浪费？</p>
+<p>本来打算把我的焊接图拍下的，后来想想看算了，除非打板，否则洞洞板拍焊接图毫无意义，还容易误导大家。所以大家还是看原理图吧。另外，我建议大家全部的模块都用插座，这样以后拆起来也方便。你看我全部的模块都是用的插座，都不是直接焊死的。图上好像都被挡住了，反正我基本都用的插座……</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-160.png">
+      </p>
+
+        <h1 id="原理图">
+          <a href="#原理图" class="heading-link"><i class="fas fa-link"></i></a><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h1>
+      <p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png">
+      </p>
+<p>在文档里面，原理图不是很清晰，所以大家可以去看PDF版本的。</p>
+<p>原理图看不明白，不知道怎么焊接实物的，我觉得你还是先打打基础比较好……</p>
+<p>我也是先画出原理图，才焊接的实物。</p>
+<p>原理图的硬件很简单，一个ESP8266模块，一个DS18B20温度传感器，一个4.7K或者10K的上拉电阻，一个IIC接口的0.9英寸的OLED（这个可有可无，实时显示的，不影响数据上传云服务器），一个5V转3.3V的稳压芯片ASM1117 3.3。</p>
+<p>如果考虑用18650锂电池供电，而非外接5V电源供电，还要考虑加上锂电池保护芯片和锂电池充电芯片，外加一个小开关。</p>
+<p>为了简单，其实是偷懒，这里就不做电池供电的设计了。而且ESP模块，耗电量蛮大的，一块2200mAh的电池，我估计最多24小时就要没电……所以用电池，除了特殊场合的应用，真心不是啥好想法。</p>
+<p>实测电流，居然只有80mA左右，还是在上传数据的时候，其它时间电流只有20mA左右。看来哪怕用充电宝供电，都可以坚持非常长的时间。</p>
+<p>实测：用使用了好几年的5000mAh的充电宝供电，大概工作了56个小时。</p>
+<p>看来以前用官方的AT命令固件，运算量蛮大的，造成非常耗电。</p>
+<p>自己写的Arduino代码，没那么多功能，所以耗电量大大下降，真是意外之喜。</p>
+<p>不过我建议用5V 手机充电器供电就可以了。</p>
+<p>以前老式的塞班手机充电器，500~800mA的，家里还好几个，废物利用了。</p>
+
+        <h1 id="下载传感器和OLED屏的库文件">
+          <a href="#下载传感器和OLED屏的库文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载传感器和OLED屏的库文件" class="headerlink" title="下载传感器和OLED屏的库文件"></a>下载传感器和OLED屏的库文件</h1>
+      <p>这里的内容实际应该放到软件环境搭建里面的，可是我忘了。</p>
+<p>所以就放在这里吧。</p>
+<p>Arduino的官方库里面，是没有常用传感器的库的，需要你去Git上下载。</p>
+<p>当然，我帮你下载好了。你拷贝一下就OK了。</p>
+<p>Arduino的库文件可以放到两个地方。</p>
+<p>官方常用库的存放目录是：C:\Program Files (x86)\Arduino\libraries</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-162.png">
+      </p>
+<p>你可以把库文件的目录拷贝到这个文件夹下面。</p>
+<p>实际上，第三方库文件的存放目录，一般是下面这个：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-163.png">
+      </p>
+<p>也就是操作系统“文档”目录下的“Arduino”目录下的” libraries”目录。</p>
+<p>因为我安装的是克隆版的盗版Win7，所以文档被放到D盘了。</p>
+<p>如果你是正版操作系统，这个文档应该在C盘下面。</p>
+<p>反正不管怎么样，你随便选一个目录，把我们用到的传感器和OLED的库，拷贝进去，然后重启Arduino就可以了。</p>
+<p>其实你也可以在Arduino的库管理器里面在线更新：（这个功能没有被屏蔽掉）</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-164.png">
+      </p>
+<p>搜一下模块或者芯片的名字，基本都能找到现成的库，而且还不止一个，让你不知道用哪个好。</p>
+<p>不过毕竟乱，我还是建议去Git里面搜，然后手工下载安装。</p>
+<p>在GIT里面，有个adafruit的元件库，里面有3400多个元件库，我想你很难找不到你要的库了……</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/search?utf8=%E2%9C%93&amp;q=adafruit&amp;type">https://github.com/search?utf8=%E2%9C%93&amp;q=adafruit&amp;type</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>=</p>
+<p>而且这个adafruit的库，里面的底层代码写的都比较规范，我喜欢手工下载它的库，不想用其它人的库了。</p>
+<p>有人可能不会在GIT里面下载东西，其实很简单。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-165.png">
+      </p>
+<p>看到绿色的按钮了吗？点开，点Download ZIP 就可以下载库的压缩包了。</p>
+<p>下载的压缩包，你可以用Arduino的项目—加载库—添加一个.ZIP库，添加到库里面。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-166.png">
+      </p>
+<p>也可以把压缩包解压后，拷贝到上面说的两个库文件的目录之一下面，重启Arduino即可。</p>
+<p>说句题外话：</p>
+<p>比如我用温度传感器的库来读取温度，先包含一下库的头文件，定义一下引脚，然后新建一个传感器的类，最后几句代码就非常简单的实现了温度的读取。</p>
+<p>DS18B20的底层代码，都封装成库了，用户根本不用关心底层怎么实现的，只要看看示例，复制一下代码就可以搞定。</p>
+<p>我以前用51单片机，换个型号，底层代码的延时基本都要重新改过，并且一一测试，真是折腾死了。Arduino这种方式，简直太方便了，难怪会这么火。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-167.png">
+      </p>
+
+        <h1 id="如何看示例">
+          <a href="#如何看示例" class="heading-link"><i class="fas fa-link"></i></a><a href="#如何看示例" class="headerlink" title="如何看示例"></a>如何看示例</h1>
+      <p>Arduino全部库里面基本都有示例代码。</p>
+<p>示例代码可以非常快的帮助我们学会该种库的使用。</p>
+<p>我以前常说，你不会写，你还不会抄吗？</p>
+<p>示例代码就是让我们来抄的，其实我做的这个东西，全部的代码，有一大半都是我拼凑的各种示例代码修改来的。</p>
+<p>要学Arduino，你必须知道怎么看示例。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-168.png">
+      </p>
+<p>其他的我不多说了。</p>
+<p>如果你有心，可以把我们这个东西用到的各种模块的示例都测试一遍。</p>
+<p>Arduino的代码，基本都带串口数据同步输出功能，右上角就是。 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-169.png">
+      </p>
+<p>一直串口定义和数据打印非常方便，二是单片机资源丰富，不在乎串口哪点资源消耗。</p>
+<p>不像51单片机那样，数据基本不会同步到串口输出，因为很占单片机的资源（增加固件大小，占用计算时间，占用定时器，破坏时序啥的）。</p>
+<p>所以你可以通过串口，很轻松的看到输出的数据。当然注意程序定义的串口的波特率和你选择的波特率要一样。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-170.png">
+      </p>
+<p>注意程序里面定义的波特率和串口监视器的波特率要一样。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-171.png">
+      </p>
+<p>常用的波特率是9600和115200。</p>
+<p>波特率的概念请自己去百度。不同波特率之间不能通信，或者通信数据会全部错误。</p>
+
+        <h1 id="软件设计流程">
+          <a href="#软件设计流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#软件设计流程" class="headerlink" title="软件设计流程"></a>软件设计流程</h1>
+      <p>用Arduino自带的例子烧录过几次后，确认Esp8266的开发板可用后，我就打算修改我以前的项目，做个不用外置单片机的云传感器出来。</p>
+<p>但是我这里还有几个问题需要解决，否则还是没法完成我这个项目。</p>
+<p>1、用ESP8266模块读取DS18B20、DHT12、BMP280等传感器的数据。</p>
+<p>通过下载各种传感器的开发库，用库自带的例子逐一读取数据 ，全部成功。我要做的就是把代码拼凑起来，同时要合理分配ESP8266少的可怜的几个IO口。</p>
+<p>还要查阅ESP8266的官方文档，确定每个引脚的功能。</p>
+<p>比如IIC用的SDA和SCL引脚，ESP8266是默认GPIO4和GPIO5引脚，别的引脚不能用。</p>
+<p>2、温度、湿度、气压、PM25等数据，通过OLED显示出来。</p>
+<p>主要是美观大方，不能简单的堆叠显示数据。</p>
+<p>OLED的显示界面，我修改了好几次才满意。还加上了信号强度显示和数据上传成功次数显示。</p>
+<p>PM25的数据，想通过EPS8266的ADC引脚读取，但是PM25模块比较大，接上去不美观，放弃了，以后有需要再接。而且ADC我测试，感觉精度不高，大概有0.1V的差距，不知道问题出在哪里，以后再研究。</p>
+<p>3、简单的WIFI设置页面。</p>
+<p>我需要一个简单web页面来设置ESP8266连接WIFI的SSID和密码。</p>
+<p>还要设置上传数据的公网服务器的网址或者IP，还有它的端口。</p>
+<p>我可不想再做２个APP（一个Android的，一个IOS的）来搞定这种事情。虽然我以前做过这种APP，但是我觉得这次要让ESP8266当Web服务器来搞定它。</p>
+<p>网上和实例代码，都是在程序里面写死的，这个不符合我的要求。</p>
+<p>百度了一个日本人的例子，里面用了Flash文件读写库来保存参数，非常有抄袭的价值。</p>
+<p>本来打算用JSON代码来传递数据，他用的是Flash内存里面文件保存和读取方式来传输SSID和密码，也是没问题的，而且代码更简单。</p>
+<p>当ESP8266上电时，3秒内按一下按键，则进入了WIFI设置模式。</p>
+<p>ESP会变成AP，我们可以通过手机WIFI或者笔记本的WIFI看到它。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-172.png">
+      </p>
+<p>连上ESP的WIFI，密码是11111111，然后打开浏览器，输入192.168.4.1，则进入设置页面。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-173.png">
+      </p>
+<p>输入WIFI的SSID，密码，还有你服务器的网址，端口，点提交就Ok了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-174.png">
+      </p>
+<p>当然，在执行这些操作的时候，我们的云传感器的OLED也要同步显示相同的信息。</p>
+<p>照片我就不拍了。</p>
+<p>４、数据上传服务器</p>
+<p>既然是云传感器，那么数据肯定要上传到云服务器上的。</p>
+<p>以前我是用AT命令连接云服务器的，现在AT命令没法用了，要自己写代码了。</p>
+<p>这个好像更简单，Arduino自带的例子里面有实例，网上 的代码也很多，测试过以后没有问题，也搞定了。</p>
+<p>当然，对我来说简单。</p>
+<p>我们知道，HTTP协议里面，常见的两种方法：GET和POST。</p>
+<p>GET常用来发送请求（Request）。当然它也可以带参数。</p>
+<p>网页的地址常见到：<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://xxxx.com/?a1=10&amp;a2=20&amp;a3=30">http://xxxx.com?a1=10&amp;a2=20&amp;a3=30</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>这里就是一个GET，它还带了a1,a2,a3 三个参数。</p>
+<p>Web服务器可以解析网址，从而把a1,a2,a3 的值保存到数据库里。</p>
+<p>这种也是最简单的HTTP的数据上传方式。</p>
+<p>但是也不保险，因为很容易就可以在网页里，通过构造网址，手工传一些错误数据进来。</p>
+<p>如果你用AT命令或者代码上传数据的话，</p>
+<p>你还要构造一个简单GET包，类似于下面：</p>
+<p>“GET “ + url + “ HTTP/1.1\r\n” +</p>
+<p>“Host: “ + host + “\r\n” +</p>
+<p>“User-Agent: BuildFailureDetectorESP8266\r\n” +</p>
+<p>“Connection: close\r\n\r\n”</p>
+<p>具体的去百度吧，东西太多，没法讲。</p>
+<p>这里User-Agent可以省略掉，不加也不影响服务器端的数据解析。</p>
+<p>除了GET外，我们还可以构造POST包。</p>
+<p>POST和GET的区别在于POST可以传输大量的数据，GET的传输的数据大小是有限制滴。</p>
+<p>POST的网址后面也可以跟参数，还要跟一个data包。</p>
+<p>然后Web服务器是数据解析方式也略有区别。</p>
+<p>总体而言，GET简单，POST复杂点，GET不安全，POST安全点。</p>
+<p>后面我会专门为GET和POST做个章节。这种东西，玩WIFI不能不掌握啊。</p>
+<p>5、建立一个云网址</p>
+<p>我需要一个云服务器来保存我的数据。还需要一个小网址来展示我的数据。</p>
+<p>实际上这些内容很多，我放到后面来说。</p>
+<p>当然，你也可以使用网上那些免费的云数据库，不过需要注册一个用户名，还要输入一个复杂的IDKey啥的，还要研究人家的数据上传协议。</p>
+<p>我最讨厌约束，我想要有自己的云服务器，自己的协议，最简单的那种。</p>
+<p>首先我要做一个小网站，这个网站的功能很简单，要解析云传感器发来的数据，并且保存到数据库里面。还能根据时间查询数据，数据要能下载为Excel文档，最好还要带一张酷炫点的曲线图表。</p>
+<p>两种方案：1、Linux系统，MySQL5.7数据库，Java或者PHP编程或者Python啥的， Nginx或者Apache代理。</p>
+<p>2、Windows2008系统，SqlServer2008数据库，.Net V4.0环境，IIS7.5代理啥的。</p>
+<p>随便选一种吧，小网站，几个页面而已。我不想开虚拟机，所以果断方案2。</p>
+<p>先下载安装一个VS2012，再安装一个SQLServer2008数据库，建一张简单的表。</p>
+<p>你说你不会用数据库，也不建表？也看不懂表结构？</p>
+<p>这里我不想多讲欸，跳过吧，后面我们用脚本建库就好了。哎，写到这里，我明显开始偷懒了。</p>
+<p>VS2012做一个简单查询，图表之类的，用百度的开源图表Echarts。</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://echarts.baidu.com/">http://echarts.baidu.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>不知道的可以去看看，做的不错，现在国内网站的图表，基本都是这个，很赞。</p>
+<p>我们只要折线图，所以下载一个最小版本就可以了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-175.png">
+      </p>
+<p>然后找个有类似图表的网站，查看网页源代码后，公然进行抄袭。</p>
+<p>数据大家都是用Ajax进行传输，前台的代码基本一样，改改文字就行了。</p>
+<p>它好像用的是Java，我用的.Net，不过没关系，后台代码我比它还简单。</p>
+<p>建立一个 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-176.png">
+       ，专门负责从数据库里面查询数据，然后发给前台的脚本，让前台的jQuery代码填充图表。</p>
+<p>再建立一个 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-177.png">
+       ，负责解析云传感器发来的数据，保存到SQLServer数据库里面。</p>
+<p>具体的代码就不讲了，太多太多，没法讲……后面有时间我单开教程讲吧。最后你们自己去百度，看看怎么写小网站，怎么搭建网站，怎么玩数据库，怎么写SQL……</p>
+<p>可是大部分人都不想学这些，都只是想做个传感器而已……</p>
+
+        <h1 id="拥有自己的云">
+          <a href="#拥有自己的云" class="heading-link"><i class="fas fa-link"></i></a><a href="#拥有自己的云" class="headerlink" title="拥有自己的云"></a>拥有自己的云</h1>
+      <p>其实我不缺公网服务器的，公司有几台闲置的公网服务器，我都可以拿来私用，但是没法给大家共享。所以，我要抛弃公司的服务器，和大家一起拥有自己的私有云。</p>
+<p>先看看国内有哪家公司比较厚道，会给我们一个自己的云呢？</p>
+<p>有钱鹅公司的理念一直是：不充钱，你怎么能变强呢？</p>
+<p>有意思公司的理念一直是：充了钱，你也不一定能变强。</p>
+<p>找不到公司的理念一直是：花了钱，你也不一定能治好病。</p>
+<p>招财猫公司的理念一直是：花了钱，你也不一定能买到真的。</p>
+<p>综合来说，只有去招财猫公司的网站找一下了。</p>
+<p>首先，我们要购买一个自己的域名。域名最好也是免费的。</p>
+<p>其次，我们要找一个免费的或者非常便宜的云服务器。</p>
+<p>1、申请自己云服务器的域名。</p>
+<p>先来到招财猫公司的网站：</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.aliyun.com/">https://www.aliyun.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>随便注册一个用户名和密码，或者用你的招财猫账号和密码登录。</p>
+<p>然后来到域名注册的地方</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain/searchresult/?keyword=fsdfds&amp;suffix=.top">https://wanwang.aliyun.com/domain/searchresult/?keyword=fsdfds&amp;suffix=.top</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>找一下 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-178.png">
+       这种域名。</p>
+<p>当然，com域名你是别想了，top和xin之类的还凑合。</p>
+<p>.win是最便宜的，因为工信部到现在没法备案这种域名，所以还是换个别的吧。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-179.png">
+      </p>
+<p>我选择了 mysensor.top</p>
+<p>也就是我的传感器，没人注册，1元拿下，哈哈。</p>
+<p>可惜还要备案。经过漫长的审核和等待，20天的样子，终于备案成功了。。。。。</p>
+<p>最坑爹的是，拍照片要购买招财猫公司的幕布，这个价格是15元，还不能退货。</p>
+<p>到手后，我发现根本不是布，只是一张有招财猫字样的海报纸。</p>
+<p>好吧，这是我买过最贵的海报了，果然你花了钱也不一定能买到真的……</p>
+<p>所谓的1元域名，最后要花16元……</p>
+<p>其他的基本就没花钱了，就是从申请到域名备案完成，等了大半个月。</p>
+<p>在浙江，你的网站不仅要工信部备案，公安机关也要备案。具体方式看阿里的说明吧。</p>
+<p>大家别忘了在自己的网站下面加备案的备案号啥的。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-180.png">
+      </p>
+<p>2、购买一个自己的云</p>
+<p>经过仔细的查找，最便宜，性能最差劲的云服务器，1年的价格也要近300块钱</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-181.png">
+      </p>
+<p>我有300块钱干嘛不好呢？云不能吃也不能喝，装B效果也非常有限。</p>
+<p>好吧，云服务器方案取消，去买一个最便宜的网站空间吧。</p>
+<p>最后6块钱买了个假云！！</p>
+<p>申请云空间的时候，请选择 Windows2008系统，SqlServer2008数据库，IIS7.5，.net V4.0之类的环境。</p>
+<p>不要选择Linux，MySQL之类的。不过后面也能随时更换好像。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-182.png">
+      </p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://cp.aliyun.com/login">https://cp.aliyun.com/login</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>看到6块钱了吧。</p>
+<p>1年6块钱的云，你还想怎么样？？想要真正的云服务器？</p>
+<p>招财猫公司的理念再跟着我念一遍……</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://wanwang.aliyun.com/hosting/free?spm=0.0.0.0.xkJ5oL">https://wanwang.aliyun.com/hosting/free?spm=0.0.0.0.xkJ5oL</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-183.png">
+      </p>
+<p>200M网页空间+20M的数据库空间+10G的月流量。</p>
+<p>我们只是存个云传感器数据而已，20M数据库空间大概够我们存20万条数据了，马马虎虎吧。</p>
+<p>200M的网页空间根本用不了，能和数据库空间互换一下就好了……</p>
+<p>在线支付6元大洋后，我们就可以拥有了自己空间。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-184.png">
+      </p>
+<p>貌似还不错，各种环境都搭配好了，直接通过FTP把网页和数据库备份文件拷贝过去就可以了。</p>
+<p>打开我的电脑，随便打开一个文件夹。然后在上面的地址栏里面输入</p>
+<p>ftp://你的FTP地址/</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-185.png">
+      </p>
+<p>鼠标右键，选择 登录，输入用户名和密码，保存密码，省的每次都输入。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-186.png">
+      </p>
+<p>你说你不知道你的FTP地址？？</p>
+<p>进<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://cp.aliyun.com/login">https://cp.aliyun.com/login</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>登录后，进入控制台页面，就可以看到你的FTP地址了。</p>
+<p>密码啥的，你自己记牢了。</p>
+
+        <h1 id="域名解析">
+          <a href="#域名解析" class="heading-link"><i class="fas fa-link"></i></a><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1>
+      <p>1、赶紧去备案你的域名。</p>
+<p>当然你也可以不备案，一直用临时域名。比如，我的临时域名：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-187.png">
+      </p>
+<p>这个域名每隔4个小时，就要重新登录一下。不过通过GET方式上传数据不受影响。</p>
+<p>2、域名解析。</p>
+<p>在<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://cp.aliyun.com/">https://cp.aliyun.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>的控制台，找到域名绑定。</p>
+<p>其实这里不绑定也没啥关系应该，主要是找到你的云空间的站点地址。</p>
+<p>比如，我的站点地址是：60.205.47.232</p>
+<p>这里添加域名，把你刚才申请的域名给添加进去。</p>
+<p>要添加2个，一个带”www.”，一个不带”www.”。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-188.png">
+      </p>
+<p>复制一下这个地址，然后去阿里云的域名解析那里，新建A记录。</p>
+<p>先进<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.aliyun.com/">https://www.aliyun.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>然后登录你注册域名的账户。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-189.png">
+      </p>
+<p>登录后，点一下上面的控制台。选择左边的“域名与网站（万网）”，进入“域名”</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-190.png">
+      </p>
+<p>找到你的域名，然后点“解析”，进入域名解析。哎，我都不想写了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-191.png">
+      </p>
+<p>这里对于新手来说，可以点一下新手引导设置啥的，或者直接加A记录。</p>
+<p>所谓的A就是Adress，也就是地址的意思。</p>
+<p>把刚才我们6块钱云空间的IP地址，复制进去。类似于我下面的图。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-192.png">
+      </p>
+<p>说个常识，域名是不带“www.”这个4个字符的。</p>
+<p>比如我申请的域名是mysensor.top</p>
+<p>而不是<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://www.mysensor.top/">www.mysensor.top</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。</p>
+<p>当然，你用上面2个都能访问我的网站。</p>
+<p>因为我A记录里面，www和@我都添加过。否则你只能访问其中一个。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-193.png">
+      </p>
+<p>你要填加2个A记录，主机记录分边是@和www</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-194.png">
+      </p>
+<p>好了，绑定好以后，你应该在几分钟后就能通过域名访问你的云了。</p>
+<p>但是几个小时后，这个就会失效，因为你得备案。给你几个小时，只是让你验证一下域名解析是否好用而已。</p>
+<p>备案请自己完成，比较繁琐。当然你也可以不备案，只用临时域名。</p>
+
+        <h1 id="配置自己的云">
+          <a href="#配置自己的云" class="heading-link"><i class="fas fa-link"></i></a><a href="#配置自己的云" class="headerlink" title="配置自己的云"></a>配置自己的云</h1>
+      <p>域名都配置好了，我们的云空间也要把网站搭建起来。</p>
+<p>1、配置数据库</p>
+<p>网站需要接入SQLServer2008数据库。</p>
+<p>为了简单易用，数据库里面只有1张表，tbl_Data</p>
+<p>进入我们的云主机控制台，<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://cp.aliyun.com/">https://cp.aliyun.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>选择“数据库信息”</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-195.png">
+      </p>
+<p>最右边有个“管理”，进入数据库管理网页，著名的DMS。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-196.png">
+      </p>
+<p>数据库名字，后面有个：1433，表示端口号。</p>
+<p>1433是SQLServer的默认端口，这里应该不用你做任何更改。</p>
+<p>你输入用户名和密码就可以了。</p>
+<p>先打开建表的SQL脚本文件， 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-197.png">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-198.png">
+      </p>
+<p>先把USE [xxxxxx] 里面的xxxxx改成你的数据库的名字</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-199.png">
+      </p>
+<p>也就是你的数据库的用户名后面加_db</p>
+<p>然后点一下 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-200.png">
+      </p>
+<p>把脚本复制到下面的空白处，</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-201.png">
+      </p>
+<p>执行完成后，左边的数据库下面，就应该有1张表了，名字是tbl_Data</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-202.png">
+      </p>
+<p>我截图里面有4张，是其他的测试库，这些都不用管。</p>
+<p>表名字前的dbo表示的是表的拥有者是数据库的普通用户。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-203.png">
+      </p>
+<p>表tbl_Data就是我们的云传感器的数据表。</p>
+<p>里面有7个字段，Id是流水号，也是主键。类型是int，也就是整数的意思。</p>
+<p>这个Id的数值是自动增长的，是标志种子。</p>
+<p>EspId是Esp8266模块的Mac地址，类型是可变字符，最多16个字符。</p>
+<p>Temp是存放温度数据的字段，依然用可变字符类型存储，最多10个字符。</p>
+<p>Humi是湿度，Pressure是气压，PM25就是PM2.5的数据，UpTime是上传时间，这个字段是依靠默认值getdate()，直接从数据库获取的，不需要自己填写。</p>
+<p>数据库的种类非常多，常见的就是10几种吧。所以你有兴趣可以全部掌握。而且很多知识都是相通的。</p>
+<p>最后要做的事情，就是修改网站配置文件里面数据库的信息。打开网页的目录，里面有个 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-204.png">
+       ，用记事本打开。</p>
+<p>里面有一段配置，你需要自己修改。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-205.png">
+      </p>
+<p>你要改4个地方：</p>
+<p>数据库的地址： 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-206.png">
+      </p>
+<p>把=后面的地址，改成你自己的。你的地址，在云空间的控制台哪里可以找到。</p>
+<p>记得后面有个；，不要给删掉了。</p>
+<p>数据库的名字： 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-207.png">
+      </p>
+<p>=后面就是数据库的名字，刚才我们说了半天了。</p>
+<p>数据库的用户名： 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-208.png">
+      </p>
+<p>数据库的密码： 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-209.png">
+      </p>
+<p>把这些都修改好后，保存文本文件。</p>
+<p>2、拷贝网站到云空间</p>
+<p>把网页目录里面的东西，全部通过FTP，拷贝到你云空间下面。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-210.png">
+      </p>
+<p>我的FTP下面的文件非常多，很多其他的网页，我就不截全图了。</p>
+<p>其他的一些设置，可以看看.net版本啥的，是不是4.0。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-211.png">
+      </p>
+<p>最后浏览器里面输入你的临时域名，看看能不能打开网站。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-212.png">
+      </p>
+<p>如果遇到上面的页面，输入FTP的用户名和FTP密码，4个小时内有效。</p>
+<p>如果能看到下面的页面，就表示OK了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-213.png">
+      </p>
+<p>当然，你如果没有备案啥的，下面的备案号之类的，你可以打开文件删掉。</p>
+<p>也就是DataList.aspx文件里面，最下面的地方。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-214.png">
+      </p>
+<p>对了，别忘了你的云传感器，重新上电启动，启动的时候，按一下按键进入WIFI配置。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-215.png">
+      </p>
+<p>Host里面请填入你的临时域名。Port是80。</p>
+<p>最后提交后，重启你的云传感器。</p>
+<p>然后打开你的云网站，点一下开始查询。 
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-216.png">
+      </p>
+<p>如果有数据，那么恭喜你，你终于成功了。。。。。。</p>
+<p>万里长征基本完成了。</p>
+<p>因为我们的云只有20M的数据库空间，所以我只会保留最后20万条数据。其他的记录，都会自动删除。</p>
+<p>可以用数据库的触发器删除，也可以加在网站的源代码里面。</p>
+<p>为了方便大家，我还是加到源代码里面。基本的思路，就是每上传10000条记录，则调用SQL删除多余的数据。</p>
+<p>这个教程是我2年多来，写的最累，也是最长的教程。</p>
+<p>其实是个很简单的东西，ESP8266连WIFI，往云上传东西嘛。</p>
+<p>教程写了这么多，还有很多的知识，都是一笔带过。可是我已经没法再详细了……</p>
+<p>大家能学到的知识依然很少，走马观花的看看而已。</p>
+<p>浅雪 2017年8月5日星期六</p>
+
+        <h1 id="GET和POST简介">
+          <a href="#GET和POST简介" class="heading-link"><i class="fas fa-link"></i></a><a href="#GET和POST简介" class="headerlink" title="GET和POST简介"></a>GET和POST简介</h1>
+      <p>这里我简单说一下GET和POST的包结构。详细的说明你们自己去百度。</p>
+<p>一个标准的GET包，基本就是下面这个样子的。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-217.png">
+      </p>
+<p>必须以GET开头，你不要写成Get、get之类的，大小写需要统一，不要自找麻烦。</p>
+<p>因为根据相关规定，HTTP的方法，也就是GET、POST之类的是区分大小写。</p>
+<p>剩下的那些Header，比如Accept、HOST、Connection之类的包括网站的地址啥的，都是不区分大小写的。</p>
+<p>GET后面跟着的是相对地址和参数。</p>
+<p>相对地址不说了，应该能看明白，就是网址的子目录或者其它文档。</p>
+<p>参数这里详细说一下。</p>
+<p>GET的作用，就是从服务器获取某些东西的意思。</p>
+<p>你要获取哪些东西，是可以自己通过参数来制定的。</p>
+<p>举个例子：GET /xxxx.html?stuid=abc&amp;name=张三&amp;class=一年级 HTTP/1.1</p>
+<p>这里有3个参数，stuid，name，class，他们之间通过&amp;符号分隔开。</p>
+<p>第一个参数和相对地址之间，通过？分隔。</p>
+<p>参数名称和参数值之间，通过=分隔。</p>
+<p>HTTP/1.1和前面的参数，通过空格 来分割。</p>
+<p>另外，GET后面的那堆东西，不是全部必须的，但是有些是不能省略的。比如我红线标出来的这些。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-218.png">
+      </p>
+<p>GET肯定是不能省略的，GET后面的参数也可以不要，但是 /必须要一个，这个是你要GET的路径。比如GET / HTTP/1.1，表示你要GET根目录下的默认文档。</p>
+<p>HTTP/1.1是绝对不能省略的，它告诉服务器你们之间打算用HTTP/1.1通信协议。</p>
+<p>Host也是绝对不能省略的，它是GET的对象的网址。这个也可以是一个IP地址。</p>
+<p>Connection加不加都行，它的状态常用的有Close和Keep-Alive，也就是每次通信后，是否关闭连接或者保持连接。如果你不加，就让服务器自己看着办。</p>
+<p>这里说个题外话，GET包的每行后面其实都有2个看不见的符号：/r/n ，也就是回车+换行。服务器也是根据/r/n来分隔每行的。</p>
+<p>POST包的结构和GET基本相似</p>
+<p>只不过把GET换成了POST，还多了2个东西：一个是Content-Length，这个是要发送的数据的字节长度。还一个就是要发送的数据，当然数据也可以不要。</p>
+<p>你要发送的数据，可以是文本，也可以是文件、图片、视频啥的。</p>
+<p>对于POST包来说，安全性比GET包更高一点。</p>
+<p>你可以在网页上用手工构造一个GET包，但是你很难构造一个POST包。</p>
+<p>我喜欢用GET，后面带一些参数，来上传数据。因为GET包比较简单。</p>
+<p>当然，你也可以用POST，后面带一些参数来上传数据，基本和GET一样简单。</p>
+<p>但是，最后还是把数据放到POST的数据包里。</p>
+<p>数据包里面，你可以把你的数据，自由的组合。你可以用数据１,数据2,数据3……</p>
+<p>之类的方式，通过逗号来做分割符，服务器收到包后，把包转为字符串，然后在分割字符串。也可以通过JSON来处理，或者XML来处理。</p>
+<p>JSON和XML不知道的，都自己去百度。服务器端要处理JSON或者XML数据，都要安装对应的插件，简单的数据，你也可以挑战自己的通过文本处理来解析，哈哈。</p>
+<p>如果你以后用ESP8266模块做服务器处理JSON数据，那么尽量要使用ESP8266JSON之类的第三方库才行。</p>
+
+        <h1 id="GET和POST实例">
+          <a href="#GET和POST实例" class="heading-link"><i class="fas fa-link"></i></a><a href="#GET和POST实例" class="headerlink" title="GET和POST实例"></a>GET和POST实例</h1>
+      <p>说了那么多，不给例子的都是耍流氓。</p>
+<p>我平常看学习文档，最恨那种没例子的，新手根本不知道怎么入门。</p>
+<p>鉴于我们是使用ESP8266模块进行开发的，我这里用ESP8266模块自带的AT命令来给出例子。</p>
+<p>如果你的ESP8266模块自己烧录了Arduino代码，那么里面的AT命令固件就被你覆盖掉了，所以你最好使用原装的模块，里面默认的固件都是AT命令固件。</p>
+<p>这里最好使用转接板，要不USB转TTL烧录器，不太好接到ESP8266上去。</p>
+<p>或者你花钱买那种转接板上自带ch340芯片的转接板，这样连烧录器都省掉了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-219.png">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-220.png">
+      </p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.33.7be0196r5S7P0&amp;id=531515702108">https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.33.7be0196r5S7P0&amp;id=531515702108</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>这个玩意的正面带一个esp8266模块，反面就是ch340芯片和稳压芯片，还带一个烧录开关，反正做的挺全面的。</p>
+<p>比那种5毛钱一个的单独转接板，要方便一点。不过我手头上很多esp8266模块了，还有好多烧录器，我也懒的买这种，不花冤枉钱。我用的是下面这种，就接4根线：3.3V，GND，RX，TX。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-221.png">
+      </p>
+<p>如果你打算买这种模块，最好买两个。一个用来做Arduino开发，一个用来测试AT命令。要不你烧录了Arduino的固件，里面有AT命令的固件就没了。当然你也可以重新从官方下载带AT的固件烧回去，不过就很麻烦了。</p>
+<p>可能有人不懂啥叫AT命令，其实很简单，你也可以去百度一下：</p>
+<p>AT命令就是用标准串口来收发的指令集。它以”AT”开头，+命令，/r/n（回车换行符）结束。</p>
+<p>这样，对设备的控制就大大简化了，转换成简单的串口数据通信了。</p>
+<p>还很多设备都支持AT命令，不单单是ESP8266。比如常见的蓝牙串口模块。</p>
+<p>当然，它们的指令都是AT开头，回车换行符结尾而已，中间的命令基本都不一样。</p>
+<p>为了配合GET和POST的测试，我还要往我的云里面加一个测试页面，让大家更方便的测试。</p>
+<p>首先呢，我先在VS2012里面新建一个没有显示页面的文档： test.ashx</p>
+<p>然后里面判断一下请求的类型，再读取2个简单参数：id和name</p>
+<p>如果请求是POST，那么再读取一下POST的data数据，把它转成字符串显示。</p>
+<p>先用浏览器测试一下GET方式。</p>
+<p>打开浏览器，在地址栏输入：mysensor.top/test.ashx</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-222.png">
+      </p>
+<p>再输入2个参数：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-223.png">
+      </p>
+<p>为啥不加GET、HTTP/1.1和HOST之类的东西了呢，因为浏览器发送GET包的时候，会自动帮你补全的，你加了反而不对了。我们自己发包的时候，就要加这些东西了。</p>
+<p>如果是POST怎么测试呢？找个在线测试工具</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="http://www.sojson.com/httpRequest/">http://www.sojson.com/httpRequest/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-224.png">
+      </p>
+<p>再看看返回值</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-225.png">
+      </p>
+<p>这可以看到，在线POST测试工具，把参数也给当data发出来了。其实，data里面的东西和参数是互不干扰的。</p>
+<p>下面我们用ESP8266模块+烧录器，通过AT命令和串口，来测试GET和POST。</p>
+<p>首先你要准备一个USB转TTL的烧录器，推荐8块钱的那款，输出电流较大。</p>
+<p>然后准备一个ESP8266模块，最好带转接板，杜邦针焊好。</p>
+<p>接线方式很简单，不会的可以翻到上面“搭建ESP8266的最小环境”那里去看看。</p>
+<p>这里我们要用到一个工具，串口助手。其实这个玩意并不好，只不过人都懒，能用就可以。不过这个小工具，虽然有各种小bug，也算是超值了，全国都在用。后来作者也更新了新版本，对应的功能和广告也更多了，我下载了但是也懒得去用新版本的。</p>
+<p>把烧录器插到电脑上，驱动程序安装好，就可以打开串口助手了。</p>
+<p>选择一下串口，ESP8266-12E模块的波特率默认是115200。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-226.png">
+      </p>
+<p>发送新行一定要打勾。</p>
+<p>我前面说了，AT命令是以换行符来判断命令的结束的。</p>
+<p>ESP8266的AT命令手册里面，有详细和全面的AT命令，这里我就不多说了。</p>
+<p>我只说我们用到的几个。</p>
+<p>首先看看你的ESP8266模块是否能正常工作。</p>
+<p>输入：AT</p>
+<p>然后点发送。</p>
+<p>注意，命令后面不要有空格，否则会返回Error。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-227.png">
+      </p>
+<p>如果你能收到ESP8266的回应，说明你们模块正常工作，可以进行下一步的操作。</p>
+<p>依次输入以下AT命令：</p>
+<p>AT+CWMODE=1</p>
+<p>这个命令是把ESP模块设置为Station模式，也就是客户端模式。</p>
+<p>AT+CWJAP=”SSID”,”password”</p>
+<p>输入你家的WiFi的SSID和密码，让ESP8266模块能连上WIFI。</p>
+<p>上面这2条命令，输一遍就可以了，它能够自动保存。</p>
+<p>当连上WIFI后，你可以发送AT+CIFSR 来看看是否真的连上WIFI了。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-228.png">
+      </p>
+<p>当基本的设置完成后，我们就可以创建一个TCP的客户端，去发送GET命令了。</p>
+<p>有人问，为啥要创建一个TCP的客户端啊</p>
+<p>原因很简单，GET和POST只是网络封包的类型，你只有在客户端里面才能把它们发送到服务器端。</p>
+<p>我们上面可以通过网页直接写GET，但是ESP8266模块里面，可放不下浏览器，只能自己构造包来发送。</p>
+<p>依次输入</p>
+<p>AT+CIPSTART=”TCP”,”mysensor.top”,80</p>
+<p>和服务器建立TCP连接，服务器地址：mysensor.top，端口：80。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-229.png">
+      </p>
+<p>AT+CIPMODE=1</p>
+<p>设置透传模式</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-230.png">
+      </p>
+<p>AT+CIPSEND</p>
+<p>开始发送数据</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-231.png">
+      </p>
+<p>当你看到&gt;符号的时候，就表示可以往服务器发送GET或者POST包啦。</p>
+<p>先发一个GET包</p>
+<p>GET /test.ashx?id=123456&amp;name=xiaowang HTTP/1.1</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-232.png">
+      </p>
+<p>点了发送，可是没收到返回数据。</p>
+<p>没收到数据就是对的，应为你的包还没发完呢，继续发。</p>
+<p>Host:mysensor.top</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-233.png">
+      </p>
+<p>好了，一个最简单的GET包已经发好了。</p>
+<p>可是告诉服务器我不发了，结束了，你可以给我返回数据了呢？</p>
+<p>很简单，再发一个换行符就可以啦。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-234.png">
+      </p>
+<p>下面不要放任何东西，直接发送一个换行符。</p>
+<p>看看我们收到的数据。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-235.png">
+      </p>
+<p>比用浏览器发GET，多了一大堆东西。浏览器会帮你过滤掉这些没用的东西，而直接给你显示数据。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-236.png">
+      </p>
+<p>发一个GET封包是不是很简单呢？</p>
+<p>难者不会，会者不难。</p>
+<p>我们再继续测试发POST包。</p>
+<p>把刚才的GET包，稍微改一下。</p>
+<p>我们先不发data，只发id和name两个参数看看。</p>
+<p>POST /test.ashx?id=123456&amp;name=xiaowang HTTP/1.1</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-237.png">
+      </p>
+<p>Host:mysensor.top</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-238.png">
+      </p>
+<p>因为对于POST包，数据长度必须要有，也就是data，因为我们这次不发data，所以长度为0。</p>
+<p>Content-Length:0</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-239.png">
+      </p>
+<p>再发一条空指令，表示发包结束。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-240.png">
+      </p>
+<p>再看看我们收到的数据。和GET基本一样。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-241.png">
+      </p>
+<p>现在我们把data加上，再看看结果。注意我的发送顺序。</p>
+<p>POST /test.ashx?id=123456&amp;name=xiaowang HTTP/1.1</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-242.png">
+      </p>
+<p>Host:mysensor.top</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-243.png">
+      </p>
+<p>Content-Length:10</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-244.png">
+      </p>
+<p>发送一条空语句</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-245.png">
+      </p>
+<p>发送我们的data</p>
+<p>1234567890</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-246.png">
+      </p>
+<p>发送完data后，会立刻收到服务器发来的数据：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-247.png">
+      </p>
+<p>在这里，我们可以看到，data数据和参数id、name，并没有混到一起。</p>
+<p>如果我不想让别人看到我的id和name，我完全可以把id和name放到data里面发送。</p>
+<p>比如下面这样：</p>
+<p>POST /test.ashx HTTP/1.1</p>
+<p>Host:mysensor.top</p>
+<p>Content-Length:15</p>
+<p>发送新行</p>
+<p>123456,xiaowang</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-248.png">
+      </p>
+<p>这样，id和name就被塞到data里面发送了。别人看不到你的数据，也不知道你的数据格式，安全性就提高了。</p>
+<p>而且data里面不仅可以放字符串，还能放图片，放文件，放很多东西……</p>
+<p>在我的Arduino代码里，我是用GET来传输数据给服务器的，因为这样做简单。</p>
+<p>我也可以改成POST的，毕竟网上POST的例子不多。在Arduino里，需要自己建一个client，去连服务器。然后往client里面丢封包，和AT命令其实也差不多。</p>
+<p>我看到一些免费的物联网，他们的POST协议，最后的data，是要组合成JSON的格式来存放数据的，都是一样的道理。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://whrblog.online">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://whrblog.online/2017/08/11/217/">https://whrblog.online/2017/08/11/217/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://whrblog.online/tags/%E6%B5%85%E9%9B%AA%E7%9A%84DIY/">浅雪的DIY</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">小米路由器monlor tools插件</span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">
+          前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E8%A6%81%E5%81%9A%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number">2.</span> <span class="toc-text">
+          我们要做的东西</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87"><span class="toc-number">3.</span> <span class="toc-text">
+          硬件准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">
+          搭建软件环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAESP8266%E7%9A%84%E6%9C%80%E5%B0%8F%E7%8E%AF%E5%A2%83"><span class="toc-number">5.</span> <span class="toc-text">
+          搭建ESP8266的最小环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%A7%E5%BD%95ESP8266%E6%B5%8B%E8%AF%95"><span class="toc-number">6.</span> <span class="toc-text">
+          烧录ESP8266测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E7%84%8A%E6%8E%A5%E7%A1%AC%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">
+          正式焊接硬件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-number">8.</span> <span class="toc-text">
+          原理图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E5%92%8COLED%E5%B1%8F%E7%9A%84%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">
+          下载传感器和OLED屏的库文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%9C%8B%E7%A4%BA%E4%BE%8B"><span class="toc-number">10.</span> <span class="toc-text">
+          如何看示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B"><span class="toc-number">11.</span> <span class="toc-text">
+          软件设计流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%A5%E6%9C%89%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%91"><span class="toc-number">12.</span> <span class="toc-text">
+          拥有自己的云</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-number">13.</span> <span class="toc-text">
+          域名解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%91"><span class="toc-number">14.</span> <span class="toc-text">
+          配置自己的云</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GET%E5%92%8CPOST%E7%AE%80%E4%BB%8B"><span class="toc-number">15.</span> <span class="toc-text">
+          GET和POST简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GET%E5%92%8CPOST%E5%AE%9E%E4%BE%8B"><span class="toc-number">16.</span> <span class="toc-text">
+          GET和POST实例</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://i.loli.net/2021/08/23/TiEWIRoPFNYbcrS.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">若我不再能奔跑，请让我在梦中飞翔。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/wanghurui" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/Hacker_Whr" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/whr-67-78" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=1790538934" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://500px.com.cn/whur" target="_blank" rel="noopener" data-popover="500PX" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-500px"></i></span></a></div><div class="sidebar-ov-feed"><span class="sidebar-ov-feed-rss"><a class="sidebar-ov-feed-rss__link" href="/atom.xml" target="_blank" rel="noopener"><span class="sidebar-ov-feed-rss__icon"><i class="fas fa-rss"></i></span><span>RSS 订阅</span></a></span></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">37</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div><a href="https://uptime.rec709.cf/" rel="noopener" target="_blank">Server Status</a></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"></div><div class="search-results"><div id="algolia-hits"></div></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><script>window.addEventListener('DOMContentLoaded', function () {
+  $('.header-nav-search').on('click', function (e) {
+    e.stopPropagation();
+
+    $('body').css('overflow', 'hidden');
+    $('.search-popup')
+      .velocity('stop')
+      .velocity('transition.expandIn', {
+        duration: 300,
+        complete: function () {
+          $('.search-popup input').focus();
+        }
+      });
+    $('.search-mask')
+      .velocity('stop')
+      .velocity('transition.fadeIn', {
+        duration: 300
+      });
+  });
+
+  function closeSearch () {
+    $('body').css({ overflow: 'auto' });
+    $('.search-popup').css({ display: 'none' });
+    $('.search-mask').css({ display: 'none' });
+  }
+
+  $('.search-mask, .search-close').on('click', function () {
+    closeSearch();
+  });
+
+  $(document).on('keydown', function (e) {
+    // Escape <=> 27
+    if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+      closeSearch();
+    }
+  });
+
+  var algolia = CONFIG.algolia;
+  if (!algolia && !(algolia.appId && algolia.apiKey && algolia.indexName)) {
+    return console.error('Algolia setting is invalid.');
+  }
+
+  var search = instantsearch({
+    appId: algolia.appId,
+    apiKey: algolia.apiKey,
+    indexName: algolia.indexName,
+    searchParameters: {
+      hitsPerPage: algolia.hits.per_page || 10
+    },
+    searchFunction: function (helper) {
+      var searchInput = $('.search-input').find('input');
+
+      if (searchInput.val()) {
+        helper.search();
+      }
+    }
+  });
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '.search-input',
+      reset: false,
+      magnifier: false,
+      placeholder: algolia.languages.inputPlaceholder
+    })
+  );
+
+  // The hits of search results.
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#algolia-hits',
+      templates: {
+        item: function (data) {
+          var link = data.permalink ? data.permalink : CONFIG.root + data.path;
+          return (
+            '<a href="' + link + '" class="algolia-hit-item-link">' +
+              data._highlightResult.title.value +
+            '</a>'
+          );
+        },
+        empty: function (data) {
+          return (
+            '<div id="algolia-hits-empty">' +
+              algolia.languages.hitsEmpty.replace(/\$\{query}/, data.query) +
+            '</div>'
+          );
+        }
+      },
+      cssClasses: {
+        item: 'algolia-hit-item'
+      }
+    })
+  );
+
+  // The stats of search results.
+  if ($('#algolia-stats')[0]) {
+    search.addWidget(
+      instantsearch.widgets.stats({
+        container: '#algolia-stats',
+        templates: {
+          body: function (data) {
+            var stats = algolia.languages.hitsStats
+              .replace(/\$\{hits}/, data.nbHits)
+              .replace(/\$\{time}/, data.processingTimeMS);
+            return (
+              stats +
+              '<span class="algolia-logo pull-right">' +
+                '<img src="' + CONFIG.root +
+                `${CONFIG.sourcePath.images}/algolia.svg" alt="Algolia" />` +
+              '</span>'
+            );
+          }
+        }
+      })
+    );
+  }
+
+  // The pagination of the results.
+  search.addWidget(
+    instantsearch.widgets.pagination({
+      container: '#algolia-pagination',
+      scrollTo: false,
+      showFirstLast: false,
+      labels: {
+        first: '<i class="fa fa-angle-double-left"></i>',
+        last: '<i class="fa fa-angle-double-right"></i>',
+        previous: '<i class="fa fa-angle-left"></i>',
+        next: '<i class="fa fa-angle-right"></i>'
+      },
+      cssClasses: {
+        root: 'pagination',
+        item: 'pagination-item',
+        link: 'page-number',
+        active: 'current',
+        disabled: 'disabled-item'
+      }
+    })
+  );
+
+  search.start();
+});</script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'atwHbFJu4O787cc0K5uyEQzw-gzGzoHsz',
+    appKey: 'GPjxAqd2KmMaKKFX2RA5SzDd',
+    notify: true,
+    verify: true,
+    placeholder: '你是我这一生只会遇见一次的惊喜',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
