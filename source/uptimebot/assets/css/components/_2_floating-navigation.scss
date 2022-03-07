@@ -1,0 +1,199 @@
+@use '../base' as *;
+@use '_1_hiding-nav.scss' as *;
+@use '_1_modal-window.scss' as *;
+
+/* -------------------------------- 
+
+File#: _2_floating-navigation
+Title: Floating Navigation
+Descr: A header that auto-hides and controls an expanded modal navigation
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+/* #region (Header) */
+.float-nav-header {
+  background-color: alpha(var(--color-bg-light), 0.98);
+  backdrop-filter: blur(10px);
+
+  border-radius: calc(var(--radius-lg)*1.2);
+  padding: var(--space-xs);
+  box-shadow: var(--inner-glow), var(--shadow-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: box-shadow var(--hide-nav-transition-duration, .3s);
+
+  .hide-nav--off-canvas & {
+    box-shadow: var(--inner-glow);
+  }
+}
+
+.float-nav-header__logo {
+  display: block;
+  color: var(--color-contrast-higher);
+  transition: .2s;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.float-nav-header__link {
+  color: alpha(var(--color-contrast-higher), 0.8);
+  text-decoration: none;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  transition: color .2s;
+
+  &:hover {
+    color: alpha(var(--color-contrast-higher), 1);
+  }
+}
+
+.float-nav-header__menu-btn {
+  display: inline-flex;
+  align-items: center;
+
+  background-color: alpha(var(--color-contrast-higher), 0.1);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-lg);
+
+  transition: .2s;
+
+  .icon {
+    font-size: 13px; // icon size
+  }
+
+  &:hover {
+    background-color: alpha(var(--color-contrast-higher), 0.075);
+    color: var(--color-contrast-higher);
+    cursor: pointer;
+  }
+
+  @include breakpoint(md) {
+    font-size: var(--text-sm);
+  }
+}
+/* #endregion */
+
+/* #region (Modal Window) */ 
+.float-nav-modal {}
+
+.float-nav-modal__close-btn { // close (X) button
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid alpha(var(--color-contrast-higher), 0.2);
+
+  display: flex;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  transition: .2s;
+
+  .icon {
+    display: block;
+    margin: auto;
+    font-size: 20px; // icon size
+  }
+
+  &:hover {
+    color: var(--color-contrast-higher);
+    border-color: currentColor;
+
+    .float-nav-modal__close-icon-g > * {
+      stroke-dashoffset: 48;
+    }
+  }
+}
+
+.float-nav-modal__close-icon-g { // icon group
+  > * { // animated SVG paths
+    transform-origin: 50% 50%;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 24;
+    transition: stroke-dashoffset .5s var(--ease-in-out);
+  }
+
+  > *:last-child {
+    transition-delay: .1s;
+  }
+}
+
+.float-nav-modal__list {
+  counter-reset: list-items;
+
+  li {
+    counter-increment: list-items;
+  }
+}
+
+.float-nav-modal__link { // main nav link
+  display: inline-flex;
+  padding: var(--space-xxxxs) 0;
+
+  color: var(--color-contrast-higher);
+  text-decoration: none;
+  font-size: var(--text-xl);
+  line-height: 1;
+
+  transition: .2s;
+
+  &::before { // bullets
+    content: "0"counter(list-items)"";
+    width: 2em;
+    margin-right: var(--space-md);
+
+    color: var(--color-contrast-medium);
+
+    font-size: 0.3em;
+    font-variant-numeric: slashed-zero;
+    font-feature-settings: 'tnum';
+    line-height: inherit;
+    transition: inherit;
+
+    transform: translateY(0.3em);
+
+    display: none; // hide on smaller screens
+  }
+
+  &:hover {
+    color: var(--color-primary);
+
+    span {
+      color: currentColor;
+    }
+  }
+
+  @include breakpoint(xs) {
+    font-size: var(--text-xl);
+  }
+
+  @include breakpoint(md) {
+    font-size: var(--text-xxl);
+
+    &::before {
+      display: inline;
+    }
+  }
+}
+
+.float-nav-modal__social-btn { // social button
+  color: var(--color-contrast-medium);
+  transition: .2s;
+
+  .icon {
+    display: block;
+    font-size: 16px; // icon size
+  }
+
+  &:hover {
+    color: var(--color-contrast-higher);
+  }
+}
+/* #endregion */

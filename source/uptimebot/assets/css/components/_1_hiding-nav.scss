@@ -1,0 +1,33 @@
+@use '../base' as *;
+@use '_1_anim-menu-btn.scss' as *;
+@use '_2_flexi-header.scss' as *;
+@use '_1_sub-navigation.scss' as *;
+
+/* -------------------------------- 
+
+File#: _1_hiding-nav
+Title: Auto Hiding Navigation
+Descr: A Navigation container that auto-hides when the user scrolls down, and is revealed when they scrolls back up
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.hide-nav {
+  --hide-nav-transition-duration: 0.3s;
+  position: sticky !important;
+  top: 0;
+  will-change: transform;
+  transition: transform var(--hide-nav-transition-duration), background-color var(--hide-nav-transition-duration);
+}
+
+.hide-nav--fixed {
+  background-color: transparent;
+}
+
+.hide-nav--has-bg {
+  background-color: var(--color-bg);
+}
+
+.hide-nav--off-canvas { // main header is off-canvas
+  // add off-canvas custom style (if any)
+}

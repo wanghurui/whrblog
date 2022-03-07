@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="./uptime/css/main.ff083826.css" rel="stylesheet">
+  <title>Uptime Status</title>
+</head>
+<body>
+
+  <div class="container max-width-sm hide-nav padding-y-sm z-index-header pointer-events-none js-hide-nav js-hide-nav--main">
+    <header class="float-nav-header pointer-events-auto">
+      <div class="flex-basis-0 flex-grow flex items-center display@md">
+        <ul class="flex items-center gap-sm padding-left-xs">
+          <!-- <li class="flex items-center"><a class="float-nav-header__link" href="https://krunk.cn" target="_blank">博客</a></li> -->
+          <li class="flex items-center"><a class="float-nav-header__link" id="dark_button" href="/?color=dark">Dark Mode</a></li>
+        </ul>
+      </div>
+      <!-- <div class="flex-basis-0 flex-grow flex items-center display@md">
+        <ul class="flex items-center gap-sm padding-left-xs">
+          <li class="flex items-center"><a class="float-nav-header__link" href="https://krunk.cn">Blog</a></li>
+          <li class="flex items-center"><a class="float-nav-header__link" href="https://api.krunk.cn">KAPI</a></li>
+        </ul>
+      </div> -->
+    
+      <div class="flex-basis-0 flex-grow flex items-center justify-start padding-left-xs justify-center@md padding-left-0@md">
+        <a class="float-nav-header__logo" href="/" style="text-decoration: none;">
+          <h4>UPTIME</h4>
+        </a>
+      </div>
+
+      <div class="flex-basis-0 flex-grow flex items-center justify-end">
+        <ul class="flex items-center gap-sm">
+          <!-- <li class="flex items-center display@md"><a class="float-nav-header__link" href="https://api.krunk.cn">KAPI</a></li> -->
+          <li>
+            <button class="reset float-nav-header__menu-btn js-tab-focus" aria-controls="float-nav-modal">
+              <span>More</span>
+
+              <svg class="icon margin-left-xxs" aria-hidden="true" viewBox="0 0 13 13">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="0.5" y1="6.5" x2="12.5" y2="6.5"/>
+                  <line x1="0.5" y1="2.5" x2="12.5" y2="2.5"/>
+                  <line x1="0.5" y1="10.5" x2="12.5" y2="10.5"/>
+                </g>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <section class="position-relative z-index-1 padding-y-xl">
+    <div class="container max-width-adaptive-md">
+      <div class="text-component">
+
+        <div class="margin-bottom-lg">
+          <div class="container max-width-adaptive-sm">
+            <article class="text-component line-height-lg text-space-y-md">
+              <h1 aria-label="Scroll reveal effects">
+                <span class="reveal-fx reveal-fx--text-mask"><i>Uptime</i></span>
+                <span class="reveal-fx reveal-fx--text-mask" data-reveal-fx-delay="100"><i>Infomation</i></span>
+                <span class="reveal-fx reveal-fx--text-mask" data-reveal-fx-delay="200"><i></i></span>
+              </h1>
+              <p class="reveal-fx reveal-fx--translate-up">Keep monitoring everywhere you go.</p>
+            </article>
+          </div>
+        </div>
+
+        <div id="app"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-v4 padding-y-lg">
+    <div class="container max-width-lg">
+
+      <div class="footer-v4__logo">
+        <a href="/" style="text-decoration: none;">
+          <h4>UPTIME</h4>
+        </a>
+      </div>
+
+      <p class="footer-v4__print">&copy; KRUNK DESIGN. All rights reserved.</p>
+      <p class="footer-v4__print">在 STATUS.ORG.CN 基础上开发</p>
+    </div>
+  </footer>
+
+  <!-- modal window -->
+  <div id="float-nav-modal" class="float-nav-modal modal modal--animate-fade bg js-modal" data-theme="demo-dark" data-modal-prevent-scroll="body">
+    <div class="padding-top-xl height-100% overflow-auto momentum-scrolling">
+      <div class="container max-width-lg height-100% flex flex-column">
+        <header class="flex items-center justify-between">
+          <a class="float-nav-header__logo" href="/" style="text-decoration: none;" target="_blank">
+            <svg class="block" width="78" height="18" viewBox="0 0 78 18">
+              <title>Go to homepage</title>
+              <h4>UPTIME</h4>
+            </svg>
+          </a>
+    
+          <button class="reset float-nav-modal__close-btn js-modal__close js-tab-focus">
+            <svg class="icon" viewBox="0 0 20 20">
+              <title>Close modal window</title>
+              <g class="float-nav-modal__close-icon-g" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="2" y1="2" x2="18" y2="18"/>
+                <line x1="18" y1="2" x2="2" y2="18"/>
+              </g>
+            </svg>
+          </button>
+        </header>
+    
+        <!-- <nav class="padding-y-xl width-66%@md" role="navigation" aria-label="Main">
+          <ol class="float-nav-modal__list grid gap-xs">
+            <li><a class="float-nav-modal__link" href="https://krunk.cn" target="_blank">Blog</a></li>
+            <li><a class="float-nav-modal__link" href="https://krunk.cn/page/board/" target="_blank">Board</a></li>
+            <li><a class="float-nav-modal__link" href="https://krunk.cn/page/links/" target="_blank">Friends</a></li>
+            <li><a class="float-nav-modal__link" href="mailto:webmaster@krunk.cn" target="_blank">E-Mail Us</a></li>
+          </ol>
+        </nav> -->
+    
+        <footer class="border-top border-contrast-higher border-opacity-10% padding-y-sm margin-top-auto">
+          <div class="flex items-center justify-between">
+            <p class="text-xs color-contrast-medium">&copy; KRUNK DESIGN</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./uptime/js/main.e8737bff.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script>
+  var url = new URL(location.href);
+  var param = url.searchParams.get("color");
+  if (param=="dark"){
+    document.body.setAttribute("data-theme","dark");
+    document.getElementById("dark_button").innerHTML = "Light Mode";
+    document.getElementById("dark_button").setAttribute('href', "/");
+  }
+  </script>
+</body>
+</html>

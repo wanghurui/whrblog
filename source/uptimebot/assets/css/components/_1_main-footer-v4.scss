@@ -1,0 +1,122 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_main-footer-v4
+Title: Main Footer v4
+Descr: Footer navigation template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.footer-v4 {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-v4__nav {
+  margin-bottom: var(--space-lg);
+}
+
+.footer-v4__nav-item {
+  margin-bottom: var(--space-sm);
+
+  a {
+    color: var(--color-contrast-high);
+    font-size: 1.25em;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.footer-v4__logo {
+  margin-bottom: var(--space-sm);
+  
+  a, svg, img {
+    width: 104px;
+    height: 30px;
+    display: block;
+  }
+}
+
+.footer-v4__print {
+  color: var(--color-contrast-medium);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-v4__socials {
+  display: flex;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    margin-right: var(--space-xs);
+    color: var(--color-contrast-medium); // icons color
+
+    &:hover {
+      color: var(--color-contrast-high);
+    }
+
+    svg {
+      display: block;
+      width: 1.25em;
+      height: 1.25em;
+      color: inherit;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .footer-v4 {
+    text-align: center;
+  }
+
+  .footer-v4__nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-v4__nav-item  {
+    display: inline-block; // fallback
+    margin: var(--space-xxxs) var(--space-xs);
+
+    a {
+      font-size: 0.75em; // reduce nav items size
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .footer-v4__logo {
+    display: inline-block;
+  }
+
+  .footer-v4__print {
+    font-size: var(--text-xs);
+  }
+
+  .footer-v4__socials {
+    justify-content: center;
+
+    a {
+      margin: 0 var(--space-xxxs);
+
+      svg {
+        width: 1em;
+        height: 1em;
+      }
+    }
+  }
+}
