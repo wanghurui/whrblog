@@ -163,3 +163,9 @@ post_wordcount:
   min2read: true                # 是否显示估算阅读分钟
   totalcount: true          # 是否在网站底部显示所有文章字数之和
   separated_meta: true  
+
+nofollow:
+  enable: true #是否启用插件，默认值为 true
+  field: site #插件的处理范围，默认值为 site，可选 post 或 site
+  exclude: #域名白名单
+    - 'krunk.cn'

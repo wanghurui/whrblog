@@ -1,17 +1,14 @@
----
 title: Pi上传CPU温度到oneNet
-tags: 
+tags:
   - Hexo
 id: '1249'
 categories:
   - - uncategorized
 date: 2018-07-22 12:20:10
 ---
-
-
 <!-- more -->
 ## 参考代码
-
+```python
 \# -\*- coding:utf-8 -\*-
 # File: cputemp.py
 #向平台已经创建的数据流发送数据点
@@ -59,8 +56,8 @@ while True:
         time.sleep(60)
         resp = http\_put()
         print "OneNET请求结果:\\n %s" %resp
-        time.sleep(60)
-
+        time.sleep(60)
+```
 ##### 注：①为设备API地址
 
 ![1](https://s1.ax1x.com/2018/07/20/P8PJvq.jpg)

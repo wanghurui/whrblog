@@ -1,4 +1,3 @@
----
 title: 小米路由器mini/mini青春版 刷入Openwrt固件
 tags:
   - IT
@@ -10,7 +9,6 @@ categories:
   - - uncategorized
 date: 2019-02-19 22:42:41
 ---
-
 [![mmexport1552791022636.jpg](https://history.whrblog.online/2019/04/07/image-bed-1/5c8db64171e04.jpg "mmexport1552791022636.jpg")](https://history.whrblog.online/2019/04/07/image-bed-1/5c8db64171e04.jpg)
 
 1.  刷开发版
@@ -52,16 +50,16 @@ date: 2019-02-19 22:42:41
 # 1.0全盘备份
 
 插入U盘并新建文件夹（青春版请跳过）
-
+```linux
 cd /extdisks/sda1
 mkdir xiaomi\_rom\_backup
-
+```
 备份
-
+```linux
 cat /proc/mtd
-
+```
 ![kg7tBQ.png](https://history.whrblog.online/2019/04/07/image-bed-1/kg7tBQ.png)
-
+```linux
 dd if=/dev/mtd0 of=/extdisks/sda1/xiaomi\_rom\_backup/all.bin
 dd if=/dev/mtd1 of=/extdisks/sda1/xiaomi\_rom\_backup/bootloader.bin
 dd if=/dev/mtd2 of=/extdisks/sda1/xiaomi\_rom\_backup/config.bin
@@ -73,9 +71,9 @@ dd if=/dev/mtd7 of=/extdisks/sda1/xiaomi\_rom\_backup/overlay.bin
 dd if=/dev/mtd8 of=/extdisks/sda1/xiaomi\_rom\_backup/crash.bin
 dd if=/dev/mtd9 of=/extdisks/sda1/xiaomi\_rom\_backup/reserved.bin
 dd if=/dev/mtd10 of=/extdisks/sda1/xiaomi\_rom\_backup/bdata.bin
-
+```
 如果是青春版的话请执行
-
+```linux
 dd if=/dev/mtd0 of=/tmp/all.bin
 dd if=/dev/mtd1 of=/tmp/bootloader.bin
 dd if=/dev/mtd2 of=/tmp/config.bin
@@ -87,9 +85,9 @@ dd if=/dev/mtd7 of=/tmp/overlay.bin
 dd if=/dev/mtd8 of=/tmp/crash.bin
 dd if=/dev/mtd9 of=/tmp/reserved.bin
 dd if=/dev/mtd10 of=/tmp/bdata.bin
-
+```
 备份完成后请及时使用winscp把备份文件拷出，避免刷breed时内存不足导致路由器变砖。 输出应该是这样的
-
+```linux
 root@XiaoQiang:~# dd if=/dev/mtd0 of=/extdisks/sda1/xiaomi\_rom\_backup/all.bin
 32768+0 records in
 32768+0 records out
@@ -123,13 +121,13 @@ root@XiaoQiang:~# dd if=/dev/mtd9 of=/extdisks/sda1/xiaomi\_rom\_backup/reserved
 root@XiaoQiang:~# dd if=/dev/mtd10 of=/extdisks/sda1/xiaomi\_rom\_backup/bdata.bin
 128+0 records in
 128+0 records out
-
+```
 * * *
 
 # 1.1刷入Bootloader
-
+```linux
 cd /tmp
-
+```
 在电脑上下载好小米路由器mini专用的breed[https://breed.hackpascal.net/breed-mt7620-xiaomi-mini.bin](https://breed.hackpascal.net/breed-mt7620-xiaomi-mini.bin)使用scp工具拷入路由器的/tmp目录中 青春版请使用https://breed.hackpascal.net/breed-mt7688-reset38.bin
 
 *   windows下使用winscp
@@ -137,15 +135,15 @@ cd /tmp
 *   密码还是之前sn查询的密码
 
 Linux/Unix下详细命令
-
+```linux
 cd /tmp
 wget https://breed.hackpascal.net/breed-mt7620-xiaomi-mini.bin
 scp ./breed-mt7620-xiaomi-mini.bin root@192.168.31.1:/tmp
-
+```
 刷入Bootloader
-
+```linux
 mtd -r  write /tmp/breed-mt7620-xiaomi-mini.bin Bootloader
-
+```
 * * *
 
 # 1.2刷入固件
@@ -156,4 +154,4 @@ mtd -r  write /tmp/breed-mt7620-xiaomi-mini.bin Bootloader
 
 ## 青春版
 
-下载固件https://drive.google.com/file/d/1b-PJ9C1JQWO0\_gmVWNgFckuEbS43eM97/view?usp=sharing 断电关闭路由器 更改电脑适配器设置，并设置IPv4：IP是192.168.1.2，子网掩码：255.255.255.0，默认网关：192.168.1.1 捅路由器上的reset键开机，过一会浏览器打开192.168.1.1，上传你下载的固件。 ![kgbVdH.jpg](https://history.whrblog.online//2019/04/07/image-bed-1/kgbVdH.jpg) ![kgbEee.jpg](https://history.whrblog.online/2019/04/07/image-bed-1/kgbEee.jpg) 刷入方法可以借鉴一下我的[TPlink842硬改篇](http://www.whrblog.online/archives/1111) 等待刷完之后手动重启路由器，打开后台界面后台IP： 192.168.1.1 用户名：root或者是admin 密码： password 你成功打开了新世界的大门
+下载固件https://drive.google.com/file/d/1b-PJ9C1JQWO0\_gmVWNgFckuEbS43eM97/view?usp=sharing 断电关闭路由器 更改电脑适配器设置，并设置IPv4：IP是192.168.1.2，子网掩码：255.255.255.0，默认网关：192.168.1.1 捅路由器上的reset键开机，过一会浏览器打开192.168.1.1，上传你下载的固件。 ![kgbVdH.jpg](https://history.whrblog.online//2019/04/07/image-bed-1/kgbVdH.jpg) ![kgbEee.jpg](https://history.whrblog.online/2019/04/07/image-bed-1/kgbEee.jpg) 刷入方法可以借鉴一下我的[TPlink842硬改篇](http://www.whrblog.online/archives/1111) 等待刷完之后手动重启路由器即可。
