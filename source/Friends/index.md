@@ -1,7 +1,6 @@
 title: Friends
 date: 2021-08-24 19:47:28
 ---
-能存在这的，都是好朋友
 
 {% friends _data/friends.json %}
 
