@@ -2537,13 +2537,6 @@ a.fancybox {
   cursor: zoom-out;
   will-change: transform;
 }
-.lazyload-block {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  min-width: 30px;
-  min-height: 30px;
-}
 .mode {
   position: relative;
   border: 0;

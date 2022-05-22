@@ -67,7 +67,7 @@ menu:
 submenu:
   # Add item of secondary menu in here.
   Album:
-      Album-1: http://synology.whrblog.online:6957/#16367961201935 || far fa-images
+      Album-1: /mortal-observation || far fa-images
       Album-2: https://500px.com.cn/community/set/d65903381742483a99bb8f6431c31e66/details?swipe=1 || far fa-images
   ToolBox:
       ToolBox-1: https://sparkling-silence-6cb0.100srgb.workers.dev/ || fas fa-tools
@@ -767,7 +767,7 @@ gallery_waterfall:
 # Lazy load the images of post.
 # See: https://github.com/tuupola/lazyload
 lazyload:
-  enable: true
+  enable: false
   # Optional values: gif | block
   placeholder: gif
 

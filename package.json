@@ -40,5 +40,8 @@
     "hexo-server": "^2.0.0",
     "hexo-theme-landscape": "^0.0.3",
     "hexo-wordcount": "^6.0.1"
+  },
+  "devDependencies": {
+    "hexo-broken-links-checker": "^2.1.0"
   }
 }
