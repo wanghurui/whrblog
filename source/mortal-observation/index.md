@@ -1,7 +1,7 @@
 ---
 title: 人间观察
 date: 2022-05-21 21:51:11
-layout: mortal-observation
+comments: true
 photos:
  - https://s2.loli.net/2022/05/22/UKZ3EvuaVbqfHRw.jpg
  - https://s2.loli.net/2022/05/22/cgxPSdHENMGnwyQ.jpg
