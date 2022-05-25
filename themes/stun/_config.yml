@@ -244,7 +244,7 @@ footer:
   # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>)
   custom:
     enable: true
-    text: <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div><br><a href="https://whrblog.online/uptimebot" rel="noopener" target="_blank">Server Status</a>
+    text: <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div><a href="https://whrblog.online/uptimebot" rel="noopener" target="_blank">Server Status</a>
 
 # Creative Commons 4.0 International License
 creative_commons:
