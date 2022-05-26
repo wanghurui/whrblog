@@ -325,7 +325,8 @@ social:
   # telegram: yournumber || fab fa-telegram
   qq: tencent://message?uin=1790538934 || fab fa-qq
   500PX: https://500px.com.cn/whur || fab fa-500px
-  
+  Gmail: mailto:admin@whrblog.online || origin:Gmail
+
 social_setting:
   enable: true
   # Only show by icon.
