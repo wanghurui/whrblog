@@ -347,21 +347,21 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/tags/%E6%91%84%E5%BD%B1/</loc>
-    <lastmod>2022-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/tags/Hexo/</loc>
-    <lastmod>2022-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://whrblog.online/tags/Date/</loc>
+    <lastmod>2022-05-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/tags/%E6%8A%98%E8%85%BE/</loc>
+    <lastmod>2022-05-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/tags/%E6%91%84%E5%BD%B1/</loc>
     <lastmod>2022-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -375,7 +375,7 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/tags/R-C/</loc>
+    <loc>https://whrblog.online/tags/Hexo/</loc>
     <lastmod>2022-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -389,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/tags/%E6%8A%98%E8%85%BE/</loc>
+    <loc>https://whrblog.online/tags/R-C/</loc>
     <lastmod>2022-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
