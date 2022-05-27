@@ -10,5 +10,6 @@ photos:
  - https://s2.loli.net/2022/05/22/93biWzcqJSXC2T4.jpg
  - https://s2.loli.net/2022/05/22/7PKRJsmh5NjGbUD.jpg
  - https://s2.loli.net/2022/05/22/fMUB9KhPL3iTo6e.jpg
+ - https://s2.loli.net/2022/05/27/EoKxa9ksU2MeTSP.jpg
  - https://s2.loli.net/2022/05/22/a7gBPxCWuhwjnRH.jpg
 ---
