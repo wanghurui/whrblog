@@ -149,9 +149,9 @@
     
     <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
@@ -202,9 +202,9 @@
     
     <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
@@ -248,9 +248,9 @@
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
@@ -269,9 +269,9 @@
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
-    
     <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
     
     <category term="R.C" scheme="https://whrblog.online/tags/R-C/"/>
     
@@ -302,9 +302,9 @@ var player = new DogePlayer({
     
     <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
@@ -373,11 +373,11 @@ var player = new DogePlayer({
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
-    
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
     
     <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
     
   </entry>
   
@@ -448,9 +448,9 @@ var player = new DogePlayer({
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
-    
     <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
     
     <category term="Friends" scheme="https://whrblog.online/tags/Friends/"/>
     
@@ -474,13 +474,13 @@ var player = new DogePlayer({
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
-    
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
     
     <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
     
     <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
+    
+    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
     
   </entry>
   
