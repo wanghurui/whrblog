@@ -1,0 +1,636 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="Ey8sLqN_Do38AvfovzObuLtaXOcUBF-uKK7Xi2h9aAs"><meta name="msvalidate.01" content="209118B1BFA0B580AC81FEE384152AD6"><meta name="baidu-site-verification" content="2e6f9f8fcf33588516233bd001b7eef7"><meta name="description" content="SmartDNS是一个运行在本地的DNS服务器，SmartDNS接受本地客户端的DNS查询请求，从多个上游DNS服务器获取DNS查询结果，并将访问速度最快的结果返回个客户端，避免DNS污染，提高网络访问速度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SmartDNS">
+<meta property="og:url" content="https://whrblog.online/2018/11/03/smartdns/">
+<meta property="og:site_name" content="HELLO TRAVELER">
+<meta property="og:description" content="SmartDNS是一个运行在本地的DNS服务器，SmartDNS接受本地客户端的DNS查询请求，从多个上游DNS服务器获取DNS查询结果，并将访问速度最快的结果返回个客户端，避免DNS污染，提高网络访问速度。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://https//pymumu.github.io/smartdns/doc/smartdns-banner.png">
+<meta property="article:published_time" content="2018-11-03T08:41:13.000Z">
+<meta property="article:modified_time" content="2022-01-24T06:07:44.000Z">
+<meta property="article:author" content="Whr">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://https//pymumu.github.io/smartdns/doc/smartdns-banner.png"><title>SmartDNS | HELLO TRAVELER</title><link ref="canonical" href="https://whrblog.online/2018/11/03/smartdns/"><link rel="alternate" href="/atom.xml" type="application/atom+xml"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-NQ6T4PEEK1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-NQ6T4PEEK1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?2e6f9f8fcf33588516233bd001b7eef7';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":false},
+  reward: false,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Friends/"><span class="header-nav-menu-item__icon"><i class="fas fa-heart"></i></span><span class="header-nav-menu-item__text">好朋友</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Message/"><span class="header-nav-menu-item__icon"><i class="fas fa-comments"></i></span><span class="header-nav-menu-item__text">留言板</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/To-Myself/"><span class="header-nav-menu-item__icon"><i class="fas fa-fish"></i></span><span class="header-nav-menu-item__text">致自己</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" rel="external nofollow noreferrer" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) far fa-images"></i></span><span class="header-nav-menu-item__text">画册</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/mortal-observation"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">人间观察</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://500px.com.cn/community/set/d65903381742483a99bb8f6431c31e66/details?swipe=1"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">2019.8 新疆</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" rel="external nofollow noreferrer" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) fas fa-tools"></i></span><span class="header-nav-menu-item__text">工具箱</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://sparkling-silence-6cb0.100srgb.workers.dev/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tools"></i></span><span class="header-nav-submenu-item__text">GITHUB文件加速</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Sometimes ever, sometimes never</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">SmartDNS</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2018-11-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-01-24</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2018/11/03/smartdns/" data-flag-title="SmartDNS"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><p><img src="http://https//pymumu.github.io/smartdns/doc/smartdns-banner.png"> SmartDNS是一个运行在本地的DNS服务器，SmartDNS接受本地客户端的DNS查询请求，从多个上游DNS服务器获取DNS查询结果，并将访问速度最快的结果返回个客户端，避免DNS污染，提高网络访问速度。</p>
+<span id="more"></span>
+<p>同时支持指定特定域名IP地址，并高性匹配，达到过滤广告的效果。 与dnsmasq的all-servers不同，smartdns返回的是访问速度最快的解析结果。 支持树莓派，openwrt，华硕路由器等设备。</p>
+
+        <h2 id="软件效果展示">
+          <a href="#软件效果展示" class="heading-link"><i class="fas fa-link"></i></a><a href="#软件效果展示" class="headerlink" title="软件效果展示"></a>软件效果展示</h2>
+      <p><strong>阿里DNS</strong> 使用阿里DNS查询百度IP，并检测结果。</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/code/smartdns_build $ nslookup www.baidu.com 223.5.5.5</span><br><span class="line">Server:         223.5.5.5</span><br><span class="line">Address:        223.5.5.5#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">www.baidu.com   canonical name = www.a.shifen.com.</span><br><span class="line">Name:   www.a.shifen.com</span><br><span class="line">Address: 180.97.33.108</span><br><span class="line">Name:   www.a.shifen.com</span><br><span class="line">Address: 180.97.33.107</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~/code/smartdns_build $ ping 180.97.33.107 -c 2</span><br><span class="line">PING 180.97.33.107 (180.97.33.107) 56(84) bytes of data.</span><br><span class="line">64 bytes from 180.97.33.107: icmp_seq=1 ttl=55 time=24.3 ms</span><br><span class="line">64 bytes from 180.97.33.107: icmp_seq=2 ttl=55 time=24.2 ms</span><br><span class="line"></span><br><span class="line">--- 180.97.33.107 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1001ms</span><br><span class="line">rtt min/avg/max/mdev = 24.275/24.327/24.380/0.164 ms</span><br><span class="line">pi@raspberrypi:~/code/smartdns_build $ ping 180.97.33.108 -c 2</span><br><span class="line">PING 180.97.33.108 (180.97.33.108) 56(84) bytes of data.</span><br><span class="line">64 bytes from 180.97.33.108: icmp_seq=1 ttl=55 time=31.1 ms</span><br><span class="line">64 bytes from 180.97.33.108: icmp_seq=2 ttl=55 time=31.0 ms</span><br><span class="line"></span><br><span class="line">--- 180.97.33.108 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1001ms</span><br><span class="line">rtt min/avg/max/mdev = 31.014/31.094/31.175/0.193 ms</span><br></pre></td></tr></tbody></table></div></figure>
+
+<p><strong>smartdns</strong> 使用SmartDNS查询百度IP，并检测结果。</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/code/smartdns_build $ nslookup www.baidu.com</span><br><span class="line">Server:         192.168.1.1</span><br><span class="line">Address:        192.168.1.1#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">www.baidu.com   canonical name = www.a.shifen.com.</span><br><span class="line">Name:   www.a.shifen.com</span><br><span class="line">Address: 14.215.177.39</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~/code/smartdns_build $ ping 14.215.177.39 -c 2</span><br><span class="line">PING 14.215.177.39 (14.215.177.39) 56(84) bytes of data.</span><br><span class="line">64 bytes from 14.215.177.39: icmp_seq=1 ttl=56 time=6.31 ms</span><br><span class="line">64 bytes from 14.215.177.39: icmp_seq=2 ttl=56 time=5.95 ms</span><br><span class="line"></span><br><span class="line">--- 14.215.177.39 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1001ms</span><br><span class="line">rtt min/avg/max/mdev = 5.954/6.133/6.313/0.195 ms</span><br><span class="line"></span><br></pre></td></tr></tbody></table></div></figure>
+
+<p>从对比看出，smartdns找到访问<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.baidu.com最快的ip地址,这样访问百度比阿里dns速度快5倍./">www.baidu.com最快的IP地址，这样访问百度比阿里DNS速度快5倍。</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h2 id="特性">
+          <a href="#特性" class="heading-link"><i class="fas fa-link"></i></a><a href="#特性" class="headerlink" title="特性"></a>特性</h2>
+      <ol>
+<li> <strong>多DNS上游服务器</strong> 支持配置多个上游DNS服务器，并同时进行查询，即使其中有DNS服务器异常，也不会影响查询。</li>
+<li> <strong>返回最快IP地址</strong> 支持从域名所属IP地址列表中查找到访问速度最快的IP地址，并返回给客户端，避免DNS污染，提高网络访问速度。</li>
+<li> <strong>支持非标准端口</strong> 支持非53端口查询，支持TCP查询，有效避免DNS污染。</li>
+<li> <strong>特定域名IP地址指定</strong> 支持指定域名的IP地址，达到广告过滤效果，避免恶意网站的效果。</li>
+<li> <strong>域名高性能后缀匹配</strong> 支持域名后缀匹配模式，简化过滤配置，过滤20万条记录时间&lt;1ms</li>
+<li> <strong>Linux多平台支持</strong> 支持标准Linux系统（树莓派），openwrt系统各种固件，华硕路由器原生固件。</li>
+<li> <strong>支持IPV4, IPV6双栈</strong> 支持IPV4，IPV6网络，支持查询A, AAAA记录。</li>
+<li> <strong>高性能，占用资源少</strong> 多线程异步IO模式，cache缓存查询结果。</li>
+</ol>
+
+        <h2 id="架构">
+          <a href="#架构" class="heading-link"><i class="fas fa-link"></i></a><a href="#架构" class="headerlink" title="架构"></a>架构</h2>
+      <p>&nbsp;</p>
+<ol>
+<li> SmartDNS接收本地网络设备的DNS查询请求，如PC，手机的查询请求。</li>
+<li> SmartDNS将查询请求发送到多个上游DNS服务器，可采用标准UDP查询，非标准端口UDP查询，及TCP查询。</li>
+<li> 上游DNS服务器返回域名对应的Server IP地址列表。SmartDNS检测与本地网络访问速度最快的Server IP。</li>
+<li> 将访问速度最快的Server IP返回给本地客户端。</li>
+</ol>
+
+        <h2 id="使用">
+          <a href="#使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#使用" class="headerlink" title="使用"></a>使用</h2>
+      
+        <h3 id="下载配套安装包">
+          <a href="#下载配套安装包" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载配套安装包" class="headerlink" title="下载配套安装包"></a>下载配套安装包</h3>
+      <hr>
+<p>下载配套版本的SmartDNS安装包，对应安装包配套关系如下。</p>
+<p>系统</p>
+<p>安装包</p>
+<p>说明</p>
+<p>标准Linux系统(树莓派)</p>
+<p>smartdns.xxxxxxxx.armhf.deb</p>
+<p>支持树莓派Raspbian stretch，Debian 9系统。</p>
+<p>标准Linux系统(x86_64)</p>
+<p>smartdns.xxxxxxxx.x86_64..tar.gz</p>
+<p>支持x86_64系统。</p>
+<p>华硕原生固件(optware)</p>
+<p>smartdns.xxxxxxx.mipsbig.ipk</p>
+<p>支持MIPS大端架构的系统，如RT-AC55U, RT-AC66U.</p>
+<p>华硕原生固件(optware)</p>
+<p>smartdns.xxxxxxx.mipsel.ipk</p>
+<p>支持MIPS小端架构的系统，如RT-AC68U。</p>
+<p>华硕原生固件(optware)</p>
+<p>smartdns.xxxxxxx.arm.ipk</p>
+<p>支持arm小端架构的系统，如RT-AC88U。</p>
+<p>openwrt 15.01</p>
+<p>smartdns.xxxxxxxx.ar71xx.ipk</p>
+<p>支持AR71XX MIPS系统。</p>
+<p>openwrt 15.01</p>
+<p>smartdns.xxxxxxxx.ramips_24kec.ipk</p>
+<p>支持MT762X等小端路由器</p>
+<p>openwrt 15.01(潘多拉)</p>
+<p>smartdns.xxxxxxxx.mipsel_24kec_dsp.ipk</p>
+<p>支持MT7620系列的潘多拉固件</p>
+<p>openwrt LEDE</p>
+<p>smartdns.xxxxxxxx.mips_24kc.ipk</p>
+<p>支持AR71XX MIPS系统。</p>
+<p>openwrt LEDE</p>
+<p>smartdns.xxxxxxxx.mipsel_24kc.ipk</p>
+<p>支持MT726X等小端路由器</p>
+<p>openwrt LEDE</p>
+<p>smartdns.xxxxxxxx.x86_64.ipk</p>
+<p>支持x86_64路由器</p>
+<p>openwrt LEDE</p>
+<p>smartdns.xxxxxxxxxxx.arm_cortex-a9.ipk</p>
+<p>支持arm A9核心CPU的路由器</p>
+<p>openwrt LEDE</p>
+<p>smartdns.xxxxxxxxx.arm_cortex-a7_neon-vfpv4.ipk</p>
+<p>支持arm A7核心CPU的路由器</p>
+<p>openwrt LUCI</p>
+<p>luci-app-smartdns.xxxxxxxxx.xxxx.all.ipk</p>
+<p>openwrt管理统一界面</p>
+<ul>
+<li>  openwrt系统CPU架构比较多，上述表格未列出所有支持系统，请查看CPU架构后下载。</li>
+<li>  merlin梅林固件理论和华硕固件一致，所以根据硬件类型安装相应的ipk包即可。（梅林暂时未验证，有问题提交issue）</li>
+<li>CPU架构可在路由器管理界面找到，查看方法： 登录路由器，点击<code>System</code>-&gt;<code>Software</code>，点击<code>Configuration</code> Tab页面，在opkg安装源中可找到对应软件架构，下载路径中可找到，如下，架构为ar71xx  <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/gz chaos_calmer_base http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/generic/packages/base</span><br></pre></td></tr></tbody></table></div></figure>
+  请在Release页面下载：<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/pymumu/smartdns/releases">此处下载</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+
+        <h3 id="标准Linux系统安装（树莓派-X86-64系统）">
+          <a href="#标准Linux系统安装（树莓派-X86-64系统）" class="heading-link"><i class="fas fa-link"></i></a><a href="#标准Linux系统安装（树莓派-X86-64系统）" class="headerlink" title="标准Linux系统安装（树莓派, X86_64系统）"></a>标准Linux系统安装（树莓派, X86_64系统）</h3>
+      <hr>
+<ol>
+<li>安装 下载配套安装包<code>smartdns.xxxxxxxx.armhf.deb</code>，并上传到Linux系统中。 执行如下命令安装 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i smartdns.xxxxxxxx.armhf.deb</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li>修改配置 安装完成后，可配置smartdns的上游服务器信息。具体配置参数参考<code>配置参数</code>说明。 一般情况下，只需要增加<code>server [IP]:port</code>, <code>server-tcp [IP]:port</code>配置项， 尽可能配置多个上游DNS服务器，包括国内外的服务器。配置参数请查看<code>配置参数</code>章节。 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/smartdns/smartdns.conf</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li>启动服务 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable smartdns</span><br><span class="line">systemctl start smartdns</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li>将DNS请求转发的SmartDNS解析。 修改本地路由器的DNS服务器，将DNS服务器配置为SmartDNS。<ul>
+<li>  登录到本地网络的路由器中，配置树莓派分配静态IP地址。</li>
+<li>  修改WAN口或者DHCP DNS为树莓派IP地址。 注意： I. 每款路由器配置方法不尽相同，请百度搜索相关的配置方法。 II.华为等路由器可能不支持配置DNS为本地IP，请修改PC端，手机端DNS服务器为树莓派IP。</li>
+</ul>
+</li>
+<li>检测服务是否配置成功。 使用<code>nslookup -querytype=ptr 127.0.0.1</code>查询域名 看命令结果中的<code>name</code>项目是否显示为<code>smartdns</code>或<code>主机名</code>，如<code>smartdns</code>则表示生效 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/code/smartdns_build $ nslookup -querytype=ptr 127.0.0.1</span><br><span class="line">Server:         192.168.1.1</span><br><span class="line">Address:        192.168.1.1#53</span><br><span class="line">    </span><br><span class="line">Non-authoritative answer:</span><br><span class="line">1.0.0.127.in-addr.arpa  name = smartdns.</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+</ol>
+
+        <h3 id="openwrt-LEDE">
+          <a href="#openwrt-LEDE" class="heading-link"><i class="fas fa-link"></i></a><a href="#openwrt-LEDE" class="headerlink" title="openwrt/LEDE"></a>openwrt/LEDE</h3>
+      <hr>
+<ol>
+<li>安装 将软件使用winscp上传到路由器的/root目录，执行如下命令安装 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg install smartdns.xxxxxxxx.xxxx.ipk</span><br><span class="line">opkg install luci-app-smartdns.xxxxxxxx.xxxx.all.ipk</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li>修改配置 登录openwrt管理页面，打开<code>Services</code>-&gt;<code>SmartDNS</code>进行配置。<ul>
+<li>  在<code>Upstream Servers</code>增加上游DNS服务器配置，建议配置多个国内外DNS服务器。</li>
+<li>  在<code>Domain Address</code>指定特定域名的IP地址，可用于广告屏蔽。</li>
+</ul>
+</li>
+<li> 启用服务 SmartDNS服务生效方法有两种，<code>一种是直接作为主DNS服务</code>；<code>另一种是作为dnsmasq的上游</code>。 默认情况下，SmartDNS采用第一种方式。如下两种方式根据需求选择即可。</li>
+<li>启用方法一：作为主DNS(默认方案)<ul>
+<li>  <strong>启用smartdns的53端口重定向</strong> 登录路由器，点击<code>Services</code>-&gt;<code>SmartDNS</code>，勾选<code>Redirect</code>选项，启用53端口转发。</li>
+<li><strong>检测转发服务是否配置成功</strong> 使用<code>nslookup -querytype=ptr 127.0.0.1</code>查询域名 看命令结果中的<code>name</code>项目是否显示为<code>smartdns</code>或<code>主机名</code>，如<code>smartdns</code>则表示生效  <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/code/smartdns_build $ nslookup -querytype=ptr 127.0.0.1</span><br><span class="line">Server:         192.168.1.1</span><br><span class="line">Address:        192.168.1.1#53</span><br><span class="line">        </span><br><span class="line">Non-authoritative answer:</span><br><span class="line">1.0.0.127.in-addr.arpa  name = smartdns.</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li><strong>界面提示重定向失败</strong><ul>
+<li>  检查iptable，ip6table命令是否正确安装。</li>
+<li>  openwrt 15.01系统不支持IPV6重定向，如网络需要支持IPV6，请将DNSMASQ上游改为smartdns，或者将smartdns的端口改为53，并停用dnsmasq。</li>
+<li>  LEDE之后系统，请安装IPV6的nat转发驱动。点击<code>system</code>-&gt;<code>Software</code>，点击<code>update lists</code>更新软件列表后，安装<code>ip6tables-mod-nat</code></li>
+<li>  使用如下命令检查路由规则是否生效。</li>
+</ul>
+  <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -L PREROUTING  grep REDIRECT</span><br></pre></td></tr></tbody></table></div></figure>
+<ul>
+<li>  如转发功能不正常，请使用方法二：作为DNSMASQ的上游。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>方法二：作为DNSMASQ的上游<ul>
+<li>  <strong>停用smartdns的53端口重定向</strong> 登录路由器，点击<code>Services</code>-&gt;<code>SmartDNS</code>，去勾选<code>Redirect</code>选项，停用53端口转发。</li>
+<li><strong>将dnsmasq的请求发送到smartdns</strong> 登录路由器，点击<code>Network</code>-&gt;<code>DHCP and DNS</code>，修改<code>DNS forwardings(DNS转发)</code>为：  <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/#/127.0.0.1#5353</span><br></pre></td></tr></tbody></table></div></figure>
+  其中<code>#5353</code>为smartdns的服务端口号，未修改的情况下，默认为5353。</li>
+<li><strong>检测上游服务是否配置成功</strong> 使用<code>nslookup</code>查询<code>www.baidu.com</code>域名，查看结果中百度的IP地址是否<code>只有一个</code>，如有多个IP地址返回，则表示未生效，请多尝试几个域名检查。  <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~ $ nslookup www.baidu.com 192.168.1.1</span><br><span class="line">Server:         192.168.1.1</span><br><span class="line">Address:        192.168.1.1#53</span><br><span class="line">        </span><br><span class="line">Non-authoritative answer:</span><br><span class="line">www.baidu.com   canonical name = www.a.shifen.com.</span><br><span class="line">Name:   www.a.shifen.com</span><br><span class="line">Address: 14.215.177.38</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+</ul>
+</li>
+<li> 启动服务 勾选配置页面中的<code>Enable(启用)</code>来启动SmartDNS</li>
+<li>注意：<ul>
+<li>  如已经安装chinaDNS，建议将chinaDNS的上游配置为SmartDNS。</li>
+<li>  SmartDNS默认情况，将53端口的请求转发到SmartDNS的本地端口，由<code>Redirect</code>配置选项控制。</li>
+</ul>
+</li>
+</ol>
+
+        <h3 id="华硕路由器原生固件-梅林固件">
+          <a href="#华硕路由器原生固件-梅林固件" class="heading-link"><i class="fas fa-link"></i></a><a href="#华硕路由器原生固件-梅林固件" class="headerlink" title="华硕路由器原生固件/梅林固件"></a>华硕路由器原生固件/梅林固件</h3>
+      <hr>
+<p>说明：梅林固件派生自华硕固件，理论上可以直接使用华硕配套的安装包使用。但目前未经验证，如有问题，请提交issue。</p>
+<ol>
+<li> 准备 在使用此软件时，需要确认路由器是否支持U盘，并准备好U盘一个。</li>
+<li> 启用SSH登录 登录管理界面，点击<code>系统管理</code>-&gt;点击<code>系统设置</code>，配置<code>Enable SSH</code>为<code>Lan Only</code>。 SSH登录用户名密码与管理界面相同。</li>
+<li> 下载<code>Download Master</code> 在管理界面点击<code>USB相关应用</code>-&gt;点击<code>Download Master</code>下载。 下载完成后，启用<code>Download Master</code>，如果不需要下载功能，此处可以卸载<code>Download Master</code>，但要保证卸载前Download Master是启用的。</li>
+<li>安装SmartDNS 将软件使用winscp上传到路由器的<code>/tmp/mnt/sda1</code>目录。（或网上邻居复制到sda1共享目录） <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipkg install smartdns.xxxxxxx.mipsbig.ipk</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li>重启路由器生效服务 待路由器启动后，使用<code>nslookup -querytype=ptr 127.0.0.1</code>查询域名 看命令结果中的<code>name</code>项目是否显示为<code>smartdns</code>或<code>主机名</code>，如<code>smartdns</code>则表示生效 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~/code/smartdns_build $ nslookup -querytype=ptr 127.0.0.1</span><br><span class="line">Server:         192.168.1.1</span><br><span class="line">Address:        192.168.1.1#53</span><br><span class="line">    </span><br><span class="line">Non-authoritative answer:</span><br><span class="line">1.0.0.127.in-addr.arpa  name = smartdns.</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+<li>额外说明 上述过程，smartdns将安装到U盘根目录，采用optware的模式运行。 其目录结构如下： （此处仅列出smartdns相关文件） <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">U盘</span><br><span class="line">└── asusware.mipsbig</span><br><span class="line">        ├── bin</span><br><span class="line">        ├── etc</span><br><span class="line">            ├── smartdns</span><br><span class="line">                 └── smartdns.conf</span><br><span class="line">            └── init.d</span><br><span class="line">                  └── S50smartdns</span><br><span class="line">        ├── lib</span><br><span class="line">        ├── sbin</span><br><span class="line">        ├── usr</span><br><span class="line">            └── sbin</span><br><span class="line">                  └── smartdns</span><br><span class="line">        ....</span><br></pre></td></tr></tbody></table></div></figure>
+ 如要修改配置，可以ssh登录路由器，使用vi命令修改 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/etc/smartdns/smartdns.conf</span><br></pre></td></tr></tbody></table></div></figure>
+ 也可以通过网上邻居修改，网上邻居共享目录<code>sda1</code>看不到<code>asusware.mipsbig</code>目录，但可以直接在<code>文件管理器</code>中输入<code>asusware.mipsbig\etc\init.d</code>访问 <figure class="highlight plaintext"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\192.168.1.1\sda1\asusware.mipsbig\etc\init.d</span><br></pre></td></tr></tbody></table></div></figure>
+</li>
+</ol>
+
+        <h2 id="配置参数">
+          <a href="#配置参数" class="heading-link"><i class="fas fa-link"></i></a><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h2>
+      <p>参数</p>
+<p>功能</p>
+<p>默认值</p>
+<p>配置值</p>
+<p>例子</p>
+<p>server-name</p>
+<p>DNS服务器名称</p>
+<p>操作系统主机名/smartdns</p>
+<p>符合主机名规格的字符串</p>
+<p>server-name smartdns</p>
+<p>bind</p>
+<p>DNS监听端口号</p>
+<p>[::]:53</p>
+<p>IP:PORT</p>
+<p>bind 192.168.1.1:53</p>
+<p>cache-size</p>
+<p>域名结果缓存个数</p>
+<p>512</p>
+<p>数字</p>
+<p>cache-size 512</p>
+<p>rr-ttl</p>
+<p>域名结果TTL</p>
+<p>远程查询结果</p>
+<p>大于0的数字</p>
+<p>rr-ttl 600</p>
+<p>rr-ttl-min</p>
+<p>允许的最小TTL值</p>
+<p>远程查询结果</p>
+<p>大于0的数字</p>
+<p>rr-ttl-min 60</p>
+<p>rr-ttl-max</p>
+<p>允许的最大TTL值</p>
+<p>远程查询结果</p>
+<p>大于0的数字</p>
+<p>rr-ttl-max 600</p>
+<p>log-level</p>
+<p>设置日志级别</p>
+<p>error</p>
+<p>error,warn,info,debug</p>
+<p>log-level error</p>
+<p>log-file</p>
+<p>日志文件路径</p>
+<p>/var/log/smartdns.log</p>
+<p>路径</p>
+<p>log-file /var/log/smartdns.log</p>
+<p>log-size</p>
+<p>日志大小</p>
+<p>128K</p>
+<p>数字+K,M,G</p>
+<p>log-size 128K</p>
+<p>log-num</p>
+<p>日志归档个数</p>
+<p>2</p>
+<p>数字</p>
+<p>log-num 2</p>
+<p>conf-file</p>
+<p>附加配置文件</p>
+<p>无</p>
+<p>文件路径</p>
+<p>conf-file /etc/smartdns/smartdns.more.conf</p>
+<p>server</p>
+<p>上游UDP DNS</p>
+<p>无</p>
+<p>[ip][:port]，可重复</p>
+<p>server 8.8.8.8:53</p>
+<p>server-tcp</p>
+<p>上游TCP DNS</p>
+<p>无</p>
+<p>[IP][:port]，可重复</p>
+<p>server-tcp 8.8.8.8:53</p>
+<p>address</p>
+<p>指定域名IP地址</p>
+<p>无</p>
+<p>address /domain/ip</p>
+<p>address /<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.example.com/1.2.3.4">www.example.com/1.2.3.4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>bogus-nxdomain</p>
+<p>假冒IP地址过滤</p>
+<p>无</p>
+<p>[ip]，可重复</p>
+<p>bogus-nxdomain 1.2.3.4</p>
+<p>force-AAAA-SOA</p>
+<p>强制AAAA地址返回SOA</p>
+<p>no</p>
+<p>[yesno]</p>
+<p>force-AAAA-SOA yes</p>
+<p>转自github 原文链接<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://pymumu.github.io/smartdns/">https://pymumu.github.io/smartdns/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://whrblog.online">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://whrblog.online/2018/11/03/smartdns/">https://whrblog.online/2018/11/03/smartdns/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://whrblog.online/tags/IT/">IT</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://whrblog.online/tags/Linux/">Linux</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/">折腾</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://whrblog.online/tags/Hexo/">Hexo</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2018/11/09/1017/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Monlor tools 2.0</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2018/07/22/pi%E4%B8%8A%E4%BC%A0cpu%E6%B8%A9%E5%BA%A6%E5%88%B0onenet/"><span class="paginator-prev__text">Pi上传CPU温度到oneNet</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">
+          软件效果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">
+          特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">
+          架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">
+          使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%85%8D%E5%A5%97%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">4.1.</span> <span class="toc-text">
+          下载配套安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%EF%BC%88%E6%A0%91%E8%8E%93%E6%B4%BE-X86-64%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">
+          标准Linux系统安装（树莓派, X86_64系统）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#openwrt-LEDE"><span class="toc-number">4.3.</span> <span class="toc-text">
+          openwrt&#x2F;LEDE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E5%8E%9F%E7%94%9F%E5%9B%BA%E4%BB%B6-%E6%A2%85%E6%9E%97%E5%9B%BA%E4%BB%B6"><span class="toc-number">4.4.</span> <span class="toc-text">
+          华硕路由器原生固件&#x2F;梅林固件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">
+          配置参数</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://i.loli.net/2021/08/23/TiEWIRoPFNYbcrS.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">若我不再能奔跑，请让我在梦中飞翔。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/wanghurui" target="_blank" rel="noopener external nofollow noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/Hacker_Whr" target="_blank" rel="noopener external nofollow noreferrer" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/whr-67-78" target="_blank" rel="noopener external nofollow noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=1790538934" target="_blank" rel="noopener external nofollow noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://500px.com.cn/whur" target="_blank" rel="noopener external nofollow noreferrer" data-popover="500PX" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-500px"></i></span></a><a class="sidebar-ov-social-item" href="mailto:admin@whrblog.online" target="_blank" rel="noopener" data-popover="social.Gmail" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">Gmail</span></a></div><div class="sidebar-ov-feed"><span class="sidebar-ov-feed-rss"><a class="sidebar-ov-feed-rss__link" href="/atom.xml" target="_blank" rel="noopener"><span class="sidebar-ov-feed-rss__icon"><i class="fas fa-rss"></i></span><span>RSS 订阅</span></a></span></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">37</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener external nofollow noreferrer" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> 强力驱动</span><span> v5.4.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener external nofollow noreferrer">Stun</a></span><span> v2.6.2</span></div><div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div><a href="https://whrblog.online/uptimebot" rel="noopener" target="_blank">Server Status</a></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/jquery.min.js"></script><script src="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/velocity.min.js"></script><script src="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/ribbon.js/1.0.2/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.xml';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'atwHbFJu4O787cc0K5uyEQzw-gzGzoHsz',
+    appKey: 'GPjxAqd2KmMaKKFX2RA5SzDd',
+    notify: true,
+    verify: true,
+    placeholder: '你是我这一生只会遇见一次的惊喜',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.xml"></script></body></html><!--浏览器搞笑标题-->
+<script type="text/javascript" src="\js\title.js"></script>

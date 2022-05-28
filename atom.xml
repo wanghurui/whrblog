@@ -58,7 +58,7 @@
     
     
     <summary type="html">&lt;h1 id=&quot;关于柯达克罗姆彩色反转片的概况&quot;&gt;
-          &lt;a href=&quot;#关于柯达克罗姆彩色反转片的概况&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;undefined&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#关于柯达克罗姆彩色反转片的概况&quot; class=&quot;headerlink&quot; title=&quot;关于柯达克罗姆彩色反转片的概况&quot;&gt;&lt;/a&gt;关于柯达克罗姆彩色反转片的概况&lt;/h1&gt;
+          &lt;a href=&quot;#关于柯达克罗姆彩色反转片的概况&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#关于柯达克罗姆彩色反转片的概况&quot; class=&quot;headerlink&quot; title=&quot;关于柯达克罗姆彩色反转片的概况&quot;&gt;&lt;/a&gt;关于柯达克罗姆彩色反转片的概况&lt;/h1&gt;
       &lt;p&gt;柯达公司从1936年开始生产外式法柯达克罗姆色彩反转片，目前共生产三个品种，即：柯达克罗姆25、柯达克罗姆40和柯达克罗姆64。25型和64型是日光型，40型是灯光片。&lt;br&gt;柯达克罗姆彩色反转片的感光度都比较低，25型为ASA25,40型为ASA40，64型为ASA64。它们的共同特点是颗粒细、清晰度高和色彩还原好，主要供作为幻灯片使用。&lt;br&gt;柯达克罗姆胶片的冲洗工艺代号为K14，但原厂既不不公布配方，也不供应成药，只能寄回原厂或原厂指定的代理公司冲洗。&lt;/p&gt;
 &lt;hr&gt;</summary>
     
@@ -119,7 +119,7 @@
 
 
         &lt;h1 id=&quot;Digispark？&quot;&gt;
-          &lt;a href=&quot;#Digispark？&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;undefined&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#Digispark？&quot; class=&quot;headerlink&quot; title=&quot;Digispark？&quot;&gt;&lt;/a&gt;Digispark？&lt;/h1&gt;
+          &lt;a href=&quot;#Digispark？&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#Digispark？&quot; class=&quot;headerlink&quot; title=&quot;Digispark？&quot;&gt;&lt;/a&gt;Digispark？&lt;/h1&gt;
       &lt;p&gt;Digispark是一款类似于Arduino Uno基于Attiny85的微控制器开发板。可用于制作Badusb设备，&amp;nbsp;BadUSB是一种通过重写U盘固件伪装成USB输入设备(键盘,网卡)用于恶意用途的usb设备。杀毒软件由于无法接触到usb固件，所以对它也无可奈何 &amp;nbsp;&lt;/p&gt;
 &lt;hr&gt;</summary>
     
@@ -138,8 +138,8 @@
     <updated>2022-02-18T15:46:56.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;原文：&lt;a href=&quot;https://github.com/marcan/sigmafix&quot;&gt;Github&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://twitter.com/marcan42/status/1046781328148979712?s=09&quot; title=&quot;@marcan42&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;翻译/校对：&lt;a href=&quot;https://2890.ltd/&quot;&gt;Given&lt;/a&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;原文：&lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://github.com/marcan/sigmafix&quot;&gt;Github&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt; &amp;amp; &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://twitter.com/marcan42/status/1046781328148979712?s=09&quot; title=&quot;@marcan42&quot;&gt;Twitter&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;翻译/校对：&lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://2890.ltd/&quot;&gt;Given&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;使用佳能EF卡口的旧的适马镜头不能在新的佳能机身上工作，因为适马不完全反向工程EF协议，没有实现所有需要的命令。这是一个DIY修复方法，使用ATtiny13单片机来修改协议，使镜头重新兼容数码EOS机身。&lt;/p&gt;</summary>
     
     
@@ -171,7 +171,7 @@
 &lt;li&gt;SSD1306 128*96 OLED SPI Display &lt;/li&gt;
 &lt;li&gt;Buttons   &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Thanks &lt;a href=&quot;https://github.com/morozgrafix&quot;&gt;@morozgrafix&lt;/a&gt; for creating schematic diagram for this device. The lightmeter based on Arduino as a main controller and BH1750 as a metering cell.   &lt;/p&gt;
+&lt;p&gt;Thanks &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://github.com/morozgrafix&quot;&gt;@morozgrafix&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt; for creating schematic diagram for this device. The lightmeter based on Arduino as a main controller and BH1750 as a metering cell.   &lt;/p&gt;
 &lt;p&gt;Information is displayed on SSD1306 OLED display. The device is powered by 2 AAA batteries. Functions list:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;  Ambient light metering&lt;/li&gt;
@@ -191,7 +191,7 @@
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Detailed information on my site: &lt;a href=&quot;https://www.pominchuk.com/lightmeter/&quot;&gt;https://www.pominchuk.com/lightmeter/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Detailed information on my site: &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://www.pominchuk.com/lightmeter/&quot;&gt;https://www.pominchuk.com/lightmeter/&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;img src=&quot;https://s2.loli.net/2022/02/03/s6LuUXAYDWKbwnT.jpg&quot;&gt;&lt;/h2&gt;</summary>
     
@@ -216,10 +216,10 @@
     <updated>2021-08-21T02:42:53.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;via &lt;a href=&quot;https://github.com/rubfi/esp_wifi_repeater&quot;&gt;https://github.com/rubfi/esp_wifi_repeater&lt;/a&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;via &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot; href=&quot;https://github.com/rubfi/esp_wifi_repeater&quot;&gt;https://github.com/rubfi/esp_wifi_repeater&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://image.krunk.cn/images/2020/08/07/image66b4119bcffcf74e.png&quot;&gt;&lt;img src=&quot;https://image.krunk.cn/images/2020/08/07/image66b4119bcffcf74e.png&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
         &lt;h1 id=&quot;ESP无线中继器&quot;&gt;
-          &lt;a href=&quot;#ESP无线中继器&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;undefined&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#ESP无线中继器&quot; class=&quot;headerlink&quot; title=&quot;ESP无线中继器&quot;&gt;&lt;/a&gt;ESP无线中继器&lt;/h1&gt;
+          &lt;a href=&quot;#ESP无线中继器&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#ESP无线中继器&quot; class=&quot;headerlink&quot; title=&quot;ESP无线中继器&quot;&gt;&lt;/a&gt;ESP无线中继器&lt;/h1&gt;
       &lt;p&gt;这是一个在esp8266作为WiFi NAT路由器的概念和实现。它可以作为现有WiFi网络的无线AP扩展。esp以STA和soft-AP模式透明转发任何IP的流量。因为它使用NAT转发，所以在网络端和连接的站点上都不需要路由条目。站点在192.168.4.0/24网络中默认通过DHCP配置，并从现有的WiFi网络接收其DNS地址。 经过测试，ESP无线中继器可以在两个方向上实现约 5 Mbps，因此即使流媒体也是可能的。ESP无线中继器还允许远程监控（或数据包嗅探），例如使用 Wireshark。&lt;/p&gt;</summary>
     
     
@@ -317,7 +317,7 @@ var player = new DogePlayer({
     
     
     <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;
-          &lt;a href=&quot;#介绍&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;undefined&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;
+          &lt;a href=&quot;#介绍&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;
       &lt;p&gt;在Linux论坛中，常见的问题是询问Linux的最低规格是多少。常见的答案是，它需要32位体系结构，一个MMU和至少一兆字节的RAM以适合内核。该项目旨在（并成功）的粉碎这些概念。您在右侧看到的开发板基于ATmega1284p。我也使用ATmega644a取得了同样的成功。该主板没有其他处理器，并且可以启动Linux 2.6.34。实际上，它甚至可以显示完整的Ubuntu堆栈，包括（如果有时间等的话）X和gnome。&lt;/p&gt;</summary>
     
     
@@ -440,7 +440,7 @@ var player = new DogePlayer({
     
     
     <summary type="html">&lt;h2 id=&quot;何谓友情？何谓缘分？&quot;&gt;
-          &lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;undefined&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;headerlink&quot; title=&quot;何谓友情？何谓缘分？&quot;&gt;&lt;/a&gt;何谓友情？何谓缘分？&lt;/h2&gt;
+          &lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;headerlink&quot; title=&quot;何谓友情？何谓缘分？&quot;&gt;&lt;/a&gt;何谓友情？何谓缘分？&lt;/h2&gt;
       &lt;hr&gt;</summary>
     
     
