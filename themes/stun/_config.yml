@@ -919,7 +919,7 @@ cdn:
   # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css
-  fontawesome: //s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/all.min.css
+  fontawesome: 
 
   # Using version: 3.4.1
   # Example:
