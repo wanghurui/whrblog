@@ -452,9 +452,9 @@ var player = new DogePlayer({
     
     <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
     
-    <category term="Friends" scheme="https://whrblog.online/tags/Friends/"/>
-    
     <category term="R.C" scheme="https://whrblog.online/tags/R-C/"/>
+    
+    <category term="Friends" scheme="https://whrblog.online/tags/Friends/"/>
     
   </entry>
   

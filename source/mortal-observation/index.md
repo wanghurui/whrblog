@@ -22,3 +22,6 @@ photos:
 
 ---
 
+<center>我们生来就是世界的记录者</center>
+<center>我们通过摄影来让时间停下</center>
+<center>让瞬间变为永恒</center>
