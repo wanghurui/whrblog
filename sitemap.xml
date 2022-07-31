@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://whrblog.online/gallery/data.json</loc>
+    
+    <lastmod>2022-07-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/gallery/</loc>
+    
+    <lastmod>2022-07-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whrblog.online/mortal-observation/</loc>
     
     <lastmod>2022-07-31</lastmod>
