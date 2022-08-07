@@ -3051,12 +3051,12 @@ html.nightmode {
   font-size: 0.9em;
   color: #999;
 }
-@media (min-width: 1138px) {
+@media (min-width: 1394px) {
   .header-nav-inner {
-    width: 1138px;
+    width: 1394px;
   }
   .main-inner {
-    width: 1138px;
+    width: 1394px;
   }
 }
 @media (min-width: 991.98px) {
@@ -3204,6 +3204,83 @@ html.nightmode {
     margin: 0;
     padding: 0.5rem 1rem;
     width: 100%;
+  }
+}
+.gallery-page {
+  margin-top: -50px;
+}
+.img-list,
+.gallery-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  -o-box-lines: single;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+.img-column {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-direction: reverse;
+  -moz-box-direction: reverse;
+  -o-box-direction: reverse;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+.img-column a,
+.gallery-column a {
+  border-bottom: 0px;
+}
+.gallery-item {
+  margin-bottom: -50px;
+}
+.gallery-item p {
+  margin: -25px auto -10px;
+  max-width: 50%;
+  text-align: center;
+  font-size: 15px;
+  color: $black-deep;
+  background: rgba(255,255,255,0.3);
+  border-radius: 7px;
+  border: 1px solid $black-deep;
+  -webkit-box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+}
+.posts-expand .post-body .gallery-column a img {
+  height: 250px;
+  width: 300px;
+  object-fit: cover;
+}
+@media (max-width: 767px) {
+  .gallery-item p {
+    min-width: 75px;
+    font-size: 13px;
   }
 }
 /*poem*/
