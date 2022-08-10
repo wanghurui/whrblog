@@ -1,4 +1,5 @@
 title: 提升Intel 4代处理器性能锁定全核倍频
+toc: true
 author: Whr
 date: 2021-09-20 20:59:14
 tags:

@@ -1,204 +1,8 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="Ey8sLqN_Do38AvfovzObuLtaXOcUBF-uKK7Xi2h9aAs"><meta name="msvalidate.01" content="209118B1BFA0B580AC81FEE384152AD6"><meta name="baidu-site-verification" content="2e6f9f8fcf33588516233bd001b7eef7"><meta name="description" content="前言       前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……">
-<meta property="og:type" content="article">
-<meta property="og:title" content="用Ardunio和ESP8266模块做一个云温度传感器">
-<meta property="og:url" content="https://whrblog.online/2017/08/11/217/">
-<meta property="og:site_name" content="HELLO TRAVELER">
-<meta property="og:description" content="前言       前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-106.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-107.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-108.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-109.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-110.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-111.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-112.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-113.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-114.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-115.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-116.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-117.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-118.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-119.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-120.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-121.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-122.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-123.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-124.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-125.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-126.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-127.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-128.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-129.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-130.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-131.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-132.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-133.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-134.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-135.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-136.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-137.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-138.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-139.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-140.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-141.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-142.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-143.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-144.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-145.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-146.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-147.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-148.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-149.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-150.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-151.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-152.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-153.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-154.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-155.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-156.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-157.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-158.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-159.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-160.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-162.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-163.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-164.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-165.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-166.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-167.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-168.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-169.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-170.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-171.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-172.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-173.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-174.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-175.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-176.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-177.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-178.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-179.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-180.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-181.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-182.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-183.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-184.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-185.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-186.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-187.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-188.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-189.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-190.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-191.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-192.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-193.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-194.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-195.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-196.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-197.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-198.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-199.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-200.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-201.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-202.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-203.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-204.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-205.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-206.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-207.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-208.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-209.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-210.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-211.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-212.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-213.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-214.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-215.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-216.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-217.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-218.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-219.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-220.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-221.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-222.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-223.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-224.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-225.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-226.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-227.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-228.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-229.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-230.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-231.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-232.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-233.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-234.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-235.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-236.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-237.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-238.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-239.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-240.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-241.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-242.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-243.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-244.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-245.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-246.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-247.png">
-<meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-248.png">
-<meta property="article:published_time" content="2017-08-11T08:55:03.000Z">
-<meta property="article:modified_time" content="2021-08-21T02:42:52.000Z">
-<meta property="article:author" content="Whr">
-<meta property="article:tag" content="浅雪的DIY">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png"><title>用Ardunio和ESP8266模块做一个云温度传感器 | HELLO TRAVELER</title><link ref="canonical" href="https://whrblog.online/2017/08/11/217/"><link rel="alternate" href="/atom.xml" type="application/atom+xml"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.15.0/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-NQ6T4PEEK1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-NQ6T4PEEK1');
-}</script><script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement('script');
-  hm.src = 'https://hm.baidu.com/hm.js?2e6f9f8fcf33588516233bd001b7eef7';
-  hm.async = true;
-
-  if (false) {
-    hm.setAttribute('data-pjax', '');
-  }
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  assistSearch: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
-  postWidget: {"endText":true},
-  nightMode: {"enable":true},
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"ocean","wordWrap":false},
-  reward: false,
-  fancybox: true,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
-
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>用Ardunio和ESP8266模块做一个云温度传感器 - HELLO TRAVELER</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="HELLO TRAVELER"><meta name="msapplication-TileImage" content="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="HELLO TRAVELER"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前言前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……"><meta property="og:type" content="blog"><meta property="og:title" content="用Ardunio和ESP8266模块做一个云温度传感器"><meta property="og:url" content="https://whrblog.online/2017/08/11/217/"><meta property="og:site_name" content="HELLO TRAVELER"><meta property="og:description" content="前言前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-106.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-107.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-108.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-109.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-110.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-111.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-112.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-113.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-114.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-115.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-116.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-117.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-118.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-119.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-120.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-121.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-122.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-123.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-124.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-125.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-126.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-127.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-128.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-129.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-130.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-131.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-132.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-133.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-134.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-135.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-136.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-137.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-138.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-139.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-140.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-141.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-142.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-143.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-144.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-145.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-146.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-147.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-148.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-149.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-150.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-151.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-152.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-153.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-154.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-155.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-156.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-157.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-158.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-159.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-160.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-162.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-163.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-164.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-165.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-166.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-167.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-168.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-169.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-170.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-171.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-172.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-173.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-174.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-175.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-176.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-177.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-178.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-179.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-180.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-181.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-182.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-183.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-184.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-185.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-186.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-187.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-188.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-189.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-190.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-191.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-192.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-193.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-194.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-195.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-196.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-197.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-198.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-199.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-200.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-201.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-202.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-203.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-204.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-205.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-206.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-207.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-208.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-209.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-210.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-211.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-212.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-213.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-214.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-215.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-216.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-217.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-218.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-219.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-220.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-221.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-222.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-223.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-224.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-225.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-226.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-227.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-228.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-229.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-230.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-231.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-232.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-233.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-234.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-235.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-236.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-237.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-238.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-239.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-240.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-241.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-242.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-243.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-244.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-245.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-246.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-247.png"><meta property="og:image" content="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-248.png"><meta property="article:published_time" content="2017-08-11T08:55:03.000Z"><meta property="article:modified_time" content="2021-08-21T02:42:52.000Z"><meta property="article:author" content="Whr"><meta property="article:tag" content="浅雪的DIY"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://whrblog.online/2017/08/11/217/"},"headline":"用Ardunio和ESP8266模块做一个云温度传感器","image":["hto://www.whrblog.online/wp-content/uploads/2018/02/word-image-105.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-106.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-107.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-108.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-109.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-110.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-111.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-112.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-113.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-114.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-115.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-116.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-117.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-118.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-119.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-120.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-121.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-122.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-123.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-124.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-125.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-126.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-127.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-128.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-129.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-130.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-131.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-132.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-133.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-134.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-135.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-136.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-137.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-138.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-139.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-140.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-141.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-142.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-143.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-144.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-145.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-146.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-147.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-148.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-149.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-150.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-151.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-152.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-153.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-154.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-155.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-156.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-157.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-158.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-159.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-160.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-162.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-163.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-164.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-165.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-166.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-167.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-168.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-169.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-170.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-171.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-172.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-173.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-174.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-175.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-176.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-177.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-178.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-179.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-180.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-181.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-182.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-183.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-184.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-185.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-186.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-187.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-188.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-189.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-190.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-191.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-192.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-193.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-194.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-195.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-196.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-197.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-198.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-199.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-200.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-201.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-202.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-203.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-204.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-205.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-206.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-207.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-208.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-209.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-210.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-211.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-212.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-213.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-214.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-215.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-216.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-217.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-218.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-219.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-220.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-221.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-222.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-223.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-224.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-225.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-226.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-227.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-228.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-229.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-230.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-231.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-232.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-233.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-234.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-235.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-236.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-237.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-238.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-239.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-240.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-241.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-242.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-243.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-244.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-245.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-246.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-247.png","http://www.whrblog.online/wp-content/uploads/2018/02/word-image-248.png"],"datePublished":"2017-08-11T08:55:03.000Z","dateModified":"2021-08-21T02:42:52.000Z","author":{"@type":"Person","name":"Whr"},"publisher":{"@type":"Organization","name":"HELLO TRAVELER","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png"}},"description":"前言前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。 写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。 如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……"}</script><link rel="canonical" href="https://whrblog.online/2017/08/11/217/"><link rel="icon" href="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="dns-prefetch" href="https://whrblog.online"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Friends/"><span class="header-nav-menu-item__icon"><i class="fas fa-heart"></i></span><span class="header-nav-menu-item__text">好朋友</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/Message/"><span class="header-nav-menu-item__icon"><i class="fas fa-comments"></i></span><span class="header-nav-menu-item__text">留言板</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/To-Myself/"><span class="header-nav-menu-item__icon"><i class="fas fa-fish"></i></span><span class="header-nav-menu-item__text">致自己</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" rel="external nofollow noreferrer" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) far fa-images"></i></span><span class="header-nav-menu-item__text">画册</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/mortal-observation"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">人间观察</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://500px.com.cn/community/set/d65903381742483a99bb8f6431c31e66/details?swipe=1"><span class="header-nav-submenu-item__icon"><i class="far fa-images"></i></span><span class="header-nav-submenu-item__text">2019.8 新疆</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" rel="external nofollow noreferrer" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fa(s|r|l|d|b) fas fa-tools"></i></span><span class="header-nav-menu-item__text">工具箱</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://sparkling-silence-6cb0.100srgb.workers.dev/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tools"></i></span><span class="header-nav-submenu-item__text">GITHUB文件加速</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">HELLO TRAVELER</div><div class="header-banner-info__subtitle">Sometimes ever, sometimes never</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">用Ardunio和ESP8266模块做一个云温度传感器</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2017-08-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2021-08-21</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2017/08/11/217/" data-flag-title="用Ardunio和ESP8266模块做一个云温度传感器"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><h1 id="前言">
-          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
-      <p>前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。</p>
+<link rel="alternate" href="/atom.xml" title="HELLO TRAVELER" type="application/atom+xml">
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png" alt="HELLO TRAVELER" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/Friends">Friends</a><a class="navbar-item" href="/To-Myself">About</a><a class="navbar-item" href="/mortal-observation">Album</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;" rel="external nofollow noreferrer"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/wanghurui"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="2017-08-11T08:55:03.000Z" title="2017-08-11T08:55:03.000Z">2017-08-11</time></span><span class="level-item"><time dateTime="2017-08-11T08:55:03.000Z" title="8/11/2017, 4:55:03 PM">2017-08-11</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/uncategorized/">uncategorized</a></span><span class="level-item">2 小时读完 (大约16495个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">用Ardunio和ESP8266模块做一个云温度传感器</h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前段时间用ESP8266模块+温度、湿度、气压传感器做了个云传感器。炫了几天装B后，就被群友索要教程。</p>
 <p>写这个教程，我其实是非常犹豫的，因为涉及到的知识点比较多，要写一大堆东西，极其占用时间。</p>
 <p>如果你是个高中生，或者是个大学新生，或者没接触过类似的东西，你会发现要独立完成全套的软硬件编程和设计，要学的东西有点多……</p>
 <span id="more"></span>
@@ -221,10 +25,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>如果遇到烧录失败，把USB转TTL模块拔了重新插上就可以了，当然GPIO0要接地。</p>
 <p>我这里用的是烧录STC单片机用的那种带３.3 V输出的USB转TTL的烧录器，烧录速度还可以，关键是这种烧录器我家里有好几个，根本不用重新购买。</p>
 <p>总之一句话，硬件都是现成的，我只要安心编程就好。</p>
-
-        <h1 id="我们要做的东西">
-          <a href="#我们要做的东西" class="heading-link"><i class="fas fa-link"></i></a><a href="#我们要做的东西" class="headerlink" title="我们要做的东西"></a>我们要做的东西</h1>
-      <p>先展示一下硬件，我用洞洞板搭建和焊接的。正面还凑合看。</p>
+<h1 id="我们要做的东西"><a href="#我们要做的东西" class="headerlink" title="我们要做的东西"></a>我们要做的东西</h1><p>先展示一下硬件，我用洞洞板搭建和焊接的。正面还凑合看。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-106.png"></p>
 <p>反面很难看，飞线的，想好看不去打板子是没戏的。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-107.png"></p>
@@ -235,10 +36,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>为了酷一点，我们还要做一个图表来展示。图表里面能显示24小时的数据折线图。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-110.png"></p>
 <p>上面看看很简单吧，可是这一套东西，如果要自己独立实现，嘿嘿，你要软件和硬件都懂一点才行。</p>
-
-        <h1 id="硬件准备">
-          <a href="#硬件准备" class="heading-link"><i class="fas fa-link"></i></a><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h1>
-      <p>先说一下我们需要准备哪些硬件。当然，我做这个的时候，纯粹是一时兴起，所以我只会用我手头上现有的模块和元件，不会去额外购买的。</p>
+<h1 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h1><p>先说一下我们需要准备哪些硬件。当然，我做这个的时候，纯粹是一时兴起，所以我只会用我手头上现有的模块和元件，不会去额外购买的。</p>
 <p>1、ESP8266模块。这里我用的是2年前购买的安信可公司的ESP8266-12E。</p>
 <p>你也可以用ESP8266-12F，或者用乐鑫公司的ESP-WROOM-02模块。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-111.png"></p>
@@ -283,10 +81,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>这个烧录器，其实是烧录51单片机用的……我想大家手头应该有好几个吧，因为我手头就有4、5个……用的时候还老是找不到……越买越多……</p>
 <p>记得把电源线，插到3.3V的位置，5V会烧了ESP8266模块。</p>
 <p>还有那种3、4块钱的简易版本烧录器，我不建议使用，因为它的3.3V电流很小，容易烧录失败。反正用这种8块钱的烧录器，烧录的波特率如果不高于115200的话，我基本没失败过。记得安装驱动程序， 要不没法用。</p>
-
-        <h1 id="搭建软件环境">
-          <a href="#搭建软件环境" class="heading-link"><i class="fas fa-link"></i></a><a href="#搭建软件环境" class="headerlink" title="搭建软件环境"></a>搭建软件环境</h1>
-      <p>光有硬件还不行啊，还要有软件，要不我怎么写代码，怎么烧录固件呢？</p>
+<h1 id="搭建软件环境"><a href="#搭建软件环境" class="headerlink" title="搭建软件环境"></a>搭建软件环境</h1><p>光有硬件还不行啊，还要有软件，要不我怎么写代码，怎么烧录固件呢？</p>
 <p>这次我们不用额外单片机，直接用ESP8266模块内置那个牛逼32位单片机。根据官方文档，这个单片机只用了大概几分之一的资源用来控制WIFI，所以我们还有大量的内存和存储空间，用来做我们自己的事情。</p>
 <p>这里感谢万能的Arduino，兼容超级多的32位单片机，也感谢为ESP8266写Arduino开发库的哥们，你真是太闲了，还有空写这个，有工资吗？</p>
 <p>首先我们要下载一个最新版本的Arduino，版本号1.8.3。你可以到Arduino的官方网站去下载，也可以下载我的打包文件。</p>
@@ -315,10 +110,10 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-138.png"></p>
 <p>把里面的内容，弄成和我下面的图一样就可以了。</p>
 <p>具体的配置，可以参考下面这个网址，我也是从里面学的。</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.geek-workshop.com/thread-26170-1-1.html">http://www.geek-workshop.com/thread-26170-1-1.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.geek-workshop.com/thread-26170-1-1.html">http://www.geek-workshop.com/thread-26170-1-1.html</a></p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-139.png"></p>
 <p>附加开发板管理器网址： 填入下面的地址，然后点“好”保存。</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://arduino.esp8266.com/stable/package/_esp8266com/_index.json">http://arduino.esp8266.com/stable/package\_esp8266com\_index.json</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://arduino.esp8266.com/stable/package/_esp8266com/_index.json">http://arduino.esp8266.com/stable/package\_esp8266com\_index.json</a></p>
 <p>下面的还有一个参数配置，应该和下面的保存一致。</p>
 <p>C:\Users\Administrator\AppData\Local\Arduino15\preferences.txt</p>
 <p>如果不一样，就再检查一下你刚才拷贝的 <img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-140.png"> 文件夹，里面应该有个 <img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-141.png"> 文件的。</p>
@@ -331,10 +126,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>如果你用的是老款的ESP8266-01啥的，你就老老实实选通用的开发板 <img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-146.png"></p>
 <p>当然12E的模块，也可以选通用的。</p>
 <p>总算把软件环境搭好了，妈的，写了半天，真心累啊。</p>
-
-        <h1 id="搭建ESP8266的最小环境">
-          <a href="#搭建ESP8266的最小环境" class="heading-link"><i class="fas fa-link"></i></a><a href="#搭建ESP8266的最小环境" class="headerlink" title="搭建ESP8266的最小环境"></a>搭建ESP8266的最小环境</h1>
-      <p>首先你要把ESP8266的最小系统搭建起来，否则没法烧录和测试。</p>
+<h1 id="搭建ESP8266的最小环境"><a href="#搭建ESP8266的最小环境" class="headerlink" title="搭建ESP8266的最小环境"></a>搭建ESP8266的最小环境</h1><p>首先你要把ESP8266的最小系统搭建起来，否则没法烧录和测试。</p>
 <p>看看下面的ESP8266最小系统原理图。有转接板的，你可以焊上杜邦针，用杜邦线搭个最小环境。然后把烧录器接到电脑上，写个小程序测试一下。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-147.png"></p>
 <p>我还是用安信可的模块做说明，乐鑫的模块请对照引脚，自己搭建。</p>
@@ -347,10 +139,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>（注意了，Tx要接Rx，Rx要接Tx，这个是常识，别Tx接Tx，Rx接Rx，还在QQ上反复追问我为什么？我又不是百度！！）</p>
 <p>烧录器的电源也接到ESP8266上，注意要3.3V电，别5V电接过来。</p>
 <p>GPIO0是烧录脚，也就是上电的时候，如果这个引脚悬空或者上拉，那么正常进入程序空间运行程序。如果这个引脚接地了，那么进入烧录模式，烧录器通过串口可以重新烧录里面的固件。</p>
-
-        <h1 id="烧录ESP8266测试">
-          <a href="#烧录ESP8266测试" class="heading-link"><i class="fas fa-link"></i></a><a href="#烧录ESP8266测试" class="headerlink" title="烧录ESP8266测试"></a>烧录ESP8266测试</h1>
-      <p>打开Arduino，选择一个自带的ESP8266的例子。</p>
+<h1 id="烧录ESP8266测试"><a href="#烧录ESP8266测试" class="headerlink" title="烧录ESP8266测试"></a>烧录ESP8266测试</h1><p>打开Arduino，选择一个自带的ESP8266的例子。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-148.png"></p>
 <p>把代码往下拉，找到下面红框的代码，改成你家里的wifi的SSID和密码。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-149.png"></p>
@@ -378,16 +167,10 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>做这种东西，掉各种坑里才是正常，一帆风顺非常罕见。细心很重要，耐心更重要。</p>
 <p>在我写这篇教程前，我已经帮大家填平了很多坑了……</p>
 <p>我本人也掉过无数次的坑，常常有半夜忽然恍然大悟，然后爬起来填坑的经历。</p>
-
-        <h1 id="正式焊接硬件">
-          <a href="#正式焊接硬件" class="heading-link"><i class="fas fa-link"></i></a><a href="#正式焊接硬件" class="headerlink" title="正式焊接硬件"></a>正式焊接硬件</h1>
-      <p>上面的步骤都通过了，你可以进行下一步的工作了。否则焊了个硬件，没法烧录固件，岂不是浪费？</p>
+<h1 id="正式焊接硬件"><a href="#正式焊接硬件" class="headerlink" title="正式焊接硬件"></a>正式焊接硬件</h1><p>上面的步骤都通过了，你可以进行下一步的工作了。否则焊了个硬件，没法烧录固件，岂不是浪费？</p>
 <p>本来打算把我的焊接图拍下的，后来想想看算了，除非打板，否则洞洞板拍焊接图毫无意义，还容易误导大家。所以大家还是看原理图吧。另外，我建议大家全部的模块都用插座，这样以后拆起来也方便。你看我全部的模块都是用的插座，都不是直接焊死的。图上好像都被挡住了，反正我基本都用的插座……</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-160.png"></p>
-
-        <h1 id="原理图">
-          <a href="#原理图" class="heading-link"><i class="fas fa-link"></i></a><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h1>
-      <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png"></p>
+<h1 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h1><p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-161.png"></p>
 <p>在文档里面，原理图不是很清晰，所以大家可以去看PDF版本的。</p>
 <p>原理图看不明白，不知道怎么焊接实物的，我觉得你还是先打打基础比较好……</p>
 <p>我也是先画出原理图，才焊接的实物。</p>
@@ -400,10 +183,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>自己写的Arduino代码，没那么多功能，所以耗电量大大下降，真是意外之喜。</p>
 <p>不过我建议用5V 手机充电器供电就可以了。</p>
 <p>以前老式的塞班手机充电器，500~800mA的，家里还好几个，废物利用了。</p>
-
-        <h1 id="下载传感器和OLED屏的库文件">
-          <a href="#下载传感器和OLED屏的库文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载传感器和OLED屏的库文件" class="headerlink" title="下载传感器和OLED屏的库文件"></a>下载传感器和OLED屏的库文件</h1>
-      <p>这里的内容实际应该放到软件环境搭建里面的，可是我忘了。</p>
+<h1 id="下载传感器和OLED屏的库文件"><a href="#下载传感器和OLED屏的库文件" class="headerlink" title="下载传感器和OLED屏的库文件"></a>下载传感器和OLED屏的库文件</h1><p>这里的内容实际应该放到软件环境搭建里面的，可是我忘了。</p>
 <p>所以就放在这里吧。</p>
 <p>Arduino的官方库里面，是没有常用传感器的库的，需要你去Git上下载。</p>
 <p>当然，我帮你下载好了。你拷贝一下就OK了。</p>
@@ -422,7 +202,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>搜一下模块或者芯片的名字，基本都能找到现成的库，而且还不止一个，让你不知道用哪个好。</p>
 <p>不过毕竟乱，我还是建议去Git里面搜，然后手工下载安装。</p>
 <p>在GIT里面，有个adafruit的元件库，里面有3400多个元件库，我想你很难找不到你要的库了……</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/search?utf8=%E2%9C%93&amp;q=adafruit&amp;type">https://github.com/search?utf8=%E2%9C%93&amp;q=adafruit&amp;type</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>=</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/search?utf8=%E2%9C%93&amp;q=adafruit&amp;type">https://github.com/search?utf8=%E2%9C%93&amp;q=adafruit&amp;type</a>=</p>
 <p>而且这个adafruit的库，里面的底层代码写的都比较规范，我喜欢手工下载它的库，不想用其它人的库了。</p>
 <p>有人可能不会在GIT里面下载东西，其实很简单。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-165.png"></p>
@@ -435,10 +215,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>DS18B20的底层代码，都封装成库了，用户根本不用关心底层怎么实现的，只要看看示例，复制一下代码就可以搞定。</p>
 <p>我以前用51单片机，换个型号，底层代码的延时基本都要重新改过，并且一一测试，真是折腾死了。Arduino这种方式，简直太方便了，难怪会这么火。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-167.png"></p>
-
-        <h1 id="如何看示例">
-          <a href="#如何看示例" class="heading-link"><i class="fas fa-link"></i></a><a href="#如何看示例" class="headerlink" title="如何看示例"></a>如何看示例</h1>
-      <p>Arduino全部库里面基本都有示例代码。</p>
+<h1 id="如何看示例"><a href="#如何看示例" class="headerlink" title="如何看示例"></a>如何看示例</h1><p>Arduino全部库里面基本都有示例代码。</p>
 <p>示例代码可以非常快的帮助我们学会该种库的使用。</p>
 <p>我以前常说，你不会写，你还不会抄吗？</p>
 <p>示例代码就是让我们来抄的，其实我做的这个东西，全部的代码，有一大半都是我拼凑的各种示例代码修改来的。</p>
@@ -455,10 +232,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-171.png"></p>
 <p>常用的波特率是9600和115200。</p>
 <p>波特率的概念请自己去百度。不同波特率之间不能通信，或者通信数据会全部错误。</p>
-
-        <h1 id="软件设计流程">
-          <a href="#软件设计流程" class="heading-link"><i class="fas fa-link"></i></a><a href="#软件设计流程" class="headerlink" title="软件设计流程"></a>软件设计流程</h1>
-      <p>用Arduino自带的例子烧录过几次后，确认Esp8266的开发板可用后，我就打算修改我以前的项目，做个不用外置单片机的云传感器出来。</p>
+<h1 id="软件设计流程"><a href="#软件设计流程" class="headerlink" title="软件设计流程"></a>软件设计流程</h1><p>用Arduino自带的例子烧录过几次后，确认Esp8266的开发板可用后，我就打算修改我以前的项目，做个不用外置单片机的云传感器出来。</p>
 <p>但是我这里还有几个问题需要解决，否则还是没法完成我这个项目。</p>
 <p>1、用ESP8266模块读取DS18B20、DHT12、BMP280等传感器的数据。</p>
 <p>通过下载各种传感器的开发库，用库自带的例子逐一读取数据 ，全部成功。我要做的就是把代码拼凑起来，同时要合理分配ESP8266少的可怜的几个IO口。</p>
@@ -491,7 +265,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>当然，对我来说简单。</p>
 <p>我们知道，HTTP协议里面，常见的两种方法：GET和POST。</p>
 <p>GET常用来发送请求（Request）。当然它也可以带参数。</p>
-<p>网页的地址常见到：<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://xxxx.com/?a1=10&amp;a2=20&amp;a3=30">http://xxxx.com?a1=10&amp;a2=20&amp;a3=30</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>网页的地址常见到：<a target="_blank" rel="noopener external nofollow noreferrer" href="http://xxxx.com/?a1=10&amp;a2=20&amp;a3=30">http://xxxx.com?a1=10&amp;a2=20&amp;a3=30</a></p>
 <p>这里就是一个GET，它还带了a1,a2,a3 三个参数。</p>
 <p>Web服务器可以解析网址，从而把a1,a2,a3 的值保存到数据库里。</p>
 <p>这种也是最简单的HTTP的数据上传方式。</p>
@@ -523,7 +297,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>你说你不会用数据库，也不建表？也看不懂表结构？</p>
 <p>这里我不想多讲欸，跳过吧，后面我们用脚本建库就好了。哎，写到这里，我明显开始偷懒了。</p>
 <p>VS2012做一个简单查询，图表之类的，用百度的开源图表Echarts。</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://echarts.baidu.com/">http://echarts.baidu.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://echarts.baidu.com/">http://echarts.baidu.com/</a></p>
 <p>不知道的可以去看看，做的不错，现在国内网站的图表，基本都是这个，很赞。</p>
 <p>我们只要折线图，所以下载一个最小版本就可以了。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-175.png"></p>
@@ -534,10 +308,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>再建立一个 <img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-177.png"> ，负责解析云传感器发来的数据，保存到SQLServer数据库里面。</p>
 <p>具体的代码就不讲了，太多太多，没法讲……后面有时间我单开教程讲吧。最后你们自己去百度，看看怎么写小网站，怎么搭建网站，怎么玩数据库，怎么写SQL……</p>
 <p>可是大部分人都不想学这些，都只是想做个传感器而已……</p>
-
-        <h1 id="拥有自己的云">
-          <a href="#拥有自己的云" class="heading-link"><i class="fas fa-link"></i></a><a href="#拥有自己的云" class="headerlink" title="拥有自己的云"></a>拥有自己的云</h1>
-      <p>其实我不缺公网服务器的，公司有几台闲置的公网服务器，我都可以拿来私用，但是没法给大家共享。所以，我要抛弃公司的服务器，和大家一起拥有自己的私有云。</p>
+<h1 id="拥有自己的云"><a href="#拥有自己的云" class="headerlink" title="拥有自己的云"></a>拥有自己的云</h1><p>其实我不缺公网服务器的，公司有几台闲置的公网服务器，我都可以拿来私用，但是没法给大家共享。所以，我要抛弃公司的服务器，和大家一起拥有自己的私有云。</p>
 <p>先看看国内有哪家公司比较厚道，会给我们一个自己的云呢？</p>
 <p>有钱鹅公司的理念一直是：不充钱，你怎么能变强呢？</p>
 <p>有意思公司的理念一直是：充了钱，你也不一定能变强。</p>
@@ -548,10 +319,10 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>其次，我们要找一个免费的或者非常便宜的云服务器。</p>
 <p>1、申请自己云服务器的域名。</p>
 <p>先来到招财猫公司的网站：</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.aliyun.com/">https://www.aliyun.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.aliyun.com/">https://www.aliyun.com/</a></p>
 <p>随便注册一个用户名和密码，或者用你的招财猫账号和密码登录。</p>
 <p>然后来到域名注册的地方</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://wanwang.aliyun.com/domain/searchresult/?keyword=fsdfds&amp;suffix=.top">https://wanwang.aliyun.com/domain/searchresult/?keyword=fsdfds&amp;suffix=.top</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://wanwang.aliyun.com/domain/searchresult/?keyword=fsdfds&amp;suffix=.top">https://wanwang.aliyun.com/domain/searchresult/?keyword=fsdfds&amp;suffix=.top</a></p>
 <p>找一下 <img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-178.png"> 这种域名。</p>
 <p>当然，com域名你是别想了，top和xin之类的还凑合。</p>
 <p>.win是最便宜的，因为工信部到现在没法备案这种域名，所以还是换个别的吧。</p>
@@ -576,11 +347,11 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>申请云空间的时候，请选择 Windows2008系统，SqlServer2008数据库，IIS7.5，.net V4.0之类的环境。</p>
 <p>不要选择Linux，MySQL之类的。不过后面也能随时更换好像。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-182.png"></p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/login">https://cp.aliyun.com/login</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/login">https://cp.aliyun.com/login</a></p>
 <p>看到6块钱了吧。</p>
 <p>1年6块钱的云，你还想怎么样？？想要真正的云服务器？</p>
 <p>招财猫公司的理念再跟着我念一遍……</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://wanwang.aliyun.com/hosting/free?spm=0.0.0.0.xkJ5oL">https://wanwang.aliyun.com/hosting/free?spm=0.0.0.0.xkJ5oL</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://wanwang.aliyun.com/hosting/free?spm=0.0.0.0.xkJ5oL">https://wanwang.aliyun.com/hosting/free?spm=0.0.0.0.xkJ5oL</a></p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-183.png"></p>
 <p>200M网页空间+20M的数据库空间+10G的月流量。</p>
 <p>我们只是存个云传感器数据而已，20M数据库空间大概够我们存20万条数据了，马马虎虎吧。</p>
@@ -594,24 +365,21 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>鼠标右键，选择 登录，输入用户名和密码，保存密码，省的每次都输入。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-186.png"></p>
 <p>你说你不知道你的FTP地址？？</p>
-<p>进<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/login">https://cp.aliyun.com/login</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>登录后，进入控制台页面，就可以看到你的FTP地址了。</p>
+<p>进<a target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/login">https://cp.aliyun.com/login</a>登录后，进入控制台页面，就可以看到你的FTP地址了。</p>
 <p>密码啥的，你自己记牢了。</p>
-
-        <h1 id="域名解析">
-          <a href="#域名解析" class="heading-link"><i class="fas fa-link"></i></a><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1>
-      <p>1、赶紧去备案你的域名。</p>
+<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>1、赶紧去备案你的域名。</p>
 <p>当然你也可以不备案，一直用临时域名。比如，我的临时域名：</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-187.png"></p>
 <p>这个域名每隔4个小时，就要重新登录一下。不过通过GET方式上传数据不受影响。</p>
 <p>2、域名解析。</p>
-<p>在<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/">https://cp.aliyun.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>的控制台，找到域名绑定。</p>
+<p>在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/">https://cp.aliyun.com</a>的控制台，找到域名绑定。</p>
 <p>其实这里不绑定也没啥关系应该，主要是找到你的云空间的站点地址。</p>
 <p>比如，我的站点地址是：60.205.47.232</p>
 <p>这里添加域名，把你刚才申请的域名给添加进去。</p>
 <p>要添加2个，一个带”www.”，一个不带”www.”。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-188.png"></p>
 <p>复制一下这个地址，然后去阿里云的域名解析那里，新建A记录。</p>
-<p>先进<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.aliyun.com/">https://www.aliyun.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>先进<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.aliyun.com/">https://www.aliyun.com/</a></p>
 <p>然后登录你注册域名的账户。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-189.png"></p>
 <p>登录后，点一下上面的控制台。选择左边的“域名与网站（万网）”，进入“域名”</p>
@@ -624,7 +392,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-192.png"></p>
 <p>说个常识，域名是不带“www.”这个4个字符的。</p>
 <p>比如我申请的域名是mysensor.top</p>
-<p>而不是<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.mysensor.top/">www.mysensor.top</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。</p>
+<p>而不是<a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.mysensor.top/">www.mysensor.top</a>。</p>
 <p>当然，你用上面2个都能访问我的网站。</p>
 <p>因为我A记录里面，www和@我都添加过。否则你只能访问其中一个。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-193.png"></p>
@@ -633,14 +401,11 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>好了，绑定好以后，你应该在几分钟后就能通过域名访问你的云了。</p>
 <p>但是几个小时后，这个就会失效，因为你得备案。给你几个小时，只是让你验证一下域名解析是否好用而已。</p>
 <p>备案请自己完成，比较繁琐。当然你也可以不备案，只用临时域名。</p>
-
-        <h1 id="配置自己的云">
-          <a href="#配置自己的云" class="heading-link"><i class="fas fa-link"></i></a><a href="#配置自己的云" class="headerlink" title="配置自己的云"></a>配置自己的云</h1>
-      <p>域名都配置好了，我们的云空间也要把网站搭建起来。</p>
+<h1 id="配置自己的云"><a href="#配置自己的云" class="headerlink" title="配置自己的云"></a>配置自己的云</h1><p>域名都配置好了，我们的云空间也要把网站搭建起来。</p>
 <p>1、配置数据库</p>
 <p>网站需要接入SQLServer2008数据库。</p>
 <p>为了简单易用，数据库里面只有1张表，tbl_Data</p>
-<p>进入我们的云主机控制台，<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/">https://cp.aliyun.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>进入我们的云主机控制台，<a target="_blank" rel="noopener external nofollow noreferrer" href="https://cp.aliyun.com/">https://cp.aliyun.com</a></p>
 <p>选择“数据库信息”</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-195.png"></p>
 <p>最右边有个“管理”，进入数据库管理网页，著名的DMS。</p>
@@ -709,10 +474,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>教程写了这么多，还有很多的知识，都是一笔带过。可是我已经没法再详细了……</p>
 <p>大家能学到的知识依然很少，走马观花的看看而已。</p>
 <p>浅雪 2017年8月5日星期六</p>
-
-        <h1 id="GET和POST简介">
-          <a href="#GET和POST简介" class="heading-link"><i class="fas fa-link"></i></a><a href="#GET和POST简介" class="headerlink" title="GET和POST简介"></a>GET和POST简介</h1>
-      <p>这里我简单说一下GET和POST的包结构。详细的说明你们自己去百度。</p>
+<h1 id="GET和POST简介"><a href="#GET和POST简介" class="headerlink" title="GET和POST简介"></a>GET和POST简介</h1><p>这里我简单说一下GET和POST的包结构。详细的说明你们自己去百度。</p>
 <p>一个标准的GET包，基本就是下面这个样子的。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-217.png"></p>
 <p>必须以GET开头，你不要写成Get、get之类的，大小写需要统一，不要自找麻烦。</p>
@@ -747,10 +509,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>之类的方式，通过逗号来做分割符，服务器收到包后，把包转为字符串，然后在分割字符串。也可以通过JSON来处理，或者XML来处理。</p>
 <p>JSON和XML不知道的，都自己去百度。服务器端要处理JSON或者XML数据，都要安装对应的插件，简单的数据，你也可以挑战自己的通过文本处理来解析，哈哈。</p>
 <p>如果你以后用ESP8266模块做服务器处理JSON数据，那么尽量要使用ESP8266JSON之类的第三方库才行。</p>
-
-        <h1 id="GET和POST实例">
-          <a href="#GET和POST实例" class="heading-link"><i class="fas fa-link"></i></a><a href="#GET和POST实例" class="headerlink" title="GET和POST实例"></a>GET和POST实例</h1>
-      <p>说了那么多，不给例子的都是耍流氓。</p>
+<h1 id="GET和POST实例"><a href="#GET和POST实例" class="headerlink" title="GET和POST实例"></a>GET和POST实例</h1><p>说了那么多，不给例子的都是耍流氓。</p>
 <p>我平常看学习文档，最恨那种没例子的，新手根本不知道怎么入门。</p>
 <p>鉴于我们是使用ESP8266模块进行开发的，我这里用ESP8266模块自带的AT命令来给出例子。</p>
 <p>如果你的ESP8266模块自己烧录了Arduino代码，那么里面的AT命令固件就被你覆盖掉了，所以你最好使用原装的模块，里面默认的固件都是AT命令固件。</p>
@@ -758,7 +517,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>或者你花钱买那种转接板上自带ch340芯片的转接板，这样连烧录器都省掉了。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-219.png"></p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-220.png"></p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.33.7be0196r5S7P0&amp;id=531515702108">https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.33.7be0196r5S7P0&amp;id=531515702108</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.33.7be0196r5S7P0&amp;id=531515702108">https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.33.7be0196r5S7P0&amp;id=531515702108</a></p>
 <p>这个玩意的正面带一个esp8266模块，反面就是ch340芯片和稳压芯片，还带一个烧录开关，反正做的挺全面的。</p>
 <p>比那种5毛钱一个的单独转接板，要方便一点。不过我手头上很多esp8266模块了，还有好多烧录器，我也懒的买这种，不花冤枉钱。我用的是下面这种，就接4根线：3.3V，GND，RX，TX。</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-221.png"></p>
@@ -779,7 +538,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-223.png"></p>
 <p>为啥不加GET、HTTP/1.1和HOST之类的东西了呢，因为浏览器发送GET包的时候，会自动帮你补全的，你加了反而不对了。我们自己发包的时候，就要加这些东西了。</p>
 <p>如果是POST怎么测试呢？找个在线测试工具</p>
-<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener external nofollow noreferrer" href="http://www.sojson.com/httpRequest/">http://www.sojson.com/httpRequest/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.sojson.com/httpRequest/">http://www.sojson.com/httpRequest/</a></p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-224.png"></p>
 <p>再看看返回值</p>
 <p><img src="http://www.whrblog.online/wp-content/uploads/2018/02/word-image-225.png"></p>
@@ -885,322 +644,66 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0">
 <p>在我的Arduino代码里，我是用GET来传输数据给服务器的，因为这样做简单。</p>
 <p>我也可以改成POST的，毕竟网上POST的例子不多。在Arduino里，需要自己建一个client，去连服务器。然后往client里面丢封包，和AT命令其实也差不多。</p>
 <p>我看到一些免费的物联网，他们的POST协议，最后的data，是要组合成JSON的格式来存放数据的，都是一样的道理。</p>
-</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://whrblog.online">Whr</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://whrblog.online/2017/08/11/217/">https://whrblog.online/2017/08/11/217/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://whrblog.online/tags/%E6%B5%85%E9%9B%AA%E7%9A%84DIY/">浅雪的DIY</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">小米路由器monlor tools插件</span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">
-          前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E8%A6%81%E5%81%9A%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number">2.</span> <span class="toc-text">
-          我们要做的东西</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87"><span class="toc-number">3.</span> <span class="toc-text">
-          硬件准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">
-          搭建软件环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAESP8266%E7%9A%84%E6%9C%80%E5%B0%8F%E7%8E%AF%E5%A2%83"><span class="toc-number">5.</span> <span class="toc-text">
-          搭建ESP8266的最小环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%A7%E5%BD%95ESP8266%E6%B5%8B%E8%AF%95"><span class="toc-number">6.</span> <span class="toc-text">
-          烧录ESP8266测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E7%84%8A%E6%8E%A5%E7%A1%AC%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">
-          正式焊接硬件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-number">8.</span> <span class="toc-text">
-          原理图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E5%92%8COLED%E5%B1%8F%E7%9A%84%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">
-          下载传感器和OLED屏的库文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%9C%8B%E7%A4%BA%E4%BE%8B"><span class="toc-number">10.</span> <span class="toc-text">
-          如何看示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B"><span class="toc-number">11.</span> <span class="toc-text">
-          软件设计流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%A5%E6%9C%89%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%91"><span class="toc-number">12.</span> <span class="toc-text">
-          拥有自己的云</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-number">13.</span> <span class="toc-text">
-          域名解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%91"><span class="toc-number">14.</span> <span class="toc-text">
-          配置自己的云</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GET%E5%92%8CPOST%E7%AE%80%E4%BB%8B"><span class="toc-number">15.</span> <span class="toc-text">
-          GET和POST简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GET%E5%92%8CPOST%E5%AE%9E%E4%BE%8B"><span class="toc-number">16.</span> <span class="toc-text">
-          GET和POST实例</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://i.loli.net/2021/08/23/TiEWIRoPFNYbcrS.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">若我不再能奔跑，请让我在梦中飞翔。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/wanghurui" target="_blank" rel="noopener external nofollow noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/Hacker_Whr" target="_blank" rel="noopener external nofollow noreferrer" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/whr-67-78" target="_blank" rel="noopener external nofollow noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=1790538934" target="_blank" rel="noopener external nofollow noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://500px.com.cn/whur" target="_blank" rel="noopener external nofollow noreferrer" data-popover="500PX" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-500px"></i></span></a><a class="sidebar-ov-social-item" href="mailto:admin@whrblog.online" target="_blank" rel="noopener" data-popover="social.Gmail" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">Gmail</span></a></div><div class="sidebar-ov-feed"><span class="sidebar-ov-feed-rss"><a class="sidebar-ov-feed-rss__link" href="/atom.xml" target="_blank" rel="noopener"><span class="sidebar-ov-feed-rss__icon"><i class="fas fa-rss"></i></span><span>RSS 订阅</span></a></span></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">37</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener external nofollow noreferrer" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Whr</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> 强力驱动</span><span> v5.4.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener external nofollow noreferrer">Stun</a></span><span> v2.6.2</span></div><div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div><a href="https://whrblog.online/uptimebot" rel="noopener" target="_blank">Server Status</a></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/jquery.min.js"></script><script src="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/velocity.min.js"></script><script src="//s-sh-1131-jsdeliver.oss.dogecdn.com/hexo-stun/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/ribbon.js/1.0.2/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script>function initSearch() {
-  var isXML = true;
-  var search_path = 'search.xml';
-
-  if (!search_path) {
-    search_path = 'search.xml';
-  } else if (/json$/i.test(search_path)) {
-    isXML = false;
-  }
-
-  var path = '/' + search_path;
-  $.ajax({
-    url: path,
-    dataType: isXML ? 'xml' : 'json',
-    async: true,
-    success: function (res) {
-      var datas = isXML ? $('entry', res).map(function () {
-        // 将 XML 转为 JSON
-        return {
-          title: $('title', this).text(),
-          content: $('content', this).text(),
-          url: $('url', this).text()
-        };
-      }).get() : res;
-      var $input = $('.search-input input');
-      var $result = $('.search-results');
-      // 搜索对象（标题、内容）的权重，影响显示顺序
-      var WEIGHT = { title: 100, content: 1 };
-      var searchPost = function () {
-        var searchText = $input.val().toLowerCase().trim();
-        // 根据空白字符分隔关键字
-        var keywords = searchText.split(/[\s]+/);
-        // 搜索结果
-        var matchPosts = [];
-
-        // 有多个关键字时，将原文字整个保存下来
-        if (keywords.length > 1) {
-          keywords.push(searchText);
-        }
-        // 防止未输入字符时搜索
-        if (searchText.length > 0) {
-          datas.forEach(function (data) {
-            var isMatch  = false;
-            // 没有标题的文章使用预设的 i18n 变量代替
-            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
-            var titleLower = title && title.toLowerCase();
-            // 删除 HTML 标签 和 所有空白字符
-            var content = data.content && data.content.replace(/<[^>]+>/g, '');
-            var contentLower = content && content.toLowerCase();
-            // 删除重复的 /
-            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
-            // 标题中匹配到的关键词
-            var titleHitSlice = [];
-            // 内容中匹配到的关键词
-            var contentHitSlice = [];
-
-            keywords.forEach(function (keyword) {
-              /**
-              * 获取匹配的关键词的索引
-              * @param {String} keyword 要匹配的关键字
-              * @param {String} text 原文字
-              * @param {Boolean} caseSensitive 是否区分大小写
-              * @param {Number} weight 匹配对象的权重。权重大的优先显示
-              * @return {Array}
-              */
-              function getIndexByword (word, text, caseSensitive, weight) {
-                if (!word || !text) {
-                  return [];
-                };
-
-                var startIndex = 0; // 每次匹配的开始索引
-                var index = -1;     // 匹配到的索引值
-                var result = [];    // 匹配结果
-
-                if (!caseSensitive) {
-                  word = word.toLowerCase();
-                  text = text.toLowerCase();
+</div><div class="article-licensing box"><div class="licensing-title"><p>用Ardunio和ESP8266模块做一个云温度传感器</p><p><a href="https://whrblog.online/2017/08/11/217/">https://whrblog.online/2017/08/11/217/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Whr</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2017-08-11</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-08-21</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener external nofollow noreferrer" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener external nofollow noreferrer" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener external nofollow noreferrer" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%B5%85%E9%9B%AA%E7%9A%84DIY/">浅雪的DIY</a></div><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62efb5bf70c59915" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2018/02/02/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8monlor-tools%E6%8F%92%E4%BB%B6/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">小米路由器monlor tools插件</span></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread',
+            appId: "atwHbFJu4O787cc0K5uyEQzw-gzGzoHsz",
+            appKey: "GPjxAqd2KmMaKKFX2RA5SzDd",
+            
+            avatar: "mm",
+            avatarForce: false,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            visitor: false,
+            highlight: true,
+            recordIP: false,
+            
+            
+            
+            enableQQ: true,
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://i.loli.net/2021/08/23/TiEWIRoPFNYbcrS.jpg" alt="Whr"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Whr</p><p class="is-size-6 is-block">若我不再能奔跑，请让我在梦中飞翔。</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">37</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">13</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wanghurui" target="_blank" rel="noopener external nofollow noreferrer">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="Github" href="https://github.com/wanghurui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="Twitter" href="https://twitter.com/Hacker_Whr"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:admin@whrblog.online"><i class="fas fa-at"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="500PX" href="https://500px.com.cn/whur"><i class="fab fa-500px"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="QQ" href="tencent://message?uin=1790538934"><i class="fab fa-qq"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener external nofollow noreferrer"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener external nofollow noreferrer"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/10/"><span class="level-start"><span class="level-item">十月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">十一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/07/"><span class="level-start"><span class="level-item">七月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/06/"><span class="level-start"><span class="level-item">六月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/03/"><span class="level-start"><span class="level-item">三月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/02/"><span class="level-start"><span class="level-item">二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/01/"><span class="level-start"><span class="level-item">一月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/11/"><span class="level-start"><span class="level-item">十一月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/07/"><span class="level-start"><span class="level-item">七月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/06/"><span class="level-start"><span class="level-item">六月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/05/"><span class="level-start"><span class="level-item">五月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/04/"><span class="level-start"><span class="level-item">四月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/02/"><span class="level-start"><span class="level-item">二月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/08/"><span class="level-start"><span class="level-item">八月 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-02-15T15:23:33.000Z">2022-02-15</time></p><p class="title"><a href="/2022/02/15/%E6%97%85%E8%A1%8C%E7%9A%84%E6%84%8F%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88/">旅行的意义是什么?</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-31T14:12:31.000Z">2022-01-31</time></p><p class="title"><a href="/2022/01/31/2021%E7%9A%84%E5%B0%BE%E5%A3%B0%E2%80%94My-Lonely-Moment/">2021的尾声—My Lonely Moment</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-10-28T16:26:56.000Z">2021-10-29</time></p><p class="title"><a href="/2021/10/29/%E6%9F%AF%E8%BE%BE%E5%85%8B%E7%BD%97%E5%A7%86%E5%BD%A9%E8%89%B2%E5%8F%8D%E8%BD%AC%E7%89%87%E7%9A%84%E5%86%B2%E6%B4%97%EF%BC%88%E8%BD%AC%EF%BC%89/">柯达克罗姆彩色反转片的冲洗（转）</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-09-20T12:59:14.000Z">2021-09-20</time></p><p class="title"><a href="/2021/09/20/enhance_haswell/">提升Intel 4代处理器性能锁定全核倍频</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-07-01T00:41:15.000Z">2021-07-01</time></p><p class="title"><a href="/2021/07/01/%E8%A7%A3%E8%AF%BBmtf%E6%9B%B2%E7%BA%BF/">解读MTF曲线</a></p><p class="categories"><a href="/categories/uncategorized/">uncategorized</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png" alt="HELLO TRAVELER" height="28"></a><p class="is-size-7"><span>&copy; 2022 Whr</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener external nofollow noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener external nofollow noreferrer" title="500PX" href="https://500px.com.cn/whur"><i class="fab a-500px"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
                 }
-
-                while((index = text.indexOf(word, startIndex)) !== -1) {
-                  var hasMatch = false;
-                  // 索引位置相同的关键词，保留长度较长的
-                  titleHitSlice.forEach(function (hit) {
-                    if (hit.index === index && hit.word.length < word.length) {
-                      hit.word = word;
-                      hasMatch = true;
-                    }
-                  });
-                  startIndex = index + word.length;
-                  !hasMatch && result.push({ index: index, word: word, weight: weight });
-                }
-                return result;
-              }
-              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
-              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
-            });
-
-            var hitTitle = titleHitSlice.length;
-            var hitContent = contentHitSlice.length;
-
-            if (hitTitle > 0 || hitContent > 0) {
-              isMatch = true;
             }
-            if (isMatch) {
-              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
-                // 按照匹配文字的索引的递增顺序排序
-                hit.sort(function (left, right) {
-                  return left.index - right.index;
-                });
-              });
-              /**
-              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
-              * @param {String} text 原文本
-              * @param {Array} hitSlice 匹配项的索引信息
-              * @param {Number} start 开始索引
-              * @param {Number} end 结束索引
-              * @return {String}
-              */
-              function highlightKeyword (text, hitSlice, start, end) {
-                if (!text || !hitSlice || !hitSlice.length) {
-                  return;
-                }
-
-                var result = '';
-                var startIndex = start;
-                var endIndex = end;
-                hitSlice.forEach(function (hit) {
-                  if (hit.index < startIndex) {
-                    return;
-                  }
-
-                  var hitWordEnd = hit.index + hit.word.length;
-                  result += text.slice(startIndex, hit.index);
-                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
-                  startIndex = hitWordEnd;
-                });
-                result += text.slice(startIndex, endIndex);
-                return result;
-              }
-
-              var postData = {};
-              // 文章总的搜索权重
-              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
-              // 标记匹配关键词后的标题
-              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
-              // 标记匹配关键词后的内容
-              var postContent;
-              // 显示内容的长度
-              var SHOW_WORD_LENGTH = 200;
-              // 命中关键词前的字符显示长度
-              var SHOW_WORD_FRONT_LENGTH = 20;
-              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
-
-              // 截取匹配的第一个字符，前后共 200 个字符来显示
-              if (contentHitSlice.length > 0) {
-                var firstIndex = contentHitSlice[0].index;
-                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
-                var end = firstIndex + SHOW_WORD_END_LENGTH;
-                postContent = highlightKeyword(content, contentHitSlice, start, end);
-              } else { // 未匹配到内容，直接截取前 200 个字符来显示
-                postContent = content.slice(0, SHOW_WORD_LENGTH);
-              }
-              postData.title = postTitle;
-              postData.content = postContent;
-              postData.url = postURL;
-              postData.weight = postWeight;
-              matchPosts.push(postData);
-            }
-          });
-        }
-
-        var resultInnerHtml = '';
-        if (matchPosts.length) {
-          // 按权重递增的顺序排序，使权重大的优先显示
-          matchPosts.sort(function (left, right) {
-            return right.weight - left.weight;
-          });
-          resultInnerHtml += '<ul>';
-          matchPosts.forEach(function (post) {
-            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
-            resultInnerHtml += post.title;
-            resultInnerHtml += '</a><div class="search-results-content">';
-            resultInnerHtml += post.content;
-            resultInnerHtml += '</div></li>';
-          });
-          resultInnerHtml += '</ul>';
-        } else {
-          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
-        }
-        $result.html(resultInnerHtml);
-      };
-      $input.on('input', searchPost);
-      $input.on('keyup', function (e) {
-        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
-          searchPost();
-        }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
       });
-    }
-  });
-}
-
-function closeSearch () {
-  $('body').css({ overflow: 'auto' });
-  $('.search-popup').css({ display: 'none' });
-  $('.search-mask').css({ display: 'none' });
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  Stun.utils.pjaxReloadLocalSearch = function () {
-    $('.header-nav-search').on('click', function (e) {
-      e.stopPropagation();
-      $('body').css('overflow', 'hidden');
-      $('.search-popup')
-        .velocity('stop')
-        .velocity('transition.expandIn', {
-          duration: 300,
-          complete: function () {
-            $('.search-popup input').focus();
-          }
-        });
-      $('.search-mask')
-        .velocity('stop')
-        .velocity('transition.fadeIn', {
-          duration: 300
-        });
-
-      initSearch();
-    });
-    $('.search-mask, .search-close').on('click', function () {
-      closeSearch();
-    });
-    $(document).on('keydown', function (e) {
-      // Escape <=> 27
-      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
-        closeSearch();
-      }
-    });
-  };
-
-  Stun.utils.pjaxReloadLocalSearch();
-}, false);
-
-function safeOpenUrl(url) {
-  var newTab = window.open();
-  newTab.opener = null;
-  newTab.location = url;
-}
-
-function extSearch(engine) {
-  var engines = {
-    google: 'https://www.google.com/search?q=',
-    bing: 'https://cn.bing.com/search?q=',
-    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
-  };
-  var host = window.location.host;
-  var query = $('.search-input input').val().toLowerCase().trim();
-  var uri = engines[engine] + query + ' site:' + host;
-
-  if (query) {
-    safeOpenUrl(uri);
-  } else {
-    Stun.utils.popAlert('warning', '请输入字符');
-  }
-}
-
-var assistSearchList = window.CONFIG.assistSearch;
-
-if (Array.isArray(assistSearchList)) {
-  assistSearchList.forEach(function (name) {
-    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
-      extSearch(name);
-    }, false);
-  });
-}</script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.18/Valine.min.js"></script><script>function loadValine () {
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var guest_info = 'nick,mail,link';
-
-  guest_info = guest_info.split(',').filter(function(item) {
-    return GUEST_INFO.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#valine-container',
-    appId: 'atwHbFJu4O787cc0K5uyEQzw-gzGzoHsz',
-    appKey: 'GPjxAqd2KmMaKKFX2RA5SzDd',
-    notify: true,
-    verify: true,
-    placeholder: '你是我这一生只会遇见一次的惊喜',
-    avatar: 'mp',
-    meta: guest_info,
-    pageSize: '10' || 10,
-    visitor: true,
-    recordIP: true,
-    lang: '' || 'zh-cn',
-    path: window.location.pathname
-  });
-}
-
-if (false) {
-  loadValine();
-} else {
-  window.addEventListener('DOMContentLoaded', loadValine, false);
-}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.xml"></script></body></html><!--浏览器搞笑标题-->
-<script type="text/javascript" src="\js\title.js"></script>
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;" rel="external nofollow noreferrer">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

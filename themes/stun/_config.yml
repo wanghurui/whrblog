@@ -120,7 +120,7 @@ night_mode:
 # The layout for sidebar and content of site.
 layout:
   # The width of the content area in website.
-  content: 768px
+  content: 1024px
   # The width of the sidebar in website.
   sidebar: 300px
   # The width between the content and the sidebar.
@@ -321,11 +321,11 @@ social:
   #youtube: https://youtube.com/ || fab fa-youtube
   # segmentfault: https://segmentfault.com/ || origin:sf
   # weibo: https://weibo.com/ || fab fa-weibo
-  zhihu: https://www.zhihu.com/people/whr-67-78 || origin:知
+  zhihu: https://www.zhihu.com/people/whr-67-78 || fab fa-zhihu
   # telegram: yournumber || fab fa-telegram
   qq: tencent://message?uin=1790538934 || fab fa-qq
   500PX: https://500px.com.cn/whur || fab fa-500px
-  Gmail: mailto:admin@whrblog.online || origin:Gmail
+  Gmail: mailto:admin@whrblog.online || fas fa-at
 
 social_setting:
   enable: true
