@@ -112,6 +112,9 @@ navbar:
         Album: /mortal-observation
     # Links to be shown on the right of the navigation bar
     links:
+        开往-友链接力:
+            icon: fas fa-subway
+            url: 'https://travellings.link'
         Download on GitHub:
             icon: fab fa-github
             url: 'https://github.com/wanghurui'
@@ -126,7 +129,7 @@ footer:
             icon: fab fa-creative-commons-by
             url: 'https://creativecommons.org/licenses/by/4.0/'
         500PX:
-            icon: fab a-500px
+            icon: fab fa-500px
             url: 'https://500px.com.cn/whur'
 # Article related configurations
 article:
@@ -245,6 +248,7 @@ widgets:
         links:
             Hexo: 'https://hexo.io'
             Bulma: 'https://bulma.io'
+            Travelling: 'https://travellings.link'
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar

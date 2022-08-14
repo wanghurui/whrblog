@@ -128,3 +128,15 @@ title: Links
     </div>
   </div>
 </div>
+
+* * * 
+
+{% raw %}<article class="message is-success"><div class="message-body">{% endraw %}
+## 我的信息 ##
+
+网站名称：Hello Traveler
+网站地址：https://whrblog.online/
+网站描述：若我不再能奔跑，请让我在梦中飞翔。
+LOGO图片：https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png
+
+{% raw %}</div></article>{% endraw %}
