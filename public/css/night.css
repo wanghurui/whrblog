@@ -261,6 +261,14 @@ body.night {
 .night article.media .title:hover a {
   color: #c0c0c0 !important;
 }
+.night .tags .tag:first-child {
+  background: #373d48;
+  color: #c0c0c0;
+}
+.night .tags .tag:last-child {
+  background: #2d333e;
+  color: #c0c0c0;
+}
 .night .tag:not(body) {
   color: #c0c0c0;
   background-color: #373d48;
