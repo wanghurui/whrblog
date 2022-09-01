@@ -110,6 +110,7 @@ navbar:
         Friends: /Friends
         About: /To-Myself
         Album: /mortal-observation
+        Lenses Databases: /lensesdb
     # Links to be shown on the right of the navigation bar
     links:
         开往-友链接力:
