@@ -40,6 +40,24 @@ date: 2022-09-01 17:21:40
 
 * * *
 
+## Nikon AI-S AF Nikkor 85mm f/1.8
+> Nikon AI-S AF Nikkor 85mm f/1.8 和 Nikon 85mm f/1.8D AF Nikkor Lens 同样的结构，1988年的作品，有点先进，似乎比ef 85mm f1.8 usm高效 
+
+[Download](https://t.me/cnphotog/1064523)
+
+ <details markdown='1'><summary>Nikon AI-S AF Nikkor 85mm f/1.8</summary>
+<div class="justified-gallery">
+
+![image.png](https://s2.loli.net/2022/09/05/s9aoQDxumXAwh6d.png)
+![image.png](https://s2.loli.net/2022/09/05/68XARCl9bcaBdZK.png)
+![image.png](https://s2.loli.net/2022/09/05/14lQijDJyOSruaA.png)
+![image.png](https://s2.loli.net/2022/09/05/iS4IKj3XscNEgYn.png)
+
+</div>
+</details>
+
+* * *
+
 ## Nikon PC-E Nikkor 24mm f/3.5D ED f3.5, f8
 [Download](https://t.me/cnphotog/1061417)  
 ```TXT
