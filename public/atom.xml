@@ -6,7 +6,7 @@
   <link href="https://whrblog.online/atom.xml" rel="self"/>
   
   <link href="https://whrblog.online/"/>
-  <updated>2022-02-15T15:24:53.000Z</updated>
+  <updated>2022-09-08T23:40:58.767Z</updated>
   <id>https://whrblog.online/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>沃克·埃文斯的摄影美学</title>
+    <link href="https://whrblog.online/2022/09/08/%E6%B2%83%E5%85%8B%C2%B7%E5%9F%83%E6%96%87%E6%96%AF%E7%9A%84%E6%91%84%E5%BD%B1%E7%BE%8E%E5%AD%A6/"/>
+    <id>https://whrblog.online/2022/09/08/%E6%B2%83%E5%85%8B%C2%B7%E5%9F%83%E6%96%87%E6%96%AF%E7%9A%84%E6%91%84%E5%BD%B1%E7%BE%8E%E5%AD%A6/</id>
+    <published>2022-09-08T14:35:08.000Z</published>
+    <updated>2022-09-08T23:40:58.767Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;维姬·戈德堡（Vicki Goldberg）是西方摄影评论领域的领军人物之一，以富有说服力和洞察力的文章著称。《光影的要义》（Light Matters）首版于2005年，该书收集了作家写作生涯以来的诸多优秀散文和评论。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;戈德堡对摄影的观察深入浅出且包罗万象，她的写作主题跨越极广：从流行影像到战争新闻，从肖像摄影快照亭到可后期数字图像，从乏味无趣的窥视到充满悲剧的现场等等。她还从摄影领域的“大师”作品中提炼出新的启示，其中包括沃克·埃文斯、约瑟夫·寇德卡和黛安·阿勃斯等，并以同样敏锐地视角书写和剖析了比尔·维奥拉（Bill Viola）、森山大道和巴斯蒂安娜·施密特（Bastienne Schmidt）等当代影像先驱者的作品。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此外，维姬·戈德堡的著作还包括《摄影的力量：照片如何改变我们的生活》（The Power of Photography: How Photographs Changed Our Lives）、《作为印刷品的摄影：从1816年至今的影像写作》（Photography in Print：Writings from 1816 To the Present）等。1997年，戈德堡获得国际摄影中心（ICP）著名的“无限奖”，1999年，她荣获英国皇家摄影学会的约翰斯顿奖。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>旅行的意义是什么?</title>
@@ -467,29 +490,6 @@ var player = new DogePlayer({
     <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
     
     <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用WP-CLI给WordPress更换域名</title>
-    <link href="https://whrblog.online/2019/03/02/%E7%94%A8wp-cli%E7%BB%99wordpress%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/"/>
-    <id>https://whrblog.online/2019/03/02/%E7%94%A8wp-cli%E7%BB%99wordpress%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D/</id>
-    <published>2019-03-02T09:02:04.000Z</published>
-    <updated>2021-08-21T02:42:53.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;wp-cli 是一个命令行工具，可以让我们通过命令行安装、更新 WordPress，对 WordPress 执行一些批量操作，响应速度快，使用方便&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
-    
-    
-    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
-    
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
-    <category term="Wordpress" scheme="https://whrblog.online/tags/Wordpress/"/>
     
   </entry>
   
