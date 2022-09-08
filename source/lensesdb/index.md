@@ -1,6 +1,7 @@
 ---
 title: Lenses Databases
 date: 2022-09-01 17:21:40
+toc: true
 ---
 
 ## Canon RF EF 400mm F2.8L IS III USM
@@ -34,6 +35,22 @@ date: 2022-09-01 17:21:40
 ![image.png](https://s2.loli.net/2022/09/03/T6c5oaGDOLsCvbt.png)
 ![image.png](https://s2.loli.net/2022/09/03/ofqZdH3svpwGD9B.png)
 ![image.png](https://s2.loli.net/2022/09/03/xvdTZ1uqUYLfMSD.png)
+
+</div>
+</details>
+
+* * *
+
+##  Hasselblad XCD 90V F2.5
+
+<details markdown='1'><summary>Hasselblad XCD 90V F2.5 </summary>
+<div class="justified-gallery">
+
+![image.png](https://s2.loli.net/2022/09/08/dsMvT697OBnoxH2.png)
+![image.png](https://s2.loli.net/2022/09/08/CnvY85IqTH3pjJr.png)
+![image.png](https://s2.loli.net/2022/09/08/Uql5mzeZ6XI8Y9F.png)
+![image.png](https://s2.loli.net/2022/09/08/if1NwWnEuMBeTJj.png)
+![image.png](https://s2.loli.net/2022/09/08/52Hh4uVY1inXLja.png)
 
 </div>
 </details>
@@ -131,6 +148,14 @@ Bill: Measured d0
 
 
 * * *
+
+## Tamron 20-40mm f2.8 Di III VXD Prototype
+
+> 加上了三个位置的0.3m近摄。无穷远到0.3m的呼吸效应分别是1.1%，2.4%，4.0%，40mm端应该已经是或者接近mfd，此时是0.2x，广角端明显还能更近，实物的官方标称是0.26x，0.17m
+
+[Download](https://t.me/cnphotog/1066905)
+
+* * * 
 
 ## Yongnuo YN 16mm f1.8 vs Sigma 16mm f1.8
 > 永诺最近新发的只要1400的apsc镜头，这个永诺专利的镜片数据非常诡异，对数的话是万国牌，哪家的都有，而且都是一些很古老很奇怪的东西。但是经过搜索，我发现有一家国产厂商似乎提供这些东西，永诺用的都在它们的表格里，叫东莞赛诺镜片，看官网图的话，那是相当的小作坊。这个永诺的专利我也不知道它是就这么拉还是没调好。看结构图和实物的匹配还是不错的。直接放个白光mtf看看，被适马无情吊打。  
