@@ -6,7 +6,7 @@
   <link href="https://whrblog.online/atom.xml" rel="self"/>
   
   <link href="https://whrblog.online/"/>
-  <updated>2022-09-10T15:20:27.635Z</updated>
+  <updated>2022-09-12T06:18:58.913Z</updated>
   <id>https://whrblog.online/</id>
   
   <author>
@@ -17,11 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>威廉·克莱因</title>
+    <link href="https://whrblog.online/2022/09/12/%E5%A8%81%E5%BB%89%C2%B7%E5%85%8B%E8%8E%B1%E5%9B%A0/"/>
+    <id>https://whrblog.online/2022/09/12/%E5%A8%81%E5%BB%89%C2%B7%E5%85%8B%E8%8E%B1%E5%9B%A0/</id>
+    <published>2022-09-12T06:18:58.000Z</published>
+    <updated>2022-09-12T06:18:58.913Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>尤金·阿杰特——摄影界的“梵高”</title>
     <link href="https://whrblog.online/2022/09/10/%E5%B0%A4%E9%87%91-%E9%98%BF%E6%9D%B0%E7%89%B9/"/>
     <id>https://whrblog.online/2022/09/10/%E5%B0%A4%E9%87%91-%E9%98%BF%E6%9D%B0%E7%89%B9/</id>
     <published>2022-09-10T09:59:12.000Z</published>
-    <updated>2022-09-10T15:20:27.635Z</updated>
+    <updated>2022-09-12T06:24:39.461Z</updated>
     
     
     <summary type="html">&lt;p&gt;当20世纪20年代美国开始兴起“直接摄影”之时，在遥远的欧洲，尤金·阿杰特，又译为尤金·阿特热（_Eugene.Atget_）早已经在用“直接摄影”这一方式来进行摄影创作了（只是他在生前并不为人们所知）。纵观他的一生，笔者觉得用摄影界“梵高”来比喻是最为恰当不过的。而在梳理他摄影作品的过程中，我们也可以渐渐得出一个结论，那就是摄影从“画意”转变到“直接”是一种历史的必然。  &lt;/p&gt;</summary>
@@ -454,31 +467,6 @@ var player = new DogePlayer({
     <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019.7.19</title>
-    <link href="https://whrblog.online/2019/07/20/2019-7-19/"/>
-    <id>https://whrblog.online/2019/07/20/2019-7-19/</id>
-    <published>2019-07-20T05:12:55.000Z</published>
-    <updated>2022-02-20T01:19:51.000Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;何谓友情？何谓缘分？&quot;&gt;&lt;a href=&quot;#何谓友情？何谓缘分？&quot; class=&quot;headerlink&quot; title=&quot;何谓友情？何谓缘分？&quot;&gt;&lt;/a&gt;何谓友情？何谓缘分？&lt;/h2&gt;&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
-    
-    
-    <category term="Date" scheme="https://whrblog.online/tags/Date/"/>
-    
-    <category term="Hexo" scheme="https://whrblog.online/tags/Hexo/"/>
-    
-    <category term="Friends" scheme="https://whrblog.online/tags/Friends/"/>
-    
-    <category term="R.C" scheme="https://whrblog.online/tags/R-C/"/>
     
   </entry>
   
