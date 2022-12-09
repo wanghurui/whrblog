@@ -110,7 +110,6 @@ navbar:
         Friends: /Friends
         About: /To-Myself
         Album: /mortal-observation
-        Lenses Databases: /lensesdb
     # Links to be shown on the right of the navigation bar
     links:
         开往-友链接力:
@@ -184,11 +183,11 @@ sidebar:
     # Left sidebar configurations
     left:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: false
+        sticky: true
     # Right sidebar configurations
     right:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: false
+        sticky: true
 # Sidebar widget configurations
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
 widgets:
@@ -240,16 +239,7 @@ widgets:
         collapsed: true
         # Maximum level of headings to show (1-6)
         depth: 3
-    # Recommendation links widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: links
-         # Names and URLs of the sites
-        links:
-            Hexo: 'https://hexo.io'
-            Bulma: 'https://bulma.io'
-            Travelling: 'https://travellings.link'
+
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -258,12 +248,25 @@ widgets:
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: right
+        position: left
         type: recent_posts
-    # Archives widget configurations
+    # Recommendation links widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
         position: left
+        type: links
+         # Names and URLs of the sites
+        links:
+            Krunk Zhou: 'https://krunk.cn/'
+            OkYes! 技术博客: 'https://2890.ltd/'
+            VANVAN: 'http://www.vanvan.org/'
+            杨冬blog: 'https://杨冬.top/'
+            Shutter Moments: 'https://m0g1cian.piwigo.com/'
+            Zikin 的独立博客: 'https://zikin.org/'
+    # Archives widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
         type: archives
     # Tags widget configurations
     -

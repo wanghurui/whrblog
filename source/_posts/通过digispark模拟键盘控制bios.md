@@ -76,7 +76,18 @@ writing: 80% complete
 running: 100% complete
 >> Micronucleus done. Thank you!
 ```
+
 </details>
+<div id="player_af937f3787ae1eb1"></div>
+<script type="text/javascript" src="https://player.dogecloud.com/js/loader"></script>
+<script type="text/javascript">
+var player = new DogePlayer({
+    container: document.getElementById('player_af937f3787ae1eb1'),
+    userId: 1131,
+    vcode: 'af937f3787ae1eb1',
+    autoPlay: false
+});
+</script>
 
 * * *
 
