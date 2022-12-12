@@ -6,7 +6,7 @@
   <link href="https://whrblog.online/atom.xml" rel="self"/>
   
   <link href="https://whrblog.online/"/>
-  <updated>2022-09-15T13:32:20.515Z</updated>
+  <updated>2022-12-12T06:29:25.670Z</updated>
   <id>https://whrblog.online/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>听见阳光</title>
+    <link href="https://whrblog.online/2022/12/11/%E5%90%AC%E8%A7%81%E9%98%B3%E5%85%89/"/>
+    <id>https://whrblog.online/2022/12/11/%E5%90%AC%E8%A7%81%E9%98%B3%E5%85%89/</id>
+    <published>2022-12-11T11:56:15.000Z</published>
+    <updated>2022-12-12T06:29:25.670Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;日色穿行在落叶与和风之间，渐变着天际，云卷淡影里，人间恰好能均匀地接受风与光的温柔。微蒙的光褪去蛰伏一夜的寂静，拨开了山海辽阔，穿梭于微隙，在晨露斑驳里折射出一抹黄色暖意，不经意的撩拨，云边也染上些许热烈。  &lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>威廉·克莱因</title>
@@ -431,31 +446,6 @@ var player = new DogePlayer({
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190804_165053.jpg&quot;&gt;&lt;img src=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190804_165053.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
-    
-    
-    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
-    
-    <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
-    
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
-    <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派lot=Node.js+Bylnk+DHT11/DHT22</title>
-    <link href="https://whrblog.online/2019/07/30/%E6%A0%91%E8%8E%93%E6%B4%BEnode-jsbylnk-appdht11-dht22-am2302/"/>
-    <id>https://whrblog.online/2019/07/30/%E6%A0%91%E8%8E%93%E6%B4%BEnode-jsbylnk-appdht11-dht22-am2302/</id>
-    <published>2019-07-29T23:33:30.000Z</published>
-    <updated>2022-04-05T05:07:27.020Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190731_160014.jpg&quot;&gt;&lt;img src=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190731_160014.jpg&quot;&gt;&lt;/a&gt;&lt;/h1&gt;</summary>
     
     
     
