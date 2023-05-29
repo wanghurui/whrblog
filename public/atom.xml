@@ -6,7 +6,7 @@
   <link href="https://whrblog.online/atom.xml" rel="self"/>
   
   <link href="https://whrblog.online/"/>
-  <updated>2022-12-12T06:29:25.670Z</updated>
+  <updated>2023-05-29T10:06:28.161Z</updated>
   <id>https://whrblog.online/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>那些我希望我能早点知道的摄影技术/技巧/经验</title>
+    <link href="https://whrblog.online/2023/05/29/%E9%82%A3%E4%BA%9B%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E8%83%BD%E6%97%A9%E7%82%B9%E7%9F%A5%E9%81%93%E7%9A%84%E6%91%84%E5%BD%B1%E6%8A%80%E6%9C%AF-%E6%8A%80%E5%B7%A7-%E7%BB%8F%E9%AA%8C/"/>
+    <id>https://whrblog.online/2023/05/29/%E9%82%A3%E4%BA%9B%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E8%83%BD%E6%97%A9%E7%82%B9%E7%9F%A5%E9%81%93%E7%9A%84%E6%91%84%E5%BD%B1%E6%8A%80%E6%9C%AF-%E6%8A%80%E5%B7%A7-%E7%BB%8F%E9%AA%8C/</id>
+    <published>2023-05-29T09:00:00.000Z</published>
+    <updated>2023-05-29T10:06:28.161Z</updated>
+    
+    
+    <summary type="html">摄影的私人性是一把快乐且痛苦的双刃剑。我们每个人自然都是基于自身的审美去创作的，但往往不一定能受到其他人的认可。一定要记住：你自身和他人的审美都是有缺陷的。而你要做的就是去平衡“做得更好”和“做得更开心”这件事。去做能被他人接受并引领他人审美向上的作品。</summary>
+    
+    
+    
+    
+    <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>听见阳光</title>
@@ -434,31 +451,6 @@ var player = new DogePlayer({
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
     
     <category term="行者笔记" scheme="https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派+SSD1306屏幕</title>
-    <link href="https://whrblog.online/2019/08/07/%E6%A0%91%E8%8E%93%E6%B4%BEssd1306%E5%B1%8F%E5%B9%95/"/>
-    <id>https://whrblog.online/2019/08/07/%E6%A0%91%E8%8E%93%E6%B4%BEssd1306%E5%B1%8F%E5%B9%95/</id>
-    <published>2019-08-07T00:37:02.000Z</published>
-    <updated>2022-04-05T05:02:36.476Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190804_165053.jpg&quot;&gt;&lt;img src=&quot;https://history.whrblog.online/2019/04/07/image-bed-1/IMG_20190804_165053.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
-    
-    
-    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
-    
-    <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
-    
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
-    <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
     
   </entry>
   

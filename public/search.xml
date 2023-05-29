@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>那些我希望我能早点知道的摄影技术/技巧/经验</title>
+      <link href="/2023/05/29/%E9%82%A3%E4%BA%9B%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E8%83%BD%E6%97%A9%E7%82%B9%E7%9F%A5%E9%81%93%E7%9A%84%E6%91%84%E5%BD%B1%E6%8A%80%E6%9C%AF-%E6%8A%80%E5%B7%A7-%E7%BB%8F%E9%AA%8C/"/>
+      <url>/2023/05/29/%E9%82%A3%E4%BA%9B%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E8%83%BD%E6%97%A9%E7%82%B9%E7%9F%A5%E9%81%93%E7%9A%84%E6%91%84%E5%BD%B1%E6%8A%80%E6%9C%AF-%E6%8A%80%E5%B7%A7-%E7%BB%8F%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="摄影是非常私人的事情"><a href="#摄影是非常私人的事情" class="headerlink" title="摄影是非常私人的事情"></a>摄影是非常私人的事情</h1><p>摄影的私人性是一把快乐且痛苦的双刃剑。我们每个人自然都是基于自身的审美去创作的，但往往不一定能受到其他人的认可。一定要记住：你自身和他人的审美都是有缺陷的。而你要做的就是去平衡“做得更好”和“做得更开心”这件事。去做能被他人接受并引领他人审美向上的作品。</p><h1 id="糖水片是形式大于内容的艺术"><a href="#糖水片是形式大于内容的艺术" class="headerlink" title="糖水片是形式大于内容的艺术"></a>糖水片是形式大于内容的艺术</h1><p>糖水片是一种泛指，在我这里它的意思是能让人 “非常直观且快速地获得美学愉悦” 的照片。无论是何题材，如果你的“形式”可以让观众不经理解内容而直接产生美学愉悦，那就是非常好的糖水片。<br>以下图片均为引用，请注意观察一点：即使是小图看不清细节，这些图片依然很美：<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162619.png" alt="image.png"></p><h1 id="明暗-gt-色彩-gt-内容"><a href="#明暗-gt-色彩-gt-内容" class="headerlink" title="明暗>色彩>内容"></a>明暗&gt;色彩&gt;内容</h1><p>我们对人的审美机制了解还不够透彻，但人眼提取信息的优先级是比较明确的：明暗&gt;色彩&gt;内容。以这个规律为中心，进而衍生出更高级的审美，以及摄影技巧。<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162758.png" alt="image.png"><br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162855.png" alt="image.png"></p><h2 id="明暗：明暗比例和构成决定构图基本"><a href="#明暗：明暗比例和构成决定构图基本" class="headerlink" title="明暗：明暗比例和构成决定构图基本"></a>明暗：明暗比例和构成决定构图基本</h2><p>人眼的视锥细胞只能分辨三种颜色，而其中有两种颜色（红、绿）在光谱上非常相近。这意味着人实际上色觉分辨能力是很弱的（当然现实中也普遍存在着色盲和色弱现象）。我在后期过程中为了避免色彩干扰我对明度的观察，时常会对照片首先进行去色，调整明度后再还原<br><img src="https://s2.loli.net/2023/05/29/5McBnoOFPIXxNqE.png" alt="image.png"></p><p>顺带一提，HSL（色度，饱和度，明度）这个色彩空间模型就很好地利用了人眼明度与色度观察方式不同这个特点。当你把S也就是饱和度调为0时，此时图片就只剩下了明度——也就是明暗信息。明暗信息是最直接的构图元素，一些摄影师会用彩色相机拍黑白RAW+JPG，为的就是取景时忽略色彩干扰。色彩在后期可以恢复<br>如果你的彩色相机能拍RAW并且有黑白的机内滤镜，你可以尝试使用这个滤镜进行构图练习。在后期时，只要在LR或者C1里面把颜色模式给改回彩色即可恢复彩色。（详细的原因这里就不解释了，总之彩色相机的RAW一定可以恢复出彩色信息。）</p><h2 id="色彩：简化色彩成为色块"><a href="#色彩：简化色彩成为色块" class="headerlink" title="色彩：简化色彩成为色块"></a>色彩：简化色彩成为色块</h2><p>如图所示，人眼更喜欢易与分辨的色块。例如这张色盲测试图，如果你的色觉正常，你会发现你很容易注意到12，然后是74，之后可能是6或者42，最后应该还会有张图不好分辨。而你注意力递减的原因并非内容（数字），而是因为其可分辨性在下降。<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529161723.png" alt="image.png"><br>色块化：<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529161849.png" alt="image.png"></p><h2 id="内容：图形，几何和眼"><a href="#内容：图形，几何和眼" class="headerlink" title="内容：图形，几何和眼"></a>内容：图形，几何和眼</h2><p>摄影是一种平面艺术，这意味着所有的深度和尺度信息要靠观众通过他熟悉的元素来脑补。这些熟悉的元素包括但不限于——人的任意部分，特别是眼；“点线面、三角方形圆”之类的图中几何元素；透视消失点。内容可以讲的东西太多了，我自己也没那么高法力。<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162010.png" alt="image.png"><br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162035.png" alt="image.png"><br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162057.png" alt="image.png"></p><h1 id="拍RAW-JPG"><a href="#拍RAW-JPG" class="headerlink" title="拍RAW+JPG"></a>拍RAW+JPG</h1><p>为什么要拍RAW+JPG？因为对于一个合格的摄影师来说，他所拍摄时预览的画面应该已经接近非常接近最终效果。由于后期软件的技术限制，单凭RAW文件无法完全还原机内硬件ISP渲染的效果，因此保留JPG作为参考极为重要。此外保留JPG还有诸多益处：<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162221.png" alt="image.png"><br>在Lightroom里使用RAW+JPG工作流需要做一个小设置：<br>Treat JPEG Files Next To Raw Files As Separate Photos 如图中高亮部分所示。英文版也是类似的设置。<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162305.png" alt="image.png"></p><h1 id="呈现比质量重要"><a href="#呈现比质量重要" class="headerlink" title="呈现比质量重要"></a>呈现比质量重要</h1><p>这也是我经历了很多次失望以后才终于承认的现实：内容的呈现形式，在如今的时代，又或许自古以来都是，比内容本身还要重要。创作者一定要思考自己的作品究竟是怎样被呈现的——比如说有没有被互联网平台压图压崩，自己的图片形式是否适合观看平台，比如，手机竖屏状态。<br><img src="https://image.whrblog.online/file/whrblog-image/2023/05/20230529162341.png" alt="image.png"></p><p>转自<a href="https://twitter.com/coco_mizuho/status/1662465168314597376">@coco_mizuho</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 摄影 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>听见阳光</title>
       <link href="/2022/12/11/%E5%90%AC%E8%A7%81%E9%98%B3%E5%85%89/"/>
       <url>/2022/12/11/%E5%90%AC%E8%A7%81%E9%98%B3%E5%85%89/</url>
