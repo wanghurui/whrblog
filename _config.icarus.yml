@@ -3,11 +3,11 @@ version: 4.0.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png
+logo: /image/FMTIn8L1NlQpoS9.png
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: https://s2.loli.net/2022/02/21/FMTIn8L1NlQpoS9.png
+    favicon: /image/FMTIn8L1NlQpoS9.png
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -109,7 +109,7 @@ navbar:
         Archives: /archives
         Friends: /Friends
         About: /To-Myself
-        Album: /mortal-observation
+        Gallery: /gallery
     # Links to be shown on the right of the navigation bar
     links:
         开往-友链接力:
@@ -197,13 +197,13 @@ widgets:
         position: left
         type: profile
         # Author name
-        author: Whr
+        author: 椰椰雪球
         # Author title
-        author_title: 若我不再能奔跑，请让我在梦中飞翔。
+        author_title: 你能在浪费时间中获得乐趣，就不是浪费时间。
         # Author's current location
         location: Shanghai
         # URL or path to the avatar image
-        avatar: https://i.loli.net/2021/08/23/TiEWIRoPFNYbcrS.jpg
+        avatar: /image/TiEWIRoPFNYbcrS.jpg
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
