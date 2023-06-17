@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://whrblog.online/gallery/</loc>
+    <loc>https://whrblog.online/mortal-observation/</loc>
     
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://whrblog.online/2022-2/</loc>
+    <loc>https://whrblog.online/2019/08/18/%E6%96%B0%E7%96%86/</loc>
     
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/gallery/</loc>
+    
+    <lastmod>2023-06-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/time-slices/</loc>
+    
+    <lastmod>2023-06-15</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://whrblog.online/2022/12/11/%E5%90%AC%E8%A7%81%E9%98%B3%E5%85%89/</loc>
     
     <lastmod>2022-12-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/2019/08/18/%E6%96%B0%E7%96%86/</loc>
-    
-    <lastmod>2022-12-09</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>https://whrblog.online/lensesdb/</loc>
     
     <lastmod>2022-09-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/mortal-observation/</loc>
-    
-    <lastmod>2022-08-19</lastmod>
     
   </url>
   
@@ -389,7 +389,7 @@
 
   <url>
     <loc>https://whrblog.online/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -397,91 +397,91 @@
   
   <url>
     <loc>https://whrblog.online/tags/IT/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Linux/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/miwifi/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Date/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E6%91%84%E5%BD%B1/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Hexo/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Friends/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/R-C/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Raspi-Orapi/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/Wordpress/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://whrblog.online/tags/%E6%B5%85%E9%9B%AA%E7%9A%84DIY/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -490,7 +490,7 @@
   
   <url>
     <loc>https://whrblog.online/categories/uncategorized/</loc>
-    <lastmod>2023-06-02</lastmod>
+    <lastmod>2023-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

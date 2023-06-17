@@ -25,7 +25,7 @@ comments: false
   <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
-        <a href="https://whrblog.online/2022-2"><img src="/image/0530%201-20.jpg"></a>
+        <a href="https://whrblog.online/time-slices"><img src="/image/0530%201-20.jpg"></a>
       </figure>
     </div>
     <div class="media-content">
