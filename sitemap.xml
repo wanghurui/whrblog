@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://whrblog.online/talking/</loc>
+    <loc>https://whrblog.online/2024/11/28/%E7%A7%8B%E9%9F%B5%E6%B9%98%E4%B9%A1/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -16,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/lensesdb/</loc>
+    <loc>https://whrblog.online/talking/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -24,6 +24,13 @@
   
   <url>
     <loc>https://whrblog.online/mortal-observation/</loc>
+    
+    <lastmod>2024-11-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/lensesdb/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/gallery/data.json</loc>
+    <loc>https://whrblog.online/gallery/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://whrblog.online/gallery/</loc>
+    <loc>https://whrblog.online/gallery/data.json</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -366,6 +373,13 @@
   </url>
   
   <url>
+    <loc>https://whrblog.online/To-Myself/</loc>
+    
+    <lastmod>2024-11-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whrblog.online/Friends/</loc>
     
     <lastmod>2024-11-28</lastmod>
@@ -379,13 +393,6 @@
     
   </url>
   
-  <url>
-    <loc>https://whrblog.online/To-Myself/</loc>
-    
-    <lastmod>2024-11-28</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>https://whrblog.online/</loc>
@@ -394,27 +401,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://whrblog.online/tags/IT/</loc>
-    <lastmod>2024-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/tags/Linux/</loc>
-    <lastmod>2024-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://whrblog.online/tags/miwifi/</loc>
-    <lastmod>2024-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>https://whrblog.online/tags/Date/</loc>
@@ -452,7 +438,21 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/tags/Friends/</loc>
+    <loc>https://whrblog.online/tags/IT/</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/tags/Linux/</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/tags/miwifi/</loc>
     <lastmod>2024-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -460,6 +460,13 @@
   
   <url>
     <loc>https://whrblog.online/tags/R-C/</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/tags/Friends/</loc>
     <lastmod>2024-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
