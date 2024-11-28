@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/time-slices/</loc>
-    
-    <lastmod>2024-11-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whrblog.online/talking/</loc>
     
     <lastmod>2024-11-28</lastmod>
@@ -23,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://whrblog.online/mortal-observation/</loc>
+    <loc>https://whrblog.online/time-slices/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -31,6 +24,13 @@
   
   <url>
     <loc>https://whrblog.online/lensesdb/</loc>
+    
+    <lastmod>2024-11-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whrblog.online/mortal-observation/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
