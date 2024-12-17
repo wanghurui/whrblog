@@ -10,7 +10,7 @@
   <id>https://whrblog.online/</id>
   
   <author>
-    <name>干涸的春</name>
+    <name>无菌小猫</name>
     
   </author>
   
@@ -242,11 +242,11 @@
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
     <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
-    
-    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
   </entry>
   
@@ -295,11 +295,11 @@
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
     <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
-    
-    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
   </entry>
   
@@ -319,9 +319,9 @@
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
@@ -392,11 +392,11 @@ var player = new DogePlayer({
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
+    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
+    
     <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="摄影" scheme="https://whrblog.online/tags/%E6%91%84%E5%BD%B1/"/>
-    
-    <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
   </entry>
   
@@ -415,11 +415,11 @@ var player = new DogePlayer({
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
     <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
@@ -438,11 +438,11 @@ var player = new DogePlayer({
     <category term="uncategorized" scheme="https://whrblog.online/categories/uncategorized/"/>
     
     
-    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
-    
     <category term="IT" scheme="https://whrblog.online/tags/IT/"/>
     
     <category term="Linux" scheme="https://whrblog.online/tags/Linux/"/>
+    
+    <category term="折腾" scheme="https://whrblog.online/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="Raspi/Orapi" scheme="https://whrblog.online/tags/Raspi-Orapi/"/>
     
