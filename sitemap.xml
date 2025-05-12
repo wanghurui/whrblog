@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://hurui.wang/time-slices/</loc>
-    
-    <lastmod>2024-11-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hurui.wang/talking/</loc>
     
     <lastmod>2024-11-28</lastmod>
@@ -23,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://hurui.wang/mortal-observation/</loc>
+    <loc>https://hurui.wang/time-slices/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -31,6 +24,13 @@
   
   <url>
     <loc>https://hurui.wang/lensesdb/</loc>
+    
+    <lastmod>2024-11-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hurui.wang/mortal-observation/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://hurui.wang/gallery/</loc>
+    <loc>https://hurui.wang/gallery/data.json</loc>
     
     <lastmod>2024-11-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hurui.wang/gallery/data.json</loc>
+    <loc>https://hurui.wang/gallery/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
