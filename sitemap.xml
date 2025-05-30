@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hurui.wang/mortal-observation/</loc>
-    
-    <lastmod>2025-05-13</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hurui.wang/time-slices/</loc>
     
     <lastmod>2025-05-13</lastmod>
@@ -16,7 +9,7 @@
   </url>
   
   <url>
-    <loc>https://hurui.wang/2024/11/28/%E7%A7%8B%E9%9F%B5%E6%B9%98%E4%B9%A1/</loc>
+    <loc>https://hurui.wang/mortal-observation/</loc>
     
     <lastmod>2025-05-13</lastmod>
     
@@ -24,6 +17,13 @@
   
   <url>
     <loc>https://hurui.wang/2019/08/18/%E6%96%B0%E7%96%86/</loc>
+    
+    <lastmod>2025-05-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hurui.wang/2024/11/28/%E7%A7%8B%E9%9F%B5%E6%B9%98%E4%B9%A1/</loc>
     
     <lastmod>2025-05-13</lastmod>
     
@@ -373,14 +373,14 @@
   </url>
   
   <url>
-    <loc>https://hurui.wang/Friends/</loc>
+    <loc>https://hurui.wang/Message/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hurui.wang/Message/</loc>
+    <loc>https://hurui.wang/Friends/</loc>
     
     <lastmod>2024-11-28</lastmod>
     
@@ -396,7 +396,7 @@
 
   <url>
     <loc>https://hurui.wang/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -404,91 +404,91 @@
   
   <url>
     <loc>https://hurui.wang/tags/IT/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/Linux/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/miwifi/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/Date/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/%E6%91%84%E5%BD%B1/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/%E8%A1%8C%E8%80%85%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/Hexo/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/Friends/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/R-C/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/%E6%B5%85%E9%9B%AA%E7%9A%84DIY/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/Raspi-Orapi/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://hurui.wang/tags/Wordpress/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -497,7 +497,7 @@
   
   <url>
     <loc>https://hurui.wang/categories/uncategorized/</loc>
-    <lastmod>2025-05-13</lastmod>
+    <lastmod>2025-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
